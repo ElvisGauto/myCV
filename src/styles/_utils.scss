@@ -1,0 +1,10 @@
+@import "./utils.text";
+@import "./utils.spacing";
+@import "./utils.color";
+
+@mixin flex-col-cen-cen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

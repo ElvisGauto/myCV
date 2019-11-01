@@ -1,0 +1,21 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+}
+p {
+  font-size: 14px;
+  color: #3b3b3b;
+}
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+
+  &:link,:visited,:active  {
+    color: inherit;
+  }
+}
