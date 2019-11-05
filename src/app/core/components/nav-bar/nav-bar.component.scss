@@ -1,0 +1,25 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    &__icon {
+        display: flex;
+        align-items: center;
+    }
+
+    &__links {
+        display: flex;
+        flex-direction: row;
+        &__navLink {
+            &__ulLink {
+                display: flex;
+                flex-direction: row;
+                list-style: none;
+                li, div {
+                    padding: 10px;
+                }
+            }
+        }
+    }
+}

@@ -9,7 +9,16 @@
     height: 100%;
     @include flex-col-cen-cen;
     color: #fff;
-    background: url('../../../../assets/desktopBackground/office-background.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+    &__img {
+        width: 100%;
+        filter: brightness(0.7);
+    }
+    &__container {
+        position: absolute;
+        margin-top: 100px;
+        @include flex-col-cen-cen;
+        &__paragraph {
+            width: 500px;
+        }
+    }
 }
