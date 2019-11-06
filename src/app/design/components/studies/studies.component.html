@@ -1,1 +1,26 @@
-<p>studies works!</p>
+<div class="container studies">
+    <h3>Studies</h3>
+    <form #fStudies="ngForm" class="skills__formStudies" (ngSubmit)="save(fStudies.value)">
+        <div class="form-group">
+            <h5>High School</h5>
+            <div class="form-group">
+                <label for="school">Obtained title</label>
+                <input ngModel name="school" id="skill1" type="text" class="form-control">
+            </div>
+            <div>
+                <label for="skill2">Establishment Name</label>
+                <input ngModel name="school" id="skill2" type="text" class="form-control">
+            </div>
+            <div>
+                <label for="skill3"></label>
+                <input ngModel name="skill3" id="skill3" type="text" class="form-control">
+            </div>
+            <div>
+                <label for="skill">Skill 4</label>
+                <input ngModel name="skill4" id="skill4" type="text" class="form-control">
+            </div>
+            
+        </div>
+        <button class="btn btn-primary skills__formStudies__buttonSave">Save and Continue</button>
+    </form>
+</div>

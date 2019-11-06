@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from './shared/services/auth.service';
 import { Router } from '@angular/router';
 import { UserService } from './shared/services/user.service';
@@ -8,15 +8,22 @@ import { UserService } from './shared/services/user.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   
-  constructor(private auth: AuthService, router: Router, private userService: UserService) {
+  constructor(private auth: AuthService, private router: Router, private userService: UserService) {
+    
+  }
+
+  ngOnInit() {
     this.auth.user$.subscribe(user => {
       if (user) {
         this.userService.saveUser(user);
 
         let returnUrl = localStorage.getItem('returnUrl');
-        router.navigateByUrl(returnUrl);
+        localStorage.removeItem('returnUrl');
+        if (returnUrl) {
+          this.router.navigateByUrl(returnUrl);
+        }
       }
     });
   }

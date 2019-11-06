@@ -1,17 +1,17 @@
 <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
 <a class="navbar-brand" routerLink="/">MyCVision</a>
-<div class="collapse navbar-collapse" id="navbarCollapse">
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-            <a class="nav-link" href="#">About Us <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Contact Us</a>
-        </li>
-        <div class="btn btn-link">
-            <ng-template #anonimousUser></ng-template>
-            <span (click)="logOut()" *ngIf="user$ | async as user; else anonimousUser">Sing Out</span>
-        </div>
-    </ul>
-</div>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">About Us <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact Us</a>
+            </li>
+            <div class="btn btn-link">
+                <ng-template #anonimousUser></ng-template>
+                <span (click)="logOut()" *ngIf="user$ | async as user; else anonimousUser">Sing Out</span>
+            </div>
+        </ul>
+    </div>
 </nav>
