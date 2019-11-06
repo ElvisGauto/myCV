@@ -1,18 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthService } from './services/auth.service';
-import { ProfileService } from './services/profile.service';
+import { CountriesService } from './services/countries.service';
+import { ProfileCardComponent } from './components/profile-card/profile-card.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [ProfileCardComponent],
   imports: [
     CommonModule
   ],
   providers: [
     AuthService,
-    ProfileService
+    CountriesService
   ]
 })
 export class SharedModule { }

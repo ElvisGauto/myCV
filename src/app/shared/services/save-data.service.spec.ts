@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ProfileService } from './profile.service';
+import { SaveDataService } from './save-data.service';
 
-describe('ProfileService', () => {
+describe('SaveDataService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: ProfileService = TestBed.get(ProfileService);
+    const service: SaveDataService = TestBed.get(SaveDataService);
     expect(service).toBeTruthy();
   });
 });

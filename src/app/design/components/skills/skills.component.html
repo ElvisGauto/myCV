@@ -1,0 +1,23 @@
+<div class="container skills">
+    <h3>Skills</h3>
+    <form #fSkills="ngForm" class="skills__formSkills" (ngSubmit)="save(fSkills.value)">
+        <div class="form-group">
+            <label for="skill1">Skill 1</label>
+            <input ngModel name="skill1" id="skill1" type="text" class="form-control">
+        </div>
+        <div>
+            <label for="skill2">Skill 2</label>
+            <input ngModel name="skill2" id="skill2" type="text" class="form-control">
+        </div>
+        <div>
+            <label for="skill3">Skill 3</label>
+            <input ngModel name="skill3" id="skill3" type="text" class="form-control">
+        </div>
+        <div>
+            <label for="skill">Skill 4</label>
+            <input ngModel name="skill4" id="skill4" type="text" class="form-control">
+        </div>
+
+        <button class="btn btn-primary skills__formSkills__buttonSave">Save and Continue</button>
+    </form>
+</div>

@@ -16,16 +16,10 @@ export class AuthService {
     private route: ActivatedRoute
   ) { 
     this.user$ = this.afAuth.authState;
-    
-    this.user$.subscribe(x => {
-      if (x) {
-        this.router.navigate(['/home']);
-      }
-    })
   }
 
   login() {
-    let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
+    let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/home';
     localStorage.setItem('returnUrl', returnUrl);
 
     this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());

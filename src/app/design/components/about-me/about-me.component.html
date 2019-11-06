@@ -1,0 +1,9 @@
+<div class="container aboutMe">
+    <form #fAboutMe="ngForm" (ngSubmit)="save(fAboutMe.value)">
+        <div class="form-group">
+            <label for="aboutMe">About Me</label>
+            <textarea  ngModel name="aboutMe" class="form-control" id="aboutMe" rows="3"></textarea>
+        </div>
+        <button class="btn btn-primary" [disabled]="fAboutMe.invalid">Save and Continue</button>
+    </form>
+</div>

@@ -15,8 +15,8 @@ export class AppComponent {
       if (user) {
         this.userService.saveUser(user);
 
-        // let returnUrl = localStorage.getItem('returnUrl');
-        // router.navigateByUrl(returnUrl);
+        let returnUrl = localStorage.getItem('returnUrl');
+        router.navigateByUrl(returnUrl);
       }
     });
   }
