@@ -4,23 +4,54 @@
         <div class="form-group">
             <h5>High School</h5>
             <div class="form-group">
-                <label for="school">Obtained title</label>
-                <input ngModel name="school" id="skill1" type="text" class="form-control">
+                <label for="titleSchool">Obtained title</label>
+                <input ngModel name="titleSchool" id="titleSchool" type="text" class="form-control">
             </div>
             <div>
-                <label for="skill2">Establishment Name</label>
-                <input ngModel name="school" id="skill2" type="text" class="form-control">
+                <label for="nameSchool">Establishment Name</label>
+                <input ngModel name="nameSchool" id="nameSchool" type="text" class="form-control">
             </div>
             <div>
-                <label for="skill3"></label>
-                <input ngModel name="skill3" id="skill3" type="text" class="form-control">
+                <label for="citySchool">Adress / City </label>
+                <input ngModel name="citySchool" id="city" type="text" class="form-control">
             </div>
             <div>
-                <label for="skill">Skill 4</label>
-                <input ngModel name="skill4" id="skill4" type="text" class="form-control">
+                <label for="departureSchool">Year of departure</label>
+                <input ngModel name="departureSchool" id="departureSchool" type="text" class="form-control">
             </div>
+            <hr>
+
+            <h5>College</h5>
+            <div class="form-group">
+                <label for="college">Are you studying at the university?</label><br>
+                <div class="radio">
+                    <label><input type="radio" ngModel name="optionCollege" value="yes"> Yes</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" ngModel name="optionCollege" value="no"> No</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" ngModel name="optionCollege" value="inProgress"> In progress</label>
+                </div>            
+            </div>
+            <div class="form-group"> 
+                <label for="titleCollege">Title of Studies</label>
+                <input ngModel name="titleCollege" id="titleCollege" type="text" class="form-control">
+            </div>
+            <div>
+                <label for="collegeName">Establishment Name</label>
+                <input ngModel name="collegeName" id="collegeName" type="text" class="form-control">
+            </div>
+            <div>
+                <label for="adressCollege">Adress / City </label>
+                <input ngModel name="adressCollege" id="adressCollege" type="text" class="form-control">
+            </div>
+            <div>
+                <label for="egressCollege">Year of departure</label>
+                <input ngModel name="egressCollege" id="egressCollege" type="text" class="form-control">
+            </div> 
             
         </div>
-        <button class="btn btn-primary skills__formStudies__buttonSave">Save and Continue</button>
+        <button class="btn btn-primary">Save and Continue</button>
     </form>
 </div>

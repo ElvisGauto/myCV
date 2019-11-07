@@ -15,8 +15,8 @@ export class ExperienceComponent implements OnInit {
   ngOnInit() {
   }
 
-  save(skills) {
-    this.saveDataService.save('goals','skills', skills);
+  save(experience) {
+    this.saveDataService.save('goals','experience', experience);
   }
 
 }

@@ -1,1 +1,20 @@
-<p>goals works!</p>
+<div class="container goals">
+    <h3>Goals</h3>
+    <form #fGoals="ngForm" class="skills__formSkills" (ngSubmit)="save(fGoals.value)">
+       <div class="form-group">
+            <div class="form-group">
+                <label for="Goals1">Goals 1</label>
+                <input ngModel name="Goals1" id="Goals1" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="Goals2">Goals 2</label>
+                <input ngModel name="Goals2" id="Goals2" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="Goals3">Goals 3</label>
+                <input ngModel name="Goals3" id="Goals3" type="text" class="form-control">
+            </div>     
+       </div> 
+        <button class="btn btn-primary">Save and Continue</button>
+    </form>
+</div>

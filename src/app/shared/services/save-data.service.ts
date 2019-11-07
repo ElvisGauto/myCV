@@ -16,4 +16,8 @@ export class SaveDataService {
     this.router.navigate([`/${next}`])
     return this.db.list(`/cv/${list}`).push(data);
   }
+
+  getData() {
+    return this.db.list('/cv');
+  }
 }

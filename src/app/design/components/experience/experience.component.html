@@ -1,0 +1,31 @@
+<div class="container experience">
+    <form #fExperience="ngForm" class="" (ngSubmit)="save(fExperience.value)">
+        <div class="form-group">
+            <h5>Work Experience</h5>
+            <div class="form-group">
+                <label for="experience">Do you have work experience?</label>
+                <div class="form-group">
+                    <div class="radio">
+                        <label><input type="radio" name="workExperience" value="yes" id="yes"> Yes</label> 
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="workExperience" value="no" id="no"> No</label>    
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="companyName">Company Name</label>
+                <input ngModel name="companyName" id="companyName" type="text" class="form-control">
+            </div>
+            <div>
+                <label for="timePeriod">Time Period</label>
+                <input ngModel name="timePeriod" id="timePeriod" type="text" class="form-control">
+            </div>
+            <div>
+                <label for="responsibilities">Responsibilities</label>
+                <textarea  ngModel name="responsibilities" class="form-control" id="responsibilities" rows="3"></textarea>
+            </div>
+        </div>
+        <button class="btn btn-primary skills__formStudies__buttonSave">Save and Continue</button>
+    </form>
+</div>

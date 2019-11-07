@@ -15,7 +15,7 @@ export class GoalsComponent implements OnInit {
   ngOnInit() {
   }
 
-  save(skills) {
-    this.saveDataService.save('contact','skills', skills);
+  save(goals) {
+    this.saveDataService.save('contact','goals', goals);
   }
 }

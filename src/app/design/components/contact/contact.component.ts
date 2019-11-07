@@ -15,8 +15,8 @@ export class ContactComponent implements OnInit {
   ngOnInit() {
   }
 
-  save(skills) {
-    this.saveDataService.save('','skills', skills);
+  save(contact) {
+    this.saveDataService.save('home','contact', contact);
   }
 
 }

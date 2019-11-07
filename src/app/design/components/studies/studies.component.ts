@@ -15,8 +15,8 @@ export class StudiesComponent implements OnInit {
   ngOnInit() {
   }
 
-  save(skills) {
-    this.saveDataService.save('experience','skills', skills);
+  save(studies) {
+    this.saveDataService.save('experience', 'studies', studies);
   }
 
 }
