@@ -12,12 +12,12 @@ export class SaveDataService {
     private router: Router
   ) { }
 
-  save(next, list, data) {
+  save(next: string,uid: string ,list: string, data: string) {
     this.router.navigate([`/${next}`])
-    return this.db.list(`/cv/${list}`).push(data);
+    return this.db.list(`/cv/${uid}/${list}`).push(data);
   }
 
   getData() {
-    return this.db.list('/cv');
+    return this.db.object(`/cv`);
   }
 }

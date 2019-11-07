@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SaveDataService } from 'src/app/shared/services/save-data.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-skills',
@@ -8,17 +9,27 @@ import { Router } from '@angular/router';
   styleUrls: ['./skills.component.scss']
 })
 export class SkillsComponent implements OnInit {
+  user$;
+
+  uid: string;
 
   constructor(
     private saveDataService: SaveDataService,
-    private router: Router
-  ) { }
+    private authService: AuthService
+  ) { 
+    this.user$ = this.authService.user$;
+  }
 
   ngOnInit() {
+    this.user$.subscribe(x => {
+      if(x.uid) {
+      this.uid = x.uid;
+      }
+    });
   }
 
   save(skills) {
-    this.saveDataService.save('studies','skills', skills);
+    this.saveDataService.save('studies',this.uid,'skills', skills);
   }
 
 }

@@ -11,24 +11,49 @@ import { Subscription } from 'rxjs';
 })
 export class HomeComponent implements OnInit, OnDestroy{
   user$;
-  cv = {};
-  subscription: Subscription;
+  cvObject = {};
+  cvArray = {};
+
+  flagHome = false;
+  // subscription: Subscription;
+
+  uid: string;
 
   constructor(
     private auth: AuthService,
     private router: Router,
     private saveData: SaveDataService
   ) { 
-    this.user$ = this.auth.user$;
-    this.user$.subscribe(x => console.log(x));
   }
 
   ngOnInit() {
-    this.subscription = this.saveData.getData().subscribe(data => this.cv = data)
+    this.user$ = this.auth.user$;
+    if(this.user$) {
+      
+    }
+    this.user$.subscribe(user => {
+      if(user) {
+        this.uid = user.uid
+      }
+    });
+
+    this.saveData.getData().subscribe(data => {
+      this.cvObject = data[this.uid];
+
+      if (this.cvObject === undefined) {
+        this.flagHome = false;
+      } else {
+        this.cvArray = Object.keys(this.cvObject).length;
+        if(this.cvArray >= 7 ) {
+          this.flagHome = true;
+        } else {
+          this.flagHome = false;
+        }
+      }
+    });
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 
 }
