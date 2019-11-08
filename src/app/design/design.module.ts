@@ -30,7 +30,8 @@ import { ExperienceComponent } from './components/experience/experience.componen
   ],
   exports: [
     ProfileComponent,
-    AboutMeComponent
+    AboutMeComponent,
+    ContactComponent
   ]
 })
 export class DesignModule { }

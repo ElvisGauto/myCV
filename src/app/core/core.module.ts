@@ -6,12 +6,17 @@ import { HomeComponent } from './components/home/home.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { DesignModule } from '../design/design.module';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { SharedModule } from '../shared/shared.module';
+import { DashCvComponent } from './components/dash-cv/dash-cv.component';
 
 let components = [
   LoginComponent,
   NavBarComponent,
   HomeComponent,
-  FooterComponent
+  FooterComponent,
+  DashboardComponent,
+  DashCvComponent
 ]
 
 @NgModule({
@@ -21,7 +26,8 @@ let components = [
   imports: [
     CommonModule,
     AppRoutingModule,
-    DesignModule
+    DesignModule,
+    SharedModule
   ],
   exports: [
     components

@@ -12,6 +12,8 @@ export class ExperienceComponent implements OnInit {
 
   uid: string;
 
+  flagRoute = true;
+
   constructor(
     private saveDataService: SaveDataService,
     private authService: AuthService
@@ -28,7 +30,7 @@ export class ExperienceComponent implements OnInit {
   }
 
   save(experience) {
-    this.saveDataService.save('goals',this.uid,'experience', experience);
+    this.saveDataService.save(this.flagRoute, 'goals',this.uid,'experience', experience);
   }
 
 }

@@ -12,6 +12,8 @@ export class GoalsComponent implements OnInit {
 
   uid: string;
 
+  flagRoute = true;
+
   constructor(
     private saveDataService: SaveDataService,
     private authService: AuthService
@@ -28,6 +30,6 @@ export class GoalsComponent implements OnInit {
   }
 
   save(goals) {
-    this.saveDataService.save('contact',this.uid ,'goals', goals);
+    this.saveDataService.save(this.flagRoute,'contact',this.uid ,'goals', goals);
   }
 }

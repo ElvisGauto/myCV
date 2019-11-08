@@ -10,18 +10,23 @@ import { StudiesComponent } from './design/components/studies/studies.component'
 import { ExperienceComponent } from './design/components/experience/experience.component';
 import { GoalsComponent } from './design/components/goals/goals.component';
 import { ContactComponent } from './design/components/contact/contact.component';
+import { DashboardComponent } from './core/components/dashboard/dashboard.component';
+import { FeedbackComponent } from './shared/components/feedback/feedback.component';
+import { DashCvComponent } from './core/components/dash-cv/dash-cv.component';
 
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuardService] },
+  { path: 'home', component: DashboardComponent, canActivate: [AuthGuardService] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
   { path: 'aboutMe', component: AboutMeComponent },
   { path: 'skills', component: SkillsComponent },
   { path: 'studies', component: StudiesComponent },
   { path: 'experience', component: ExperienceComponent },
   { path: 'goals', component: GoalsComponent },
-  { path: 'contact', component: ContactComponent }
+  { path: 'contact', component: ContactComponent },
+  { path: 'feedback', component: FeedbackComponent },
+  { path: 'dash-cv', component: DashCvComponent }
 ];
 
 @NgModule({

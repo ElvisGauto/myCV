@@ -5,19 +5,19 @@
             <h5>High School</h5>
             <div class="form-group">
                 <label for="titleSchool">Obtained title</label>
-                <input ngModel name="titleSchool" id="titleSchool" type="text" class="form-control">
+                <input ngModel name="titleSchool" id="titleSchool" type="text" class="form-control" required>
             </div>
             <div>
                 <label for="nameSchool">Establishment Name</label>
-                <input ngModel name="nameSchool" id="nameSchool" type="text" class="form-control">
+                <input ngModel name="nameSchool" id="nameSchool" type="text" class="form-control" required>
             </div>
             <div>
                 <label for="citySchool">Adress / City </label>
-                <input ngModel name="citySchool" id="city" type="text" class="form-control">
+                <input ngModel name="citySchool" id="city" type="text" class="form-control" required>
             </div>
             <div>
                 <label for="departureSchool">Year of departure</label>
-                <input ngModel name="departureSchool" id="departureSchool" type="text" class="form-control">
+                <input ngModel name="departureSchool" id="departureSchool" type="text" class="form-control" required>
             </div>
             <hr>
 
@@ -36,22 +36,22 @@
             </div>
             <div class="form-group"> 
                 <label for="titleCollege">Title of Studies</label>
-                <input ngModel name="titleCollege" id="titleCollege" type="text" class="form-control">
+                <input ngModel name="titleCollege" id="titleCollege" type="text" class="form-control" required>
             </div>
             <div>
                 <label for="collegeName">Establishment Name</label>
-                <input ngModel name="collegeName" id="collegeName" type="text" class="form-control">
+                <input ngModel name="collegeName" id="collegeName" type="text" class="form-control" required>
             </div>
             <div>
                 <label for="adressCollege">Adress / City </label>
-                <input ngModel name="adressCollege" id="adressCollege" type="text" class="form-control">
+                <input ngModel name="adressCollege" id="adressCollege" type="text" class="form-control" required>
             </div>
             <div>
                 <label for="egressCollege">Year of departure</label>
-                <input ngModel name="egressCollege" id="egressCollege" type="text" class="form-control">
+                <input ngModel name="egressCollege" id="egressCollege" type="text" class="form-control" required>
             </div> 
             
         </div>
-        <button class="btn btn-primary">Save and Continue</button>
+        <button class="btn btn-primary" [disabled]="fStudies.invalid">Save and Continue</button>
     </form>
 </div>

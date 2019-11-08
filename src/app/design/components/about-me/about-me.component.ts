@@ -12,6 +12,8 @@ export class AboutMeComponent implements OnInit {
 
   uid: string;
 
+  flagRoute = true;
+
   constructor(
     private saveDataService: SaveDataService,
     private authService: AuthService
@@ -28,7 +30,7 @@ export class AboutMeComponent implements OnInit {
   }
 
   save(aboutMe) {
-    this.saveDataService.save('skills',this.uid,'aboutMe', aboutMe);
+    this.saveDataService.save(this.flagRoute,'skills',this.uid,'aboutMe', aboutMe);
   }
 
 }

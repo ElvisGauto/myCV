@@ -12,6 +12,7 @@ export class SkillsComponent implements OnInit {
   user$;
 
   uid: string;
+  flagRoute = true;
 
   constructor(
     private saveDataService: SaveDataService,
@@ -29,7 +30,7 @@ export class SkillsComponent implements OnInit {
   }
 
   save(skills) {
-    this.saveDataService.save('studies',this.uid,'skills', skills);
+    this.saveDataService.save(this.flagRoute, 'studies',this.uid,'skills', skills);
   }
 
 }

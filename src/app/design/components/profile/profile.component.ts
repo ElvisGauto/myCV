@@ -20,6 +20,7 @@ export class ProfileComponent implements OnInit {
   countries$;
   user$;
 
+  flagRoute = true;
   uid: string;
 
   constructor(
@@ -41,7 +42,7 @@ export class ProfileComponent implements OnInit {
   }
 
   save(profile) {
-    this.saveDataService.save('aboutMe',this.uid,'profile', profile);
+    this.saveDataService.save(this.flagRoute, 'aboutMe',this.uid,'profile', profile);
   }
 
 }

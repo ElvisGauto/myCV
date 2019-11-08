@@ -1,16 +1,17 @@
 <div class="container">
     <div class="home" *ngIf="user$ | async as user">
-        <div *ngIf="!this.flagHome">
-            <div>
-                Regards {{ user.displayName }}! Thanks for joining to MyCVision. 
-                let's start building the Curriculum Vitae
-                <div>
-                    <button class="btn btn-primary" routerLink="/profile">Design Profile</button>
-                </div>
+        <div *ngIf="flagFeedback">
+            <div *ngIf="feedbackError$ | async as feedback">
+                <feedback [feedback]="feedback"></feedback>
             </div>
+        </div>    
+
+        <div *ngIf="flagWithoutCV">
+            <home [user]="user"></home>
         </div>
-        <div *ngIf="this.flagHome">
-            Congratulations {{ user.displayName }}! you have your CV ready! 
+
+        <div *ngIf="flagHome">
+            <dash-cv></dash-cv>
         </div>
     </div>
 </div>
