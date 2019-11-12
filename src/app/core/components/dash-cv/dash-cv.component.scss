@@ -1,0 +1,14 @@
+.dashCV {
+    &__profile {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    &__skills {
+        &__content nav ul {
+            list-style: none;
+        }
+    }
+
+
+}

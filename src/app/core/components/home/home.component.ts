@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { SaveDataService } from 'src/app/shared/services/save-data.service';
+import { SaveDataService } from 'src/app/shared/services/cv-data.service';
 import { Subscription } from 'rxjs';
 
 @Component({

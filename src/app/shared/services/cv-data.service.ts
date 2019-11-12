@@ -22,4 +22,8 @@ export class SaveDataService {
   getData() {
     return this.db.object(`/cv`);
   }
+
+  getDataByCategory(uid: string, category: string) {
+    return this.db.list(`/cv/${uid}/${category}`)
+  }
 }

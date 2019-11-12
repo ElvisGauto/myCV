@@ -2,20 +2,10 @@
 <div class="profile  container">
     <div class="col-md-6">
         <h3>Profile</h3>
-        <form #f="ngForm" (ngSubmit)="save(f.value)">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input #name="ngModel" ngModel name="name" id="name" type="text" class="form-control" required>
-                <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
-                    name is required
-                </div>
-            </div>
+        <form #f="ngForm" (ngSubmit)="save(f.value)" *ngIf="user$ | async as user">
             <div>
-                <label for="surname">Surname</label>
-                <input #surname="ngModel" ngModel name="surname" id="surname" type="text" class="form-control" required>
-                <div class="alert alert-danger" *ngIf="surname.touched && surname.invalid">
-                    Surname is required
-                </div>
+                <label for="name">Name Complete</label>
+                <input id="name" name="nameComplete" type="text" class="form-control" value="{{ displayName }}" readonly>
             </div>
             <div class="form-group">
                 <label for="country">Country</label>
@@ -30,15 +20,13 @@
                     Country is required
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group profile__imgProfile">
                 <label for="imageUrl">Image Profile</label>
-                <input #image="ngModel" ngModel name="imageUrl" id="imageUrl" type="text" class="form-control" required url>
-                <div class="alert alert-danger" *ngIf="image.touched && image.invalid">
-                    <div *ngIf="image.errors.required">Image is required</div>
-                    <div *ngIf="image.errors.url">Please, enter a valid URL</div>
-                </div>
+                <img src="{{ photoURL }}" alt="" width="100px">
             </div>
-            <button class="btn btn-primary" [disabled]="f.invalid">Save and continue</button>            
+            <div class="form-group">
+                <button class="btn btn-primary" [disabled]="f.invalid">Save and continue</button>            
+            </div>
         </form>
     </div>
 </div>

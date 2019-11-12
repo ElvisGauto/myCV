@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CountriesService } from 'src/app/shared/services/countries.service';
-import { SaveDataService } from 'src/app/shared/services/save-data.service';
+import { SaveDataService } from 'src/app/shared/services/cv-data.service';
 import { UserService } from 'src/app/shared/services/user.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
@@ -23,6 +23,10 @@ export class ProfileComponent implements OnInit {
   flagRoute = true;
   uid: string;
 
+  displayName;
+  photoURL;
+
+
   constructor(
     // private profileService: ProfileService,
     private saveDataService: SaveDataService,
@@ -35,6 +39,9 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.user$.subscribe(x => {
+      this.displayName = x.displayName;
+      this.photoURL = x.photoURL;
+      console.log(x);
       if(x.uid) {
         this.uid = x.uid;
       }
@@ -43,6 +50,7 @@ export class ProfileComponent implements OnInit {
 
   save(profile) {
     this.saveDataService.save(this.flagRoute, 'aboutMe',this.uid,'profile', profile);
+    console.log(profile);
   }
 
 }

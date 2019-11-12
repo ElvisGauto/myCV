@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { Router } from '@angular/router';
-import { SaveDataService } from 'src/app/shared/services/save-data.service';
+import { SaveDataService } from 'src/app/shared/services/cv-data.service';
 import { FeedbackService } from 'src/app/shared/services/feedback.service';
 
 @Component({
