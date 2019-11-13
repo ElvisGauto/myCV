@@ -1,5 +1,5 @@
-<div class="container">
-    <div class="home" *ngIf="user$ | async as user">
+<div>
+    <div class="dashboard" *ngIf="user$ | async as user">
         <div *ngIf="flagFeedback">
             <div *ngIf="feedbackError$ | async as feedback">
                 <feedback [feedback]="feedback"></feedback>

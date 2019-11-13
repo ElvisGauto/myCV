@@ -9,6 +9,7 @@ import { DesignModule } from '../design/design.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SharedModule } from '../shared/shared.module';
 import { DashCvComponent } from './components/dash-cv/dash-cv.component';
+import { DesignCompleteModule } from '../design-complete/design-complete.module';
 
 let components = [
   LoginComponent,
@@ -27,7 +28,8 @@ let components = [
     CommonModule,
     AppRoutingModule,
     DesignModule,
-    SharedModule
+    SharedModule,
+    DesignCompleteModule
   ],
   exports: [
     components

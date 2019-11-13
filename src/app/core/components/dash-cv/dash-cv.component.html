@@ -1,100 +1,58 @@
-<div class="container dashCV">
-    <div *ngIf="profile$ | async as p" class="card">
-        <div class="dashCV__profile card-body">
-            <div>
-                <h2>{{ displayName }}</h2>
-    
-                <p>
-                    {{p[0].country}}
-                </p>
-            </div>
-            <div>
-                <img src="{{ photoURL }}" alt="" width="100px">
-            </div>
+<div class="containerDash" id="main">
+    <div class="containerDash__categories">
+        <nav class="containerDash__categories__nav">
+            <ul class="containerDash__categories__nav__ul">
+                <li (click)="elementProfile()">Profile</li>
+                <li (click)="elementAboutMe()">About Me</li>
+                <li (click)="elementStudies()">Studies</li>
+                <li (click)="elementSkills()">Skills</li>
+                <li (click)="elementExperience()">Experience</li>
+                <li (click)="elementoGoals()">Goals</li>
+                <li (click)="elementContact()">Contact</li>
+            </ul>
+        </nav>
+    </div>
+    <div class="containerDash__dashCV" id="dashCV">
+        <div *ngIf="profile$ | async as pr" class="card" id="profile">
+          <profile 
+          [displayName]="displayName"
+          [pr] = "pr"
+          [photoURL]="photoURL"
+          ></profile>
+        </div>
+        <hr>
+        <div *ngIf="aboutMe$ | async as ab" class="containerDash__dashCV__aboutMe card" id="aboutMe">
+           <about-me 
+           [ab]="ab"
+           ></about-me>
+        </div>
+        <hr>
+        <div *ngIf="studies$ | async as st" class="containerDash__dashCV__studies card" id="studies">
+          <studies 
+          [st]="st"
+          ></studies>  
+        </div>
+        <hr>
+        <div *ngIf="skills$ | async as sk" class="containerDash__dashCV__skills card" id="skills">
+            <skills 
+            [sk]="sk"
+            ></skills>
+        </div>
+        <hr>
+        <div *ngIf="experience$ | async as ex" class="containerDash__dashCV__experience card" id="experience">
+            <experience 
+            [ex]="ex"
+            ></experience>
+        </div>
+        <hr>
+        <div *ngIf="goals$ | async as go" class="containerDash__dashCV__goals card" id="goals">
+            <goals 
+            [go]="go"
+            ></goals>
+        </div>
+        <hr>
+        <div *ngIf="contact$ | async as co" class="containerDash__dashCV__contact card" id="contact">
+            <contact [co]="co"></contact>
         </div>
     </div>
-    <hr>
-    <div *ngIf="aboutMe$ | async as a" class="dashCV__aboutMe card">
-        <div class="card-body">
-            <p>
-                {{a[0].aboutMe}}
-            </p>
-        </div>
-    </div>
-    <hr>
-    <div *ngIf="studies$ | async as st" class="dashCV__studies card">
-        <div class="card-body">
-            <div>
-                <h3>High School</h3>
-                <div>
-                    name: {{st[0].nameSchool}} <br>
-                    title: {{st[0].titleSchool}} <br>
-                    city school: {{ st[0].citySchool }} <br>
-                    Egress School: {{ st[0].departureSchool }} <br>
-                </div>
-            </div>
-            <div>
-                <h3>College</h3>
-                <div>
-                    name: {{st[0].collegeName}} <br>
-                    title: {{st[0].titleCollege}} <br>
-                    city school: {{ st[0].adressCollege }} <br>
-                    Egress School: {{ st[0].egressCollege }} <br>
-                </div>
-            </div>
-        </div>
-    </div>
-    <hr>
-    <div *ngIf="skills$ | async as sk" class="dashCV__skills card">
-        <div class="card-body dashCV__skills__content">
-            <h3>
-                Skills
-            </h3>
-            <nav>
-                <ul>
-                    <li>{{ sk[0].skill1 }}</li>
-                    <li>{{ sk[0].skill2 }}</li>
-                    <li>{{ sk[0].skill3 }}</li>
-                    <li>{{ sk[0].skill4 }}</li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-    <hr>
-    <div *ngIf="experience$ | async as ex" class="dashCV__experience card">
-        <div class="card-body">
-            <h3>Work experience</h3>
-            <div>
-                Company Name: {{ ex[0].companyName }} <br>
-                Responsabilities: {{ ex[0].responsibilities }} <br>
-                Time Period: {{ ex[0].timePeriod }} <br>
-            </div>
-        </div>
-    </div>
-    <hr>
-    <div *ngIf="goals$ | async as go" class="dashCV__goals card">
-        <div class="card-body">
-            <h3>
-                Goals
-            </h3>
-            <h5>My Goals</h5>
-            <div>
-                <p>
-                    {{ go[0].Goals1 }} <br>
-                    {{ go[0].Goals2 }} <br>
-                    {{ go[0].Goals3 }} <br>
-                </p>
-            </div>
-        </div>
-    </div>
-    <hr>
-    <div *ngIf="contact$ | async as co" class="dashCV__contact card">
-        <div class="card-body col">
-            <h3>You can contact me through</h3>
-            Email: {{ co[0].Email }}
-            Telephone 1: {{ co[0].Telephone1 }}
-            Telephone 1: {{ co[0].Telephone2 }}
-            Linkedin: {{ co[0].linkedin }} 
-        </div>
-    </div>
-</div>
+<!-- </div> -->
