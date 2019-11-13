@@ -60,43 +60,9 @@ export class DashCvComponent implements OnInit {
 
   }
 
-  elementProfile() {
-    document.getElementById('dashCV').scrollTop = 0;
-  }
-  elementAboutMe() {
-    let aboutMe = document.getElementById('aboutMe');
-    let topPos = aboutMe.offsetTop - 72;
-
-    document.getElementById('dashCV').scrollTop = topPos;
-  }
-  elementStudies() {
-    let studies = document.getElementById('studies');
-    let topPos = studies.offsetTop - 72;
-
-    document.getElementById('dashCV').scrollTop = topPos;
-  }
-  elementSkills() {
-    let skills = document.getElementById('skills');
-    let topPos = skills.offsetTop - 72;
-
-    document.getElementById('dashCV').scrollTop = topPos;
-  }
-
-  elementExperience() {
-    let experience = document.getElementById('experience');
-    let topPos = experience.offsetTop - 72;
-
-    document.getElementById('dashCV').scrollTop = topPos;
-  }
-  elementGoals() {
-    let goals = document.getElementById('goals');
-    let topPos = goals.offsetTop - 72;
-
-    document.getElementById('dashCV').scrollTop = topPos;
-  }
-  elementContact() {
-    let contact = document.getElementById('contact');
-    let topPos = contact.offsetTop - 72;
+  element(i) {
+    let contact = document.getElementById(i);
+    let topPos = contact.offsetTop - 92;
 
     document.getElementById('dashCV').scrollTop = topPos;
   }
