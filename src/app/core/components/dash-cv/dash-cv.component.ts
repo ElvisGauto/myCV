@@ -62,7 +62,7 @@ export class DashCvComponent implements OnInit {
 
   element(i) {
     let contact = document.getElementById(i);
-    let topPos = contact.offsetTop - 92;
+    let topPos = contact.offsetTop - 91;
 
     document.getElementById('dashCV').scrollTop = topPos;
   }
