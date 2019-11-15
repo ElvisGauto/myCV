@@ -1,5 +1,5 @@
-<div class="container contact">
-    <div *ngIf="!flagFeedback">
+<div>
+    <div *ngIf="!flagFeedback" class="container contact">
         <h3>Contact</h3>
         <form #fGoals="ngForm" class="skills__formSkills" (ngSubmit)="save(fGoals.value)">
             <div class="form-group">

@@ -6,11 +6,11 @@
             </div>
         </div>    
 
-        <div *ngIf="flagWithoutCV">
+        <div *ngIf="flagWithoutCV" class="dashboard__home">
             <home [user]="user"></home>
         </div>
 
-        <div *ngIf="flagHome">
+        <div *ngIf="flagHome" class="">
             <dash-cv></dash-cv>
         </div>
     </div>

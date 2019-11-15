@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FeedbackService } from '../../services/feedback.service';
 import { Router } from '@angular/router';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'feedback',
@@ -18,5 +19,9 @@ export class FeedbackComponent implements OnInit {
 
   ngOnInit() {
     
+  }
+
+  redirectDashCV() {
+    this.router.navigate(['/dash-cv']);
   }
 }

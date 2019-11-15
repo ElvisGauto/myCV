@@ -1,4 +1,16 @@
-.home {
+@import '../../../../styles/utils';
+
+.img-background {
     width: 100%;
-    margin-top: 100px;
+    position: absolute;
+    filter: brightness(0.7);
+}
+
+.home {
+    font-size: 30px;
+    position: relative;
+    color: #fff;
+    &__containerHome {
+        padding-top: 100px;
+    }
 }
