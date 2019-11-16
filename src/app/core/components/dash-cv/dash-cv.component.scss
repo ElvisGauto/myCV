@@ -1,8 +1,12 @@
+@import "../../../../styles/settings.variables";
+
 .containerDash {
     display:flex;
     flex-direction: row;
     &__categories {
-
+        @media (max-width: $breakpoint-tablet) {
+            display: none;
+        }
         &__nav {
             &__ul {
                 list-style: none;
@@ -13,6 +17,10 @@
                     border: 1px solid rgb(214, 213, 213);
                     width: 180px;
                     cursor: pointer;
+                }
+
+                li:focus {
+                    background-color: rgb(33, 165, 15)
                 }
             }
         }
