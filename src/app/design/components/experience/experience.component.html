@@ -1,31 +1,43 @@
 <div class="container experience">
-    <form #fExperience="ngForm" class="" (ngSubmit)="save(fExperience.value)">
+    <form #fExperience="ngForm" class="" (ngSubmit)="save(fExperience.value, fExperience.valid)">
         <div class="form-group">
             <h5>Work Experience</h5>
             <div class="form-group">
                 <label for="experience">Do you have work experience?</label>
                 <div class="form-group">
                     <div class="radio">
-                        <label><input type="radio" name="workExperience" value="yes" id="yes"> Yes</label> 
+                        <label><input type="radio" ngModel name="workExperience" value="yes" id="yes"  (click)="enableButton()"> Yes</label> 
                     </div>
                     <div class="radio">
-                        <label><input type="radio" name="workExperience" value="no" id="no"> No</label>    
+                        <label><input type="radio" ngModel name="workExperience" value="no" id="no" (click)="disabledButtons()"> No</label>    
                     </div>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="companyName">Company Name</label>
-                <input ngModel name="companyName" id="companyName" type="text" class="form-control" required>
+            <div *ngIf="flagInput">
+                <div class="form-group">
+                    <label for="companyName">Company Name</label>
+                    <input #company="ngModel" ngModel name="companyName" id="companyName" type="text" class="form-control" id="companyName" [disabled]="!flagInput" required>
+                    <div class="alert alert-danger" *ngIf="company.touched && company.invalid">
+                        <div *ngIf="company.errors.required">Company Name is required</div>
+                    </div>
+                </div>
+                <div>
+                    <label for="timePeriod">Time Period</label>
+                    <input #timePeriod="ngModel" ngModel name="timePeriod" id="timePeriod" type="text" class="form-control" id="timePeriod" [disabled]="!flagInput" required>
+                    <div class="alert alert-danger" *ngIf="timePeriod.touched && timePeriod.invalid">
+                        <div *ngIf="timePeriod.errors.required">Time Period is required</div>
+                    </div>
+                </div>
+                <div>
+                    <label for="responsibilities">Responsibilities</label>
+                    <textarea #responsability="ngModel" ngModel name="responsibilities" class="form-control" id="responsibilities" rows="3" [disabled]="!flagInput" id="responsability" required></textarea>
+                    <div class="alert alert-danger" *ngIf="responsability.touched && responsability.invalid">
+                        <div *ngIf="responsability.errors.required">Responsability is required</div>
+                    </div>
+                </div>
             </div>
-            <div>
-                <label for="timePeriod">Time Period</label>
-                <input ngModel name="timePeriod" id="timePeriod" type="text" class="form-control" required>
-            </div>
-            <div>
-                <label for="responsibilities">Responsibilities</label>
-                <textarea  ngModel name="responsibilities" class="form-control" id="responsibilities" rows="3" required></textarea>
-            </div>
+            
         </div>
-        <button class="btn btn-primary skills__formStudies__buttonSave" [disabled]="fExperience.invalid">Save and Continue</button>
+        <button class="btn btn-primary skills__formStudies__buttonSave" [disabled]="!flagButton">Save and Continue</button>
     </form>
 </div>

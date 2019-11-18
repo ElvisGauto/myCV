@@ -13,6 +13,8 @@ export class ExperienceComponent implements OnInit {
   uid: string;
 
   flagRoute = true;
+  flagButton: boolean = false;
+  flagInput: boolean = false;
 
   constructor(
     private saveDataService: SaveDataService,
@@ -29,8 +31,20 @@ export class ExperienceComponent implements OnInit {
     });
   }
 
-  save(experience) {
-    this.saveDataService.save(this.flagRoute, 'goals',this.uid,'experience', experience);
+  save(experience, valid) {
+    if(valid) {
+      this.saveDataService.save(this.flagRoute, 'goals',this.uid,'experience', experience); 
+    } 
+  }
+
+  enableButton() {
+    this.flagButton = true;
+    this.flagInput = true;
+  }
+
+  disabledButtons() {
+    this.flagButton = true;
+    this.flagInput = false;
   }
 
 }
