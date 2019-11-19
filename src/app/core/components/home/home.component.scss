@@ -1,16 +1,30 @@
 @import '../../../../styles/utils';
+@import '../../../../styles/settings.variables';
+
 
 .img-background {
     width: 100%;
-    position: absolute;
     filter: brightness(0.7);
+    @media (min-width: $breakpoint-tablet) {
+        position: absolute;
+    }
 }
 
 .home {
-    font-size: 30px;
+    font-size: 18px;
     position: relative;
-    color: #fff;
+    @media (min-width: $breakpoint-tablet) {
+        font-size: 30px;
+        position: relative;
+        color: #fff;
+    }
     &__containerHome {
-        padding-top: 100px;
+        text-align: center;
+        @media (min-width: $breakpoint-tablet) {
+            padding-top: 100px;
+        }
+        &__paragraph {
+            text-align: justify;
+        }
     }
 }

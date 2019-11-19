@@ -1,4 +1,5 @@
 @import "../../../../styles/utils";
+@import "../../../../styles/settings.variables";
 
 :host {
     width: 100%;
@@ -8,18 +9,29 @@
     width: 100%;
     height: 100%;
     @include flex-col-cen-cen;
-    color: #fff;
-    font-size: 30px;
+    color: #000;
+    font-size: 18px;
+    @media (min-width: $breakpoint-tablet) {
+        color: #fff;
+        font-size: 30px;        
+    }
     &__img {
         width: 100%;
         filter: brightness(0.7);
     }
     &__container {
-        position: absolute;
-        padding-top: 100px;
         @include flex-col-cen-cen;
+        padding: 10px;
+        text-align: justify;
+        @media (min-width: $breakpoint-tablet) {
+            padding-top: 100px;
+            position: absolute;
+        }
         &__paragraph {
-            width: 500px;
+            width: 100%;
+            @media (min-width: $breakpoint-tablet) {
+                width: 500px;    
+            }
         }
     }
 }
