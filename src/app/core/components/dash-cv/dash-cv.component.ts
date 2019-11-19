@@ -22,6 +22,10 @@ export class DashCvComponent implements OnInit {
   skills$;
   studies$;
 
+  CV = [];
+
+  profileKey: string;
+
   ex: string;
   uid: string;
   inputShared: string;
@@ -44,22 +48,56 @@ export class DashCvComponent implements OnInit {
 
       this.profile$ = this.dataService.getDataByCategory(this.uid, 'profile');
 
+      this.profile$.subscribe(pr => {
+        this.CV.push(pr[0]);
+        // console.log(this.CV);
+      })
+
       this.aboutMe$ = this.dataService.getDataByCategory(this.uid, 'aboutMe');
+
+      this.aboutMe$.subscribe(pr => {
+        this.CV.push(pr[0]);
+        // console.log(this.CV);
+      })
 
       this.studies$ = this.dataService.getDataByCategory(this.uid, 'studies');
 
+      this.studies$.subscribe(pr => {
+        this.CV.push(pr[0]);
+        // console.log(this.CV);
+      })
+
       this.skills$ = this.dataService.getDataByCategory(this.uid, 'skills');
+
+      this.skills$.subscribe(pr => {
+        this.CV.push(pr[0]);
+        // console.log(this.CV);
+      })
 
       this.experience$ = this.dataService.getDataByCategory(this.uid, 'experience');
 
       this.experience$.subscribe(ex => {
-       this.ex = ex[0].workExperience;
+        this.ex = ex[0].workExperience;
+
+        this.CV.push(ex[0]);
+        // console.log(this.CV);
       })
 
       this.goals$ = this.dataService.getDataByCategory(this.uid, 'goals');
 
+      this.goals$.subscribe(pr => {
+        this.CV.push(pr[0]);
+        // console.log(this.CV);
+      })
+
       this.contact$ = this.dataService.getDataByCategory(this.uid, 'contact');
+
+      this.contact$.subscribe(pr => {
+        this.CV.push(pr[0]);
+        // console.log(this.CV);
+      })
     });   
+    console.log(this.CV);
   
   }
 
