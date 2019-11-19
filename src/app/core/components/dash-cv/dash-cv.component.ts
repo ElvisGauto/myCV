@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SaveDataService } from 'src/app/shared/services/cv-data.service';
-import { UserService } from 'src/app/shared/services/user.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-
+import { SaveDataService } from 'src/app/shared/services/cv-data.service';
+  
 @Component({
   selector: 'dash-cv',
   templateUrl: './dash-cv.component.html',
@@ -24,8 +22,10 @@ export class DashCvComponent implements OnInit {
   skills$;
   studies$;
 
-
+  ex: string;
   uid: string;
+  inputShared: string;
+  urlCopied: string;
 
   constructor(
     private dataService: SaveDataService,
@@ -34,7 +34,6 @@ export class DashCvComponent implements OnInit {
 
   ngOnInit() {
     this.user$ = this.auth.user$;
-    
  
     this.user$.subscribe(user => {
       if(user) {
@@ -53,18 +52,22 @@ export class DashCvComponent implements OnInit {
 
       this.experience$ = this.dataService.getDataByCategory(this.uid, 'experience');
 
+      this.experience$.subscribe(ex => {
+       this.ex = ex[0].workExperience;
+      })
+
       this.goals$ = this.dataService.getDataByCategory(this.uid, 'goals');
 
       this.contact$ = this.dataService.getDataByCategory(this.uid, 'contact');
-    });    
-
+    });   
+  
   }
 
   element(i) {
     let contact = document.getElementById(i);
     let topPos = contact.offsetTop - 75;
 
-    contact.style.border = '1px solid red';
+    contact.style.border = '1px solid rgb(24, 223, 17)';
     let dashCV = document.getElementById('dashCV');
 
     setTimeout(function(){ 
@@ -73,4 +76,24 @@ export class DashCvComponent implements OnInit {
 
     dashCV.scrollTop = topPos;
   }
+  
+  shareCV() {
+    const inputShared = document.createElement('input');
+
+    let url = window.location.href;
+    this.urlCopied = url.replace('home', 'dash-cv');
+    inputShared.value = this.urlCopied    
+
+    document.body.appendChild(inputShared);
+    
+    inputShared.focus();
+    inputShared.select();
+
+    document.execCommand('copy');
+    
+    document.body.removeChild(inputShared);
+
+    alert('URL Copiada');
+  }
+
 }

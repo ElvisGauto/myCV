@@ -30,6 +30,6 @@ export class GoalsComponent implements OnInit {
   }
 
   save(goals) {
-    this.saveDataService.save(this.flagRoute,'contact',this.uid ,'goals', goals);
+    this.saveDataService.save(this.flagRoute,'design/contact',this.uid ,'goals', goals);
   }
 }

@@ -18,13 +18,13 @@ import { DashCvComponent } from './core/components/dash-cv/dash-cv.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'home', component: DashboardComponent, canActivate: [AuthGuardService] },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
-  { path: 'aboutMe', component: AboutMeComponent },
-  { path: 'skills', component: SkillsComponent },
-  { path: 'studies', component: StudiesComponent },
-  { path: 'experience', component: ExperienceComponent },
-  { path: 'goals', component: GoalsComponent },
-  { path: 'contact', component: ContactComponent },
+  { path: 'design/profile', component: ProfileComponent, canActivate: [AuthGuardService] },
+  { path: 'design/aboutMe', component: AboutMeComponent },
+  { path: 'design/skills', component: SkillsComponent },
+  { path: 'design/studies', component: StudiesComponent },
+  { path: 'design/experience', component: ExperienceComponent },
+  { path: 'design/goals', component: GoalsComponent },
+  { path: 'design/contact', component: ContactComponent },
   { path: 'feedback', component: FeedbackComponent },
   { path: 'dash-cv', component: DashCvComponent }
 ];

@@ -30,7 +30,7 @@ export class SkillsComponent implements OnInit {
   }
 
   save(skills) {
-    this.saveDataService.save(this.flagRoute, 'studies',this.uid,'skills', skills);
+    this.saveDataService.save(this.flagRoute, 'design/studies',this.uid,'skills', skills);
   }
 
 }

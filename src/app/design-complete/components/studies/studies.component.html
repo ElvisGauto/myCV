@@ -1,4 +1,4 @@
-<div class="card-body" *ngIf="st[0].optionCollege === 'yes' || st[0].optionCollege === 'inProgress'">
+<div class="card-body">
     <div>
         <h5>High School</h5>
         <div>
@@ -9,7 +9,9 @@
         </div>
     </div>
     <br>
-    <div>
+    <div 
+    *ngIf="st[0].optionCollege === 'yes' || 
+    st[0].optionCollege === 'inProgress'">
         <h5>College</h5>
         <div *ngIf="st[0].optionCollege === 'yes'">
             Name: {{st[0].collegeName}} <br>

@@ -33,7 +33,7 @@ export class ExperienceComponent implements OnInit {
 
   save(experience, valid) {
     if(valid) {
-      this.saveDataService.save(this.flagRoute, 'goals',this.uid,'experience', experience); 
+      this.saveDataService.save(this.flagRoute, 'design/goals',this.uid,'experience', experience); 
     } 
   }
 

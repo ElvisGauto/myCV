@@ -33,7 +33,7 @@ export class StudiesComponent implements OnInit {
   }
 
   save(studies) {
-    this.saveDataService.save(this.flagRoute,'experience',this.uid, 'studies', studies);
+    this.saveDataService.save(this.flagRoute,'design/experience',this.uid, 'studies', studies);
   }
 
   enableButton() {

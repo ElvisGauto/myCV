@@ -48,7 +48,7 @@ export class ProfileComponent implements OnInit {
   }
 
   save(profile) {
-    this.saveDataService.save(this.flagRoute, 'aboutMe',this.uid,'profile', profile);
+    this.saveDataService.save(this.flagRoute, 'design/aboutMe',this.uid,'profile', profile);
   }
 
 }
