@@ -41,7 +41,6 @@ export class ProfileComponent implements OnInit {
     this.user$.subscribe(x => {
       this.displayName = x.displayName;
       this.photoURL = x.photoURL;
-      console.log(x);
       if(x.uid) {
         this.uid = x.uid;
       }
@@ -50,7 +49,6 @@ export class ProfileComponent implements OnInit {
 
   save(profile) {
     this.saveDataService.save(this.flagRoute, 'aboutMe',this.uid,'profile', profile);
-    console.log(profile);
   }
 
 }
