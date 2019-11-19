@@ -7,15 +7,15 @@
                 <label for="titleSchool">Obtained title</label>
                 <input ngModel name="titleSchool" id="titleSchool" type="text" class="form-control" required>
             </div>
-            <div>
+            <div class="form-group">
                 <label for="nameSchool">Establishment Name</label>
                 <input ngModel name="nameSchool" id="nameSchool" type="text" class="form-control" required>
             </div>
-            <div>
+            <div class="form-group"> 
                 <label for="citySchool">Adress / City </label>
                 <input ngModel name="citySchool" id="city" type="text" class="form-control" required>
             </div>
-            <div>
+            <div class="form-group">
                 <label for="departureSchool">Year of departure</label>
                 <input ngModel name="departureSchool" id="departureSchool" type="text" class="form-control" required>
             </div>
@@ -25,32 +25,39 @@
             <div class="form-group">
                 <label for="college">Are you studying at the university?</label><br>
                 <div class="radio">
-                    <label><input type="radio" ngModel name="optionCollege" value="yes"> Yes</label>
+                    <label><input type="radio" ngModel name="optionCollege" value="yes" (click)="enableButton()"> Yes</label>
                 </div>
                 <div class="radio">
-                    <label><input type="radio" ngModel name="optionCollege" value="no"> No</label>
+                    <label><input type="radio" ngModel name="optionCollege" value="no" (click)="disabledButtons()"> No</label>
                 </div>
                 <div class="radio">
-                    <label><input type="radio" ngModel name="optionCollege" value="inProgress"> In progress</label>
+                    <label><input type="radio" ngModel name="optionCollege" value="inProgress" (click)="inProgress()"> In progress</label>
                 </div>            
             </div>
-            <div class="form-group"> 
-                <label for="titleCollege">Title of Studies</label>
-                <input ngModel name="titleCollege" id="titleCollege" type="text" class="form-control" required>
-            </div>
-            <div>
-                <label for="collegeName">Establishment Name</label>
-                <input ngModel name="collegeName" id="collegeName" type="text" class="form-control" required>
-            </div>
-            <div>
-                <label for="adressCollege">Adress / City </label>
-                <input ngModel name="adressCollege" id="adressCollege" type="text" class="form-control" required>
-            </div>
-            <div>
-                <label for="egressCollege">Year of departure</label>
-                <input ngModel name="egressCollege" id="egressCollege" type="text" class="form-control" required>
-            </div> 
-            
+            <div *ngIf="flagInput">
+                <div class="form-group"> 
+                    <label *ngIf="!flagProgress" for="titleCollege" >Title of Studies</label>
+                    <input *ngIf="!flagProgress" ngModel name="titleCollege" id="titleCollege" type="text" class="form-control" required>
+
+                    <label *ngIf="flagProgress" for="studyingCollege" >What are you studying?</label>
+                    <input *ngIf="flagProgress" ngModel name="studyingCollege" id="studyingCollege" type="text" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="collegeName">Establishment Name</label>
+                    <input ngModel name="collegeName" id="collegeName" type="text" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="adressCollege">Adress / City </label>
+                    <input ngModel name="adressCollege" id="adressCollege" type="text" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label *ngIf="!flagProgress" for="egressCollege">Year of departure</label>
+                    <input *ngIf="!flagProgress" ngModel name="egressCollege" id="egressCollege" type="text" class="form-control" required>
+
+                    <label *ngIf="flagProgress" for="whatYearStudy">What year are you studying</label>
+                    <input *ngIf="flagProgress" ngModel name="whatYearStudy" id="whatYearStudy" type="text" class="form-control" required>
+                </div>     
+            </div>           
         </div>
         <button class="btn btn-primary" [disabled]="fStudies.invalid">Save and Continue</button>
     </form>

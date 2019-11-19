@@ -13,6 +13,9 @@ export class StudiesComponent implements OnInit {
   uid: string;
 
   flagRoute = true;
+  flagButton: boolean = false;
+  flagInput: boolean = false;
+  flagProgress: boolean = false;
 
   constructor(
     private saveDataService: SaveDataService,
@@ -31,6 +34,23 @@ export class StudiesComponent implements OnInit {
 
   save(studies) {
     this.saveDataService.save(this.flagRoute,'experience',this.uid, 'studies', studies);
+  }
+
+  enableButton() {
+    this.flagButton = true;
+    this.flagInput = true;
+    this.flagProgress = false;
+  }
+
+  disabledButtons() {
+    this.flagButton = true;
+    this.flagInput = false;
+  }  
+
+  inProgress() {
+    this.flagButton = true;
+    this.flagInput = true;
+    this.flagProgress = true;
   }
 
 }

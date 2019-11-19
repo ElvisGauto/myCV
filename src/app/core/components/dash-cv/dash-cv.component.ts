@@ -72,7 +72,5 @@ export class DashCvComponent implements OnInit {
     }, 500);
 
     dashCV.scrollTop = topPos;
-
-    
   }
 }

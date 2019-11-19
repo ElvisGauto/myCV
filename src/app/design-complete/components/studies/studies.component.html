@@ -1,21 +1,27 @@
-<div class="card-body">
+<div class="card-body" *ngIf="st[0].optionCollege === 'yes' || st[0].optionCollege === 'inProgress'">
     <div>
         <h5>High School</h5>
         <div>
-            name: {{st[0].nameSchool}} <br>
-            title: {{st[0].titleSchool}} <br>
-            city school: {{ st[0].citySchool }} <br>
+            Name: {{st[0].nameSchool}} <br>
+            Title: {{st[0].titleSchool}} <br>
+            City School: {{ st[0].citySchool }} <br>
             Egress School: {{ st[0].departureSchool }} <br>
         </div>
     </div>
     <br>
     <div>
         <h5>College</h5>
-        <div>
-            name: {{st[0].collegeName}} <br>
-            title: {{st[0].titleCollege}} <br>
-            city school: {{ st[0].adressCollege }} <br>
-            Egress School: {{ st[0].egressCollege }} <br>
+        <div *ngIf="st[0].optionCollege === 'yes'">
+            Name: {{st[0].collegeName}} <br>
+            Title: {{st[0].titleCollege}} <br>
+            City College: {{ st[0].adressCollege }} <br>
+            Egress College: {{ st[0].egressCollege }} <br>
+        </div>
+        <div *ngIf="st[0].optionCollege === 'inProgress'">
+            Name: {{st[0].collegeName}} <br>
+            I Study: {{st[0].studyingCollege}} <br>
+            City College: {{ st[0].adressCollege }} <br>
+            Year: {{ st[0].whatYearStudy }} <br>
         </div>
     </div>
 </div>
