@@ -96,7 +96,12 @@ export class DashCvComponent implements OnInit {
     const inputShared = document.createElement('input');
 
     let url = window.location.href;
-    this.urlCopied = url.replace('home', this.displayName.replace(" ", ""));
+    if(url.includes('home')) {
+      this.urlCopied = url.replace('home', this.displayName.replace(" ", ""));
+    } else if(url.includes('dash-cv')){
+      this.urlCopied = url.replace('dash-cv', this.displayName.replace(" ", ""));
+    }
+    console.log(this.urlCopied);
     inputShared.value = this.urlCopied    
 
     document.body.appendChild(inputShared);
@@ -104,10 +109,10 @@ export class DashCvComponent implements OnInit {
     inputShared.focus();
     inputShared.select();
 
+    // this.shareCVService.shareCV(this.displayName.replace(" ", ""), this.CV);
+
     document.execCommand('copy');
     document.body.removeChild(inputShared);
-
-    // this.shareCVService.shareCV(this.displayName.replace(" ", ""), this.CV);
 
     alert('URL Copiada');
   }
