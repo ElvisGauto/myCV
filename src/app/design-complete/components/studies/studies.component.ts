@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./studies.component.scss']
 })
 export class StudiesComponent implements OnInit {
-  @Input('st') st;
+  @Input('studies') studies;
 
   constructor() { }
 

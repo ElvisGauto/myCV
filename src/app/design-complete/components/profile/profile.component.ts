@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  @Input('pr') pr;
+  @Input('profile') profile;
   @Input('displayName') displayName;
   @Input('photoURL') photoURL;
 

@@ -11,49 +11,51 @@
                 <li (click)="element('contact')" >Contact</li>
             </ul>
         </nav>
-        <button *ngIf="" class="btn btn-info containerDash__categories__btn" (click)="shareCV()">Share my CV</button>
+        <button class="btn btn-info containerDash__categories__btn" (click)="shareCV()">Share my CV</button>
     </div>
-    <div class="containerDash__dashCV" id="dashCV">
-        <div *ngIf="profile$ | async as pr" class="card" id="profile">
-          <profile 
-          [displayName]="displayName"
-          [pr] = "pr"
-          [photoURL]="photoURL"
-          ></profile>
-        </div>
+    <div *ngIf="cvVision$ | async as cv" class="containerDash__dashCV" id="dashCV">
+        <div *ngFor="let profile of cv" class="card" id="profile">
+            <profile 
+            [displayName]="displayName"
+            [profile] = "profile"
+            [photoURL]="photoURL"
+            ></profile>
+        </div> 
         <hr>
-        <div *ngIf="aboutMe$ | async as ab" class="containerDash__dashCV__aboutMe card" id="aboutMe">
+        <div *ngFor="let aboutMe of cv" class="containerDash__dashCV__aboutMe card" id="aboutMe">
            <about-me 
-           [ab]="ab"
+           [aboutMe]="aboutMe"
            ></about-me>
         </div>
         <hr>
-        <div *ngIf="studies$ | async as st" class="containerDash__dashCV__studies card" id="studies">
+        <div *ngFor="let studies of cv" class="containerDash__dashCV__studies card" id="studies">
           <studies 
-          [st]="st"
+          [studies]="studies"
           ></studies>  
         </div>
         <hr>
-        <div *ngIf="skills$ | async as sk" class="containerDash__dashCV__skills card" id="skills">
+        <div *ngFor="let skills of cv" class="containerDash__dashCV__skills card" id="skills">
             <skills 
-            [sk]="sk"
+            [skills]="skills"
             ></skills>
         </div>
         <hr>
-        <div *ngIf="experience$ | async as ex" class="containerDash__dashCV__experience card" id="experience">
+        <div *ngFor="let experience of cv" class="containerDash__dashCV__experience card" id="experience">
             <experience 
-            [ex]="ex"
+            [experience]="experience"
             ></experience>
         </div>
         <hr>
-        <div *ngIf="goals$ | async as go" class="containerDash__dashCV__goals card" id="goals">
+        <div *ngFor="let goals of cv" class="containerDash__dashCV__goals card" id="goals">
             <goals 
-            [go]="go"
+            [goals]="goals"
             ></goals>
         </div>
         <hr>
-        <div *ngIf="contact$ | async as co" class="containerDash__dashCV__contact card" id="contact">
-            <contact [co]="co"></contact>
+         <div *ngFor="let contact of cv" class="containerDash__dashCV__contact card" id="contact">
+            <contact 
+            [contact]="contact"
+            ></contact>
         </div>
     </div>
 </div>

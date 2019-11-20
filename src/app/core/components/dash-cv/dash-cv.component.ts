@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { SaveDataService } from 'src/app/shared/services/cv-data.service';
+import { ShareCVService } from 'src/app/shared/services/share-cv.service';
   
 @Component({
   selector: 'dash-cv',
@@ -14,91 +15,64 @@ export class DashCvComponent implements OnInit {
   displayName;
   photoURL;
 
-  profile$;
-  aboutMe$;
-  contact$;
-  experience$;
-  goals$;
-  skills$;
-  studies$;
+  cvVision$;
+
 
   CV = [];
-
   profileKey: string;
 
   ex: string;
   uid: string;
   inputShared: string;
   urlCopied: string;
+  
 
   constructor(
     private dataService: SaveDataService,
-    private auth: AuthService
+    private auth: AuthService,
+    private shareCVService: ShareCVService
   ) { }
 
   ngOnInit() {
-    this.user$ = this.auth.user$;
- 
-    this.user$.subscribe(user => {
+    this.auth.user$.subscribe(user => {
       if(user) {
         this.displayName = user.displayName;
         this.photoURL = user.photoURL;
         this.uid = user.uid
       }
 
-      this.profile$ = this.dataService.getDataByCategory(this.uid, 'profile');
+      this.cvVision$ = this.shareCVService.showShareCV(this.displayName.replace(" ", ""));
 
-      this.profile$.subscribe(pr => {
-        this.CV.push(pr[0]);
-        // console.log(this.CV);
+      this.dataService.getDataByCategory(this.uid, 'profile').subscribe(profile => {
+        this.CV.push(profile[0]);
       })
 
-      this.aboutMe$ = this.dataService.getDataByCategory(this.uid, 'aboutMe');
-
-      this.aboutMe$.subscribe(pr => {
-        this.CV.push(pr[0]);
-        // console.log(this.CV);
+      this.dataService.getDataByCategory(this.uid, 'aboutMe').subscribe(aboutMe => {
+        this.CV.push(aboutMe[0]);
       })
 
-      this.studies$ = this.dataService.getDataByCategory(this.uid, 'studies');
-
-      this.studies$.subscribe(pr => {
-        this.CV.push(pr[0]);
-        // console.log(this.CV);
+      this.dataService.getDataByCategory(this.uid, 'studies').subscribe(studies => {
+        this.CV.push(studies[0]);
       })
 
-      this.skills$ = this.dataService.getDataByCategory(this.uid, 'skills');
-
-      this.skills$.subscribe(pr => {
-        this.CV.push(pr[0]);
-        // console.log(this.CV);
+      this.dataService.getDataByCategory(this.uid, 'skills').subscribe(skills => {
+        this.CV.push(skills[0]);
       })
 
-      this.experience$ = this.dataService.getDataByCategory(this.uid, 'experience');
+      this.dataService.getDataByCategory(this.uid, 'experience').subscribe(experience => {
+        this.ex = experience[0].workExperience;
 
-      this.experience$.subscribe(ex => {
-        this.ex = ex[0].workExperience;
-
-        this.CV.push(ex[0]);
-        // console.log(this.CV);
+        this.CV.push(experience[0]);
       })
 
-      this.goals$ = this.dataService.getDataByCategory(this.uid, 'goals');
-
-      this.goals$.subscribe(pr => {
-        this.CV.push(pr[0]);
-        // console.log(this.CV);
+      this.dataService.getDataByCategory(this.uid, 'goals').subscribe(goals => {
+        this.CV.push(goals[0]);
       })
 
-      this.contact$ = this.dataService.getDataByCategory(this.uid, 'contact');
-
-      this.contact$.subscribe(pr => {
-        this.CV.push(pr[0]);
-        // console.log(this.CV);
+      this.dataService.getDataByCategory(this.uid, 'contact').subscribe(contact => {
+        this.CV.push(contact[0]);
       })
     });   
-    console.log(this.CV);
-  
   }
 
   element(i) {
@@ -128,10 +102,10 @@ export class DashCvComponent implements OnInit {
     inputShared.select();
 
     document.execCommand('copy');
-    
     document.body.removeChild(inputShared);
+
+    this.shareCVService.shareCV(this.displayName.replace(" ", ""), this.CV);
 
     alert('URL Copiada');
   }
-
 }
