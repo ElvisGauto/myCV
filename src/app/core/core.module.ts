@@ -10,6 +10,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SharedModule } from '../shared/shared.module';
 import { DashCvComponent } from './components/dash-cv/dash-cv.component';
 import { DesignCompleteModule } from '../design-complete/design-complete.module';
+import { ShareCVComponent } from './components/share-cv/share-cv.component';
 
 let components = [
   LoginComponent,
@@ -22,7 +23,8 @@ let components = [
 
 @NgModule({
   declarations: [
-    components
+    components,
+    ShareCVComponent
   ],
   imports: [
     CommonModule,

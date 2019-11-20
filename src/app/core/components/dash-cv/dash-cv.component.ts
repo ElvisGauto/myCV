@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { SaveDataService } from 'src/app/shared/services/cv-data.service';
 import { ShareCVService } from 'src/app/shared/services/share-cv.service';
@@ -40,8 +40,11 @@ export class DashCvComponent implements OnInit {
         this.photoURL = user.photoURL;
         this.uid = user.uid
       }
-
-      this.cvVision$ = this.shareCVService.showShareCV(this.displayName.replace(" ", ""));
+      if(user) {
+        this.cvVision$ = this.shareCVService.showShareCV(this.displayName.replace(" ", ""));
+      } else {
+        this.cvVision$ = this.shareCVService.showShareCV('AgustinAlonso');
+      }
 
       this.dataService.getDataByCategory(this.uid, 'profile').subscribe(profile => {
         this.CV.push(profile[0]);
@@ -93,7 +96,7 @@ export class DashCvComponent implements OnInit {
     const inputShared = document.createElement('input');
 
     let url = window.location.href;
-    this.urlCopied = url.replace('home', 'dash-cv');
+    this.urlCopied = url.replace('home', this.displayName.replace(" ", ""));
     inputShared.value = this.urlCopied    
 
     document.body.appendChild(inputShared);
@@ -104,7 +107,7 @@ export class DashCvComponent implements OnInit {
     document.execCommand('copy');
     document.body.removeChild(inputShared);
 
-    this.shareCVService.shareCV(this.displayName.replace(" ", ""), this.CV);
+    // this.shareCVService.shareCV(this.displayName.replace(" ", ""), this.CV);
 
     alert('URL Copiada');
   }

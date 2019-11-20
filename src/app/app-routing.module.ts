@@ -13,9 +13,13 @@ import { ContactComponent } from './design/components/contact/contact.component'
 import { DashboardComponent } from './core/components/dashboard/dashboard.component';
 import { FeedbackComponent } from './shared/components/feedback/feedback.component';
 import { DashCvComponent } from './core/components/dash-cv/dash-cv.component';
+import { ShareCVComponent } from './core/components/share-cv/share-cv.component';
 
+let url = window.location.href;
+let user = url.slice(22);
 
 const routes: Routes = [
+  { path: user, component: ShareCVComponent },
   { path: '', component: LoginComponent },
   { path: 'home', component: DashboardComponent, canActivate: [AuthGuardService] },
   { path: 'design/profile', component: ProfileComponent, canActivate: [AuthGuardService] },
