@@ -28,6 +28,6 @@ export class SaveDataService {
   }
 
   getDataByCV(uid: string) {
-    return this.db.list(`/cv/${uid}`)
+    // return this.db.
   }
 }
