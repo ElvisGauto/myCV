@@ -37,8 +37,8 @@ const routes: Routes = [
   { path: 'design/goals', component: GoalsComponent },
   { path: 'design/contact', component: ContactComponent },
   { path: 'feedback', component: FeedbackComponent },
-  { path: 'dash-cv', component: DashCvComponent },
-  { path: '**', redirectTo: 'login', pathMatch: 'full' }
+  { path: 'dash-cv', component: DashCvComponent }
+  // { path: '**', redirectTo: 'login', pathMatch: 'full' }
 ];
 
 @NgModule({
