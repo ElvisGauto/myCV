@@ -8,7 +8,8 @@ import { FeedbackComponent } from './components/feedback/feedback.component';
 
 @NgModule({
   declarations: [
-    FeedbackComponent
+    FeedbackComponent,
+  
   ],
   imports: [
     CommonModule
