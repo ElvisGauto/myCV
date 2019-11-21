@@ -15,9 +15,7 @@
         <div *ngIf="cvVisionShare$ | async as cv" class="containerDash__dashCV" id="dashCV">
             <div *ngFor="let profile of cv" class="card" id="profile">
                 <profile 
-                [displayName]="displayName"
                 [profile] = "profile"
-                [photoURL]="photoURL"
                 ></profile>
             </div> 
             <hr>

@@ -15,7 +15,7 @@ export class DashCvComponent implements OnInit {
   displayName;
   photoURL;
 
-  cvVision$;
+  cvFinished$;
 
 
   CV = [];
@@ -40,11 +40,12 @@ export class DashCvComponent implements OnInit {
         this.photoURL = user.photoURL;
         this.uid = user.uid
       }
-      if(user) {
-        this.cvVision$ = this.shareCVService.showShareCV(this.displayName.replace(" ", ""));
-      } else {
-        this.cvVision$ = this.shareCVService.showShareCV('AgustinAlonso');
-      }
+      // if(user) {
+      //   this.cvVision$ = this.shareCVService.showShareCV(this.displayName.replace(" ", ""));
+      // } else {
+      //   this.cvVision$ = this.shareCVService.showShareCV('AgustinAlonso');
+      // }
+      this.cvFinished$ = this.dataService.showAllData(this.uid);
 
       this.dataService.getDataByCategory(this.uid, 'profile').subscribe(profile => {
         this.CV.push(profile[0]);
@@ -109,7 +110,7 @@ export class DashCvComponent implements OnInit {
     inputShared.focus();
     inputShared.select();
 
-    // this.shareCVService.shareCV(this.displayName.replace(" ", ""), this.CV);
+    this.shareCVService.shareCV(this.displayName.replace(" ", ""), this.CV);
 
     document.execCommand('copy');
     document.body.removeChild(inputShared);

@@ -13,12 +13,10 @@
         </nav>
         <button class="btn btn-info containerDash__categories__btn" (click)="shareCV()">Share my CV</button>
     </div>
-    <div *ngIf="cvVision$ | async as cv" class="containerDash__dashCV" id="dashCV">
+    <div *ngIf="cvFinished$ | async as cv" class="containerDash__dashCV" id="dashCV">
         <div *ngFor="let profile of cv" class="card" id="profile">
             <profile 
-            [displayName]="displayName"
             [profile] = "profile"
-            [photoURL]="photoURL"
             ></profile>
         </div> 
         <hr>

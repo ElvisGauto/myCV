@@ -18,7 +18,11 @@ import { FeedbackComponent } from './shared/components/feedback/feedback.compone
 let user;
 let url = window.location.href;
 if(url.toLowerCase() != url) {
-  user = url.slice(22);
+  if(url.search(/localhost/i) === -1) {
+    user = url.slice(35);
+  } else {
+    user = url.slice(22);
+  }
 } else {
   user = '.';
 }

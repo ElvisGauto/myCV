@@ -1,12 +1,12 @@
 <div class="profile card-body">
     <div class="profile__containerData">
-        <h2>{{ displayName }}</h2>
+        <h2>{{ profile[0].displayName }}</h2>
 
         <p>
             {{ profile[0].country }}
         </p>
     </div>
     <div class="profile__containerImg">
-        <img class="profile__containerImg__img" src="{{ photoURL }}" alt="" width="100px">
+        <img class="profile__containerImg__img" src="{{ profile[0].imageProfile }}" alt="" width="100px">
     </div>
 </div>

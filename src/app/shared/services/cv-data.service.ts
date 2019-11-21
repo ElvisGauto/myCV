@@ -12,7 +12,7 @@ export class SaveDataService {
     private router: Router
   ) { }
 
-  save(flagRoute: boolean , next: string,uid: string ,list: string, data: string) {
+  save(flagRoute: boolean , next: string,uid: string ,list: string, data: any) {
     if(flagRoute) {
       this.router.navigate([`/${next}`])
     }
@@ -29,5 +29,9 @@ export class SaveDataService {
 
   saveAllData(uid: string, allData: any) {
     return this.db.list(`/cvFinished/${uid}`).push(allData);
+  }
+
+  showAllData(uid: string) {
+    return this.db.list(`/cvFinished/${uid}`);
   }
 }

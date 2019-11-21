@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, provideRoutes } from '@angular/router';
 import { CountriesService } from 'src/app/shared/services/countries.service';
 import { SaveDataService } from 'src/app/shared/services/cv-data.service';
 import { UserService } from 'src/app/shared/services/user.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { Profile } from 'selenium-webdriver/firefox';
 
 export interface Country {
   description: string;
@@ -25,6 +26,8 @@ export class ProfileComponent implements OnInit {
 
   displayName;
   photoURL;
+
+  dataFilter = [];
 
 
   constructor(
@@ -48,7 +51,15 @@ export class ProfileComponent implements OnInit {
   }
 
   save(profile) {
-    this.saveDataService.save(this.flagRoute, 'design/aboutMe',this.uid,'profile', profile);
+
+    this.dataFilter.push({
+      displayName: this.displayName,
+      imageProfile: this.photoURL,
+      country: profile.country
+    })
+
+    this.saveDataService
+      .save(this.flagRoute, 'design/aboutMe',this.uid,'profile', this.dataFilter[0]);
   }
 
 }
