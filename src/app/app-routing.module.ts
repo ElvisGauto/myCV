@@ -15,19 +15,19 @@ import { DashCvComponent } from './core/components/dash-cv/dash-cv.component';
 import { ShareCVComponent } from './core/components/share-cv/share-cv.component';
 import { FeedbackComponent } from './shared/components/feedback/feedback.component';
 
-// let user = '.';
-// let url = window.location.href;
-// if(url.toLowerCase() != url) {
-//   if(url.search(/localhost/i) === -1) {
-//     user = url.slice(35);
-//   } else {
-//     user = url.slice(22);
-//   }
-// } 
+let user = '.';
+let url = window.location.href;
+if(url.toLowerCase() != url) {
+  if(url.search(/localhost/i) === -1) {
+    user = url.slice(35);
+  } else {
+    user = url.slice(22);
+  }
+} 
 
 const routes: Routes = [
-  { path: 'MauroGauto', component: ShareCVComponent },
-  // { path: 'login', component: LoginComponent },
+  { path: user, component: ShareCVComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'home', component: DashboardComponent, canActivate: [AuthGuardService] },
   { path: 'design/profile', component: ProfileComponent, canActivate: [AuthGuardService] },
   { path: 'design/aboutMe', component: AboutMeComponent },
@@ -38,7 +38,7 @@ const routes: Routes = [
   { path: 'design/contact', component: ContactComponent },
   { path: 'feedback', component: FeedbackComponent },
   { path: 'dash-cv', component: DashCvComponent },
-  { path: '**', redirectTo: 'MauroGauto', pathMatch: 'full' }
+  { path: '**', redirectTo: 'login', pathMatch: 'full' }
 ];
 
 @NgModule({
