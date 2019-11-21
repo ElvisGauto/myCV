@@ -15,7 +15,7 @@ export class ShareCVComponent implements OnInit {
   ngOnInit() {
     let url = window.location.href;
     if(url.search(/localhost/i) === -1) {
-      this.cvVisionShare$ = this.shareCvService.showShareCV(url.slice(22));
+      this.cvVisionShare$ = this.shareCvService.showShareCV(url.slice(35));
     } else {
       this.cvVisionShare$ = this.shareCvService.showShareCV(url.slice(22));
     }
