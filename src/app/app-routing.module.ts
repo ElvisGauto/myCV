@@ -11,16 +11,21 @@ import { ExperienceComponent } from './design/components/experience/experience.c
 import { GoalsComponent } from './design/components/goals/goals.component';
 import { ContactComponent } from './design/components/contact/contact.component';
 import { DashboardComponent } from './core/components/dashboard/dashboard.component';
-import { FeedbackComponent } from './shared/components/feedback/feedback.component';
 import { DashCvComponent } from './core/components/dash-cv/dash-cv.component';
 import { ShareCVComponent } from './core/components/share-cv/share-cv.component';
+import { FeedbackComponent } from './shared/components/feedback/feedback.component';
 
+let user;
 let url = window.location.href;
-let user = url.slice(22);
+if(url.toLowerCase() != url) {
+  user = url.slice(22);
+} else {
+  user = '.';
+}
 
 const routes: Routes = [
   { path: user, component: ShareCVComponent },
-  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'home', component: DashboardComponent, canActivate: [AuthGuardService] },
   { path: 'design/profile', component: ProfileComponent, canActivate: [AuthGuardService] },
   { path: 'design/aboutMe', component: AboutMeComponent },
@@ -30,7 +35,8 @@ const routes: Routes = [
   { path: 'design/goals', component: GoalsComponent },
   { path: 'design/contact', component: ContactComponent },
   { path: 'feedback', component: FeedbackComponent },
-  { path: 'dash-cv', component: DashCvComponent }
+  { path: 'dash-cv', component: DashCvComponent },
+  { path: '**', redirectTo: 'login', pathMatch: 'full' }
 ];
 
 @NgModule({
