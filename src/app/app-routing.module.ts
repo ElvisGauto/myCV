@@ -15,9 +15,17 @@ import { DashCvComponent } from './core/components/dash-cv/dash-cv.component';
 import { ShareCVComponent } from './core/components/share-cv/share-cv.component';
 import { FeedbackComponent } from './shared/components/feedback/feedback.component';
 
+let user;
 let url = window.location.href;
-let user = 'MauroGauto';
- user = url.slice(35);
+if(url.toLowerCase() != url) {
+  if(url.search(/localhost/i) === -1) {
+    user = url.slice(35)
+  } else {
+    user = url.slice(22);
+  }
+} else {
+  user = '.';
+}
 
 const routes: Routes = [
   { path: user, component: ShareCVComponent },
