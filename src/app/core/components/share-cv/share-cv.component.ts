@@ -13,12 +13,12 @@ export class ShareCVComponent implements OnInit {
   constructor(private shareCvService: ShareCVService) { }
 
   ngOnInit() {
-    let url = window.location.href;
-    if(url.search(/localhost/i) === -1) {
-      this.cvVisionShare$ = this.shareCvService.showShareCV(url.slice(35));
-    } else {
-      this.cvVisionShare$ = this.shareCvService.showShareCV(url.slice(22));
-    }
+  //   let url = window.location.href;
+  //   if(url.search(/localhost/i) === -1) {
+      this.cvVisionShare$ = this.shareCvService.showShareCV('MauroGauto');
+  //   } else {
+  //     this.cvVisionShare$ = this.shareCvService.showShareCV(url.slice(22));
+  //   }
   }
 
   element(i) {
