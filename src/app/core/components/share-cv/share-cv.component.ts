@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShareCVService } from 'src/app/shared/services/share-cv.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-share-cv',
@@ -7,20 +8,25 @@ import { ShareCVService } from 'src/app/shared/services/share-cv.service';
   styleUrls: ['./share-cv.component.scss']
 })
 export class ShareCVComponent implements OnInit {
-
   cvVisionShare$;
-  
-  constructor(private shareCvService: ShareCVService) { }
+  user: { nameUser: string }
+
+  constructor(
+    private shareCvService: ShareCVService,
+    private activatedRoute: ActivatedRoute
+    ) { }
 
   ngOnInit() {
-    let url = window.location.href;
-    if(url.search(/localhost/i) === -1) {
-      let user = url.slice(35)
-      this.cvVisionShare$ = this.shareCvService.showShareCV(user);
-    } else {
-      let user = url.slice(22);
-      this.cvVisionShare$ = this.shareCvService.showShareCV(user);
+    // var url = window.location.href;
+    // if(url.search(/firebaseapp/i) === -1) {
+    //   let user = url.slice(22);
+    //   this.cvVisionShare$ = this.shareCvService.showShareCV(user);
+    // }
+
+    this.user = {
+      nameUser: this.activatedRoute.snapshot.params.nameUser
     }
+      this.cvVisionShare$ = this.shareCvService.showShareCV(this.user.nameUser);
   }
 
   element(i) {
