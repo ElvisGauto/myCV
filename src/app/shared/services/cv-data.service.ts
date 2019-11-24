@@ -34,4 +34,8 @@ export class SaveDataService {
   showAllData(uid: string) {
     return this.db.list(`/cvFinished/${uid}`);
   }
+
+  deleteCv(typeObject: string, uid: string) {
+    return this.db.object(`/${typeObject}/${uid}`).remove();
+  }
 }

@@ -13,7 +13,7 @@
         &__nav {
             &__ul {
                 list-style: none;
-                padding: 15px;
+                padding: 15px 15px 0px 15px;
                 li {
                     padding: 10px;
                     margin: 5px;
@@ -27,8 +27,14 @@
                 }
             }
         }
-        &__btn {
+        &__btnEdit, 
+        &__btnShare,
+        &__btnDelete {
             padding-left: 10px;
+        }
+
+        &__btnEdit {
+            margin: 10px 0px;
         }
         
     }
