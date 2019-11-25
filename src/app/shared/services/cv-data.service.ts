@@ -16,7 +16,7 @@ export class SaveDataService {
     if(flagRoute) {
       this.router.navigate([`/${next}`])
     }
-    return this.db.list(`/cv/${uid}/${list}`).push(data);
+    return this.db.object(`/cv/${uid}/${list}`).update(data);
   }
 
   getData() {
@@ -31,13 +31,17 @@ export class SaveDataService {
     return this.db.list(`/cvFinished/${uid}`).push(allData);
   }
 
-  showAllData(uid: string) {
-    return this.db.list(`/cvFinished/${uid}`);
+  showAllData(typeCv: string, uid: string) {
+    return this.db.list(`/${typeCv}/${uid}`);
   }
 
   deleteCv(typeObject: string, uid: string) {
     this.db.object(`/${typeObject}/${uid}`).remove();
 
     this.router.navigate(['/home']);
+  }
+
+  updateData(uid: string, typeList: string, newData: string) {
+    return this.db.object(`/cv/${typeList}/${uid}/`).update(newData)
   }
 }

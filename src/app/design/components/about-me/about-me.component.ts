@@ -13,6 +13,9 @@ export class AboutMeComponent implements OnInit {
   uid: string;
 
   flagRoute = true;
+  aboutMe$: any;
+  aboutMe = {};
+  aboutMeText: any;
 
   constructor(
     private saveDataService: SaveDataService,
@@ -25,12 +28,13 @@ export class AboutMeComponent implements OnInit {
     this.user$.subscribe(x => {
       if(x) {
         this.uid = x.uid;
-      }  
+      }
+      
+      this.aboutMe$ = this.saveDataService.showAllData('cvFinished', this.uid);
     });
   }
 
   save(aboutMe) {
     this.saveDataService.save(this.flagRoute,'design/skills',this.uid,'aboutMe', aboutMe);
   }
-
 }

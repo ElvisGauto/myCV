@@ -20,6 +20,7 @@ export class FeedbackComponent {
   uid: string;
 
   CV = [];
+  cv$;
 
   constructor(
     private router: Router,
@@ -38,33 +39,36 @@ export class FeedbackComponent {
         this.uid = user.uid
       }
 
-      this.dataService.getDataByCategory(this.uid, 'profile').subscribe(profile => {
-        this.CV.push(profile[0]);
-      })
+      this.cv$ = this.dataService.showAllData('cv', this.uid);
+      this.cv$.subscribe(x => console.log(x));
 
-      this.dataService.getDataByCategory(this.uid, 'aboutMe').subscribe(aboutMe => {
-        this.CV.push(aboutMe[0]);
-      })
+      // this.dataService.getDataByCategory(this.uid, 'profile').subscribe(profile => {
+      //   this.CV.push(profile[0]);
+      // })
 
-      this.dataService.getDataByCategory(this.uid, 'studies').subscribe(studies => {
-        this.CV.push(studies[0]);
-      })
+      // this.dataService.getDataByCategory(this.uid, 'aboutMe').subscribe(aboutMe => {
+      //   this.CV.push(aboutMe[0]);
+      // })
 
-      this.dataService.getDataByCategory(this.uid, 'skills').subscribe(skills => {
-        this.CV.push(skills[0]);
-      })
+      // this.dataService.getDataByCategory(this.uid, 'studies').subscribe(studies => {
+      //   this.CV.push(studies[0]);
+      // })
 
-      this.dataService.getDataByCategory(this.uid, 'experience').subscribe(experience => {
-        this.CV.push(experience[0]);
-      })
+      // this.dataService.getDataByCategory(this.uid, 'skills').subscribe(skills => {
+      //   this.CV.push(skills[0]);
+      // })
 
-      this.dataService.getDataByCategory(this.uid, 'goals').subscribe(goals => {
-        this.CV.push(goals[0]);
-      })
+      // this.dataService.getDataByCategory(this.uid, 'experience').subscribe(experience => {
+      //   this.CV.push(experience[0]);
+      // })
 
-      this.dataService.getDataByCategory(this.uid, 'contact').subscribe(contact => {
-        this.CV.push(contact[0]);
-      })
+      // this.dataService.getDataByCategory(this.uid, 'goals').subscribe(goals => {
+      //   this.CV.push(goals[0]);
+      // })
+
+      // this.dataService.getDataByCategory(this.uid, 'contact').subscribe(contact => {
+      //   this.CV.push(contact[0]);
+      // })
     }); 
   }
 

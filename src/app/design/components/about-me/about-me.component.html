@@ -1,7 +1,7 @@
-<div class="container aboutMe">
+<div class="container aboutMe" *ngIf="aboutMe$ | async as aboutMe">
     <form #fAboutMe="ngForm" (ngSubmit)="save(fAboutMe.value)">
         <div class="form-group">
-            <label for="aboutMe">About Me</label>
+            <label for="aboutMe">About Me Real</label>
             <textarea  ngModel name="aboutMe" class="form-control" id="aboutMe" rows="3" required></textarea>
         </div>
         <button class="btn btn-primary" [disabled]="fAboutMe.invalid">Save and Continue</button>

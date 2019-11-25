@@ -11,8 +11,9 @@ import { FeedbackService } from 'src/app/shared/services/feedback.service';
 })
 export class DashboardComponent implements OnInit {
   user$;
-  cvObject = {};
-  cvArray = {};
+  cvArray: boolean;
+
+  cvFinished$;
 
   flagHome: boolean;
   flagFeedback: boolean;
@@ -21,6 +22,8 @@ export class DashboardComponent implements OnInit {
   uid: string;
 
   feedbackError$;
+  cv$: any;
+  cvIncomplete: boolean = false;
 
   constructor(
     private auth: AuthService,
@@ -37,29 +40,15 @@ export class DashboardComponent implements OnInit {
       if(user) {
         this.uid = user.uid
       }
-    });
 
-
-
-    this.saveData.getData().subscribe(data => {
-      this.cvObject = data[this.uid];
-
-      if (this.cvObject === undefined) {
-        this.flagHome = false;
-        this.flagWithoutCV = true;
-        this.flagFeedback = false;
-      } else {
-        this.cvArray = Object.keys(this.cvObject).length;
-        if(this.cvArray >= 7 ) {
-          this.flagHome = true;
-          this.flagWithoutCV = false;
-          this.flagFeedback = false;
-        } else if(this.cvArray < 7) {
-          this.flagFeedback = true;
-          this.flagWithoutCV = false;
-          this.flagHome = false;
-        } 
-      }
+      this.cv$ = this.saveData.showAllData('cv', this.uid);
+      this.cv$.subscribe(x => {
+        if(x.length >= 1 && x.length <= 6) {
+          this.cvIncomplete = true;
+        } else if (x.length === 7 || x.length === 0) {
+          this.cvIncomplete = false;
+        }
+      })
     });
   }
 

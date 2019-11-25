@@ -47,7 +47,9 @@ export class DashCvComponent implements OnInit {
         this.uidModify = this.uid.slice(8, -4);
         this.uidName = `${this.name}${this.uidModify}`;
       }
-      this.cvFinished$ = this.dataService.showAllData(this.uid);
+      
+      // this.dataService.deleteCv('cv', this.uid);
+      this.cvFinished$ = this.dataService.showAllData('cvFinished' ,this.uid);
 
       this.dataService.getDataByCategory(this.uid, 'profile').subscribe(profile => {
         this.CV.push(profile[0]);
@@ -125,7 +127,6 @@ export class DashCvComponent implements OnInit {
   }
 
   deleteCv() {
-    this.dataService.deleteCv('cv', this.uid);
     this.dataService.deleteCv('cvFinished', this.uid);
     this.dataService.deleteCv('cvShare', this.uidName);
   }

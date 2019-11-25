@@ -1,16 +1,15 @@
-<div>
-    <div class="dashboard" *ngIf="user$ | async as user">
-        <div *ngIf="flagFeedback">
+<div *ngIf="user$ | async as user">
+    <div class="dashboard" *ngIf="cv$ | async as cv">
+        <div *ngIf="cvIncomplete">
             <div *ngIf="feedbackError$ | async as feedback">
                 <feedback [feedback]="feedback"></feedback>
             </div>
         </div>    
-
-        <div *ngIf="flagWithoutCV" class="dashboard__home">
+        <div *ngIf="cv.length === 0" class="dashboard__home">
             <home [user]="user"></home>
         </div>
 
-        <div *ngIf="flagHome" class="">
+        <div *ngIf="cv.length === 7" class="">
             <dash-cv></dash-cv>
         </div>
     </div>
