@@ -21,8 +21,6 @@ export class ShareCVComponent implements OnInit {
       nameUser: this.activatedRoute.snapshot.params.nameUser
     }
     this.cvVisionShare$ = this.shareCvService.showShareCV(this.user.nameUser);
-
-    this.cvVisionShare$.subscribe(x => console.log(x));
   }
 
   element(i) {

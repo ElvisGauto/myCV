@@ -26,7 +26,7 @@ export class StudiesComponent implements OnInit {
 
   ngOnInit() {
     this.user$.subscribe(x => {
-      if(x.uid) {
+      if(x) {
         this.uid = x.uid;
       } 
     });

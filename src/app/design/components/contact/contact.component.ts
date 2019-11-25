@@ -34,7 +34,7 @@ export class ContactComponent implements OnInit {
     this.feedbackSuccess$ = this.feedbackService.messageSuccessful();
 
     this.user$.subscribe(x => {
-      if(x.uid) {
+      if(x) {
         this.uid = x.uid;
       }  
     });

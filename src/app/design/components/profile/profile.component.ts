@@ -42,9 +42,9 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.user$.subscribe(x => {
-      this.displayName = x.displayName;
-      this.photoURL = x.photoURL;
-      if(x.uid) {
+      if(x) {
+        this.displayName = x.displayName;
+        this.photoURL = x.photoURL;
         this.uid = x.uid;
       }
     });

@@ -19,10 +19,7 @@ export class FeedbackComponent {
   photoURL: string;
   uid: string;
 
-  cvVision$;
-
   CV = [];
-  ex: string;
 
   constructor(
     private router: Router,
@@ -39,11 +36,6 @@ export class FeedbackComponent {
         this.displayName = user.displayName;
         this.photoURL = user.photoURL;
         this.uid = user.uid
-      }
-      if(user) {
-        this.cvVision$ = this.shareCvService.showShareCV(this.displayName.replace(" ", ""));
-      } else {
-        this.cvVision$ = this.shareCvService.showShareCV('AgustinAlonso');
       }
 
       this.dataService.getDataByCategory(this.uid, 'profile').subscribe(profile => {
@@ -63,8 +55,6 @@ export class FeedbackComponent {
       })
 
       this.dataService.getDataByCategory(this.uid, 'experience').subscribe(experience => {
-        this.ex = experience[0].workExperience;
-
         this.CV.push(experience[0]);
       })
 

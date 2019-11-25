@@ -10,8 +10,6 @@ import { ShareCVService } from 'src/app/shared/services/share-cv.service';
 })
 export class DashCvComponent implements OnInit {
 
-  user$;
-
   displayName;
   photoURL;
 
@@ -21,10 +19,15 @@ export class DashCvComponent implements OnInit {
   CV = [];
   profileKey: string;
 
-  ex: string;
+  ex: boolean = true;
   uid: string;
   inputShared: string;
   urlCopied: string;
+  name: any;
+  uidModify: string;
+  uidName: string;
+  
+  
   
 
   constructor(
@@ -39,6 +42,10 @@ export class DashCvComponent implements OnInit {
         this.displayName = user.displayName;
         this.photoURL = user.photoURL;
         this.uid = user.uid
+
+        this.name = this.displayName.replace(" ", "")
+        this.uidModify = this.uid.slice(8, -4);
+        this.uidName = `${this.name}${this.uidModify}`;
       }
       this.cvFinished$ = this.dataService.showAllData(this.uid);
 
@@ -59,8 +66,14 @@ export class DashCvComponent implements OnInit {
       })
 
       this.dataService.getDataByCategory(this.uid, 'experience').subscribe(experience => {
-        this.ex = experience[0].workExperience;
-
+        if(experience[0]) {
+          if(experience[0].workExperience == 'yes') {
+            this.ex = true;
+          } else {
+            this.ex = false;
+          }
+        }
+      
         this.CV.push(experience[0]);
       })
 
@@ -90,11 +103,7 @@ export class DashCvComponent implements OnInit {
   
   shareCV() {
     const inputShared = document.createElement('input');
-    let name = this.displayName.replace(" ", "")
-    let uidModify = this.uid.slice(8, -4);
-
-    let uidName = `${name}${uidModify}`;
-    let routeUidName = `cvVision/${uidName}`;
+    let routeUidName = `cvVision/${this.uidName}`;
 
     let url = window.location.href;
     if(url.includes('home')) {
@@ -102,7 +111,6 @@ export class DashCvComponent implements OnInit {
     } else if(url.includes('dash-cv')){
       this.urlCopied = url.replace('dash-cv', routeUidName);
     }
-    console.log(this.urlCopied);
     inputShared.value = this.urlCopied;     
 
     document.body.appendChild(inputShared);
@@ -110,15 +118,15 @@ export class DashCvComponent implements OnInit {
     inputShared.focus();
     inputShared.select();
 
-
-    this.shareCVService.shareCV(uidName, this.CV);
-
     document.execCommand('copy');
     document.body.removeChild(inputShared);
+
+    this.shareCVService.shareCV(this.uidName, this.CV);
   }
 
   deleteCv() {
     this.dataService.deleteCv('cv', this.uid);
     this.dataService.deleteCv('cvFinished', this.uid);
+    this.dataService.deleteCv('cvShare', this.uidName);
   }
 }
