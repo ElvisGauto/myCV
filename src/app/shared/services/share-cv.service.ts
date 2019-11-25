@@ -9,7 +9,7 @@ export class ShareCVService {
   constructor(private db: AngularFireDatabase) { }
 
   shareCV(displayName, cvShare) {
-    this.db.list(`/cvShare/${displayName}`).push(cvShare);
+    this.db.object(`/cvShare/${displayName}`).update(cvShare);
   }
 
   showShareCV(displayName) {

@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./about-me.component.scss']
 })
 export class AboutMeComponent implements OnInit {
-  @Input('aboutMe') aboutMe;
+  @Input('cv') cv;
 
   constructor() { }
 

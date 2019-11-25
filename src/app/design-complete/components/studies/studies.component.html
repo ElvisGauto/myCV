@@ -2,28 +2,28 @@
     <div>
         <h5>High School</h5>
         <div>
-            Name: {{studies[2].nameSchool}} <br>
-            Title: {{studies[2].titleSchool}} <br>
-            City School: {{ studies[2].citySchool }} <br>
-            Egress School: {{ studies[2].departureSchool }} <br>
+            Name: {{cv[6].nameSchool}} <br>
+            Title: {{cv[6].titleSchool}} <br>
+            City School: {{ cv[6].citySchool }} <br>
+            Egress School: {{ cv[6].departureSchool }} <br>
         </div>
     </div>
     <br>
     <div 
-    *ngIf="studies[2].optionCollege === 'yes' || 
-    studies[2].optionCollege === 'inProgress'">
+    *ngIf="cv[6].optionCollege === 'yes' || 
+    cv[6].optionCollege === 'inProgress'">
         <h5>College</h5>
-        <div *ngIf="studies[2].optionCollege === 'yes'">
-            Name: {{studies[2].collegeName}} <br>
-            Title: {{studies[2].titleCollege}} <br>
-            City College: {{ studies[2].adressCollege }} <br>
-            Egress College: {{ studies[2].egressCollege }} <br>
+        <div *ngIf="cv[6].optionCollege === 'yes'">
+            Name: {{cv[6].collegeName}} <br>
+            Title: {{cv[6].titleCollege}} <br>
+            City College: {{ cv[6].adressCollege }} <br>
+            Egress College: {{ cv[6].egressCollege }} <br>
         </div>
-        <div *ngIf="studies[2].optionCollege === 'inProgress'">
-            Name: {{studies[2].collegeName}} <br>
-            I Study: {{studies[2].studyingCollege}} <br>
-            City College: {{ studies[2].adressCollege }} <br>
-            Year: {{ studies[2].whatYearStudy }} <br>
+        <div *ngIf="cv[6].optionCollege === 'inProgress'">
+            Name: {{cv[6].collegeName}} <br>
+            I Study: {{cv[6].studyingCollege}} <br>
+            City College: {{ cv[6].adressCollege }} <br>
+            Year: {{ cv[6].whatYearStudy }} <br>
         </div>
     </div>
 </div>

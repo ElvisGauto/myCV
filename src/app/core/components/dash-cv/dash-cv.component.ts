@@ -49,42 +49,9 @@ export class DashCvComponent implements OnInit {
       }
       
       // this.dataService.deleteCv('cv', this.uid);
-      this.cvFinished$ = this.dataService.showAllData('cvFinished' ,this.uid);
-
-      this.dataService.getDataByCategory(this.uid, 'profile').subscribe(profile => {
-        this.CV.push(profile[0]);
-      })
-
-      this.dataService.getDataByCategory(this.uid, 'aboutMe').subscribe(aboutMe => {
-        this.CV.push(aboutMe[0]);
-      })
-
-      this.dataService.getDataByCategory(this.uid, 'studies').subscribe(studies => {
-        this.CV.push(studies[0]);
-      })
-
-      this.dataService.getDataByCategory(this.uid, 'skills').subscribe(skills => {
-        this.CV.push(skills[0]);
-      })
-
-      this.dataService.getDataByCategory(this.uid, 'experience').subscribe(experience => {
-        if(experience[0]) {
-          if(experience[0].workExperience == 'yes') {
-            this.ex = true;
-          } else {
-            this.ex = false;
-          }
-        }
-      
-        this.CV.push(experience[0]);
-      })
-
-      this.dataService.getDataByCategory(this.uid, 'goals').subscribe(goals => {
-        this.CV.push(goals[0]);
-      })
-
-      this.dataService.getDataByCategory(this.uid, 'contact').subscribe(contact => {
-        this.CV.push(contact[0]);
+      this.cvFinished$ = this.dataService.showAllData('cv' ,this.uid);
+      this.cvFinished$.subscribe(x => {
+        this.CV = x;
       })
     });   
   }

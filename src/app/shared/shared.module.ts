@@ -5,10 +5,12 @@ import { CountriesService } from './services/countries.service';
 
 import { FeedbackService } from './services/feedback.service';
 import { FeedbackComponent } from './components/feedback/feedback.component';
+import { CvDashboardComponent } from './components/cv-dashboard/cv-dashboard.component';
 
 @NgModule({
   declarations: [
     FeedbackComponent,
+    CvDashboardComponent,
   
   ],
   imports: [

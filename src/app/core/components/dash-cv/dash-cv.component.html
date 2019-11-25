@@ -17,45 +17,45 @@
 
     </div>
     <div *ngIf="cvFinished$ | async as cv" class="containerDash__dashCV" id="dashCV">
-        <div *ngFor="let profile of cv" class="card" id="profile">
+        <div class="card" id="profile">
             <profile 
-            [profile] = "profile"
+            [cv] = "cv"
             ></profile>
         </div> 
         <hr>
-        <div *ngFor="let aboutMe of cv" class="containerDash__dashCV__aboutMe card" id="aboutMe">
+        <div  class="containerDash__dashCV__aboutMe card" id="aboutMe">
            <about-me 
-           [aboutMe]="aboutMe"
+           [cv]="cv"
            ></about-me>
         </div>
         <hr>
-        <div *ngFor="let studies of cv" class="containerDash__dashCV__studies card" id="studies">
+        <div  class="containerDash__dashCV__studies card" id="studies">
           <studies 
-          [studies]="studies"
+          [cv]="cv"
           ></studies>  
         </div>
         <hr>
-        <div *ngFor="let skills of cv" class="containerDash__dashCV__skills card" id="skills">
+        <div class="containerDash__dashCV__skills card" id="skills">
             <skills 
-            [skills]="skills"
+            [cv]="cv"
             ></skills>
         </div>
         <hr>
-        <div *ngFor="let experience of cv" class="containerDash__dashCV__experience card" id="experience">
+        <div class="containerDash__dashCV__experience card" id="experience">
             <experience 
-            [experience]="experience"
+            [cv]="cv"
             ></experience>
         </div>
         <hr>
-        <div *ngFor="let goals of cv" class="containerDash__dashCV__goals card" id="goals">
+        <div class="containerDash__dashCV__goals card" id="goals">
             <goals 
-            [goals]="goals"
+            [cv]="cv"
             ></goals>
         </div>
         <hr>
-         <div *ngFor="let contact of cv" class="containerDash__dashCV__contact card" id="contact">
+         <div class="containerDash__dashCV__contact card" id="contact">
             <contact 
-            [contact]="contact"
+            [cv]="cv"
             ></contact>
         </div>
     </div>
