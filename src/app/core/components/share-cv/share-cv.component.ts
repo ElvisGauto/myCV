@@ -17,16 +17,12 @@ export class ShareCVComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    // var url = window.location.href;
-    // if(url.search(/firebaseapp/i) === -1) {
-    //   let user = url.slice(22);
-    //   this.cvVisionShare$ = this.shareCvService.showShareCV(user);
-    // }
-
     this.user = {
       nameUser: this.activatedRoute.snapshot.params.nameUser
     }
-      this.cvVisionShare$ = this.shareCvService.showShareCV(this.user.nameUser);
+    this.cvVisionShare$ = this.shareCvService.showShareCV(this.user.nameUser);
+
+    this.cvVisionShare$.subscribe(x => console.log(x));
   }
 
   element(i) {

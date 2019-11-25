@@ -40,11 +40,7 @@ export class DashCvComponent implements OnInit {
         this.photoURL = user.photoURL;
         this.uid = user.uid
       }
-      // if(user) {
-      //   this.cvVision$ = this.shareCVService.showShareCV(this.displayName.replace(" ", ""));
-      // } else {
-      //   this.cvVision$ = this.shareCVService.showShareCV('AgustinAlonso');
-      // }
+
       this.cvFinished$ = this.dataService.showAllData(this.uid);
 
       this.dataService.getDataByCategory(this.uid, 'profile').subscribe(profile => {
@@ -95,26 +91,30 @@ export class DashCvComponent implements OnInit {
   
   shareCV() {
     const inputShared = document.createElement('input');
+    let name = this.displayName.replace(" ", "")
+    let uidModify = this.uid.slice(8, -4);
+
+    let uidName = `${name}${uidModify}`;
+    let routeUidName = `cvVision/${uidName}`;
 
     let url = window.location.href;
     if(url.includes('home')) {
-      this.urlCopied = url.replace('home', this.displayName.replace(" ", ""));
+      this.urlCopied = url.replace('home', routeUidName);
     } else if(url.includes('dash-cv')){
-      this.urlCopied = url.replace('dash-cv', this.displayName.replace(" ", ""));
+      this.urlCopied = url.replace('dash-cv', routeUidName);
     }
     console.log(this.urlCopied);
-    inputShared.value = this.urlCopied    
+    inputShared.value = this.urlCopied;     
 
     document.body.appendChild(inputShared);
     
     inputShared.focus();
     inputShared.select();
 
-    this.shareCVService.shareCV(this.displayName.replace(" ", ""), this.CV);
+
+    this.shareCVService.shareCV(uidName, this.CV);
 
     document.execCommand('copy');
     document.body.removeChild(inputShared);
-
-    alert('URL Copiada');
   }
 }

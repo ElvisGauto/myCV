@@ -15,19 +15,8 @@ import { DashCvComponent } from './core/components/dash-cv/dash-cv.component';
 import { ShareCVComponent } from './core/components/share-cv/share-cv.component';
 import { FeedbackComponent } from './shared/components/feedback/feedback.component';
 
-
-
-// let url = window.location.href.slice(22);
-// if(url.toLowerCase() !== url) {
-//   var user = url;
-// } else { 
-//   var user = '.';
-// }
-
-// console.log(user);
-
 const routes: Routes = [
-  { path: 'cvShared/:nameUser', component: ShareCVComponent },
+  { path: 'cvVision/:nameUser', component: ShareCVComponent },
   { path: 'login', component: LoginComponent },
   { path: 'home', component: DashboardComponent, canActivate: [AuthGuardService] },
   { path: 'design/profile', component: ProfileComponent, canActivate: [AuthGuardService] },
