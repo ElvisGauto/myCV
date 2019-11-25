@@ -15,4 +15,8 @@ export class ShareCVService {
   showShareCV(displayName) {
     return this.db.list(`/cvShare/${displayName}`);
   }
+
+  deleteShareCv(nameUid: string) {
+    return this.db.object(`/cvShared/${nameUid}`).remove();
+  }
 }

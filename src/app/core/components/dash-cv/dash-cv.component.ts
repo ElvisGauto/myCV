@@ -40,7 +40,10 @@ export class DashCvComponent implements OnInit {
         this.photoURL = user.photoURL;
         this.uid = user.uid
       }
+<<<<<<< HEAD
 
+=======
+>>>>>>> feacture/DeleteCVs
       this.cvFinished$ = this.dataService.showAllData(this.uid);
 
       this.dataService.getDataByCategory(this.uid, 'profile').subscribe(profile => {
@@ -116,5 +119,10 @@ export class DashCvComponent implements OnInit {
 
     document.execCommand('copy');
     document.body.removeChild(inputShared);
+  }
+
+  deleteCv() {
+    this.dataService.deleteCv('cv', this.uid);
+    this.dataService.deleteCv('cvFinished', this.uid);
   }
 }
