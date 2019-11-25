@@ -38,43 +38,10 @@ export class FeedbackComponent {
         this.photoURL = user.photoURL;
         this.uid = user.uid
       }
-
-      this.cv$ = this.dataService.showAllData('cv', this.uid);
-      this.cv$.subscribe(x => console.log(x));
-
-      // this.dataService.getDataByCategory(this.uid, 'profile').subscribe(profile => {
-      //   this.CV.push(profile[0]);
-      // })
-
-      // this.dataService.getDataByCategory(this.uid, 'aboutMe').subscribe(aboutMe => {
-      //   this.CV.push(aboutMe[0]);
-      // })
-
-      // this.dataService.getDataByCategory(this.uid, 'studies').subscribe(studies => {
-      //   this.CV.push(studies[0]);
-      // })
-
-      // this.dataService.getDataByCategory(this.uid, 'skills').subscribe(skills => {
-      //   this.CV.push(skills[0]);
-      // })
-
-      // this.dataService.getDataByCategory(this.uid, 'experience').subscribe(experience => {
-      //   this.CV.push(experience[0]);
-      // })
-
-      // this.dataService.getDataByCategory(this.uid, 'goals').subscribe(goals => {
-      //   this.CV.push(goals[0]);
-      // })
-
-      // this.dataService.getDataByCategory(this.uid, 'contact').subscribe(contact => {
-      //   this.CV.push(contact[0]);
-      // })
     }); 
   }
 
   redirectDashCV() {
-    this.dataService.saveAllData(this.uid, this.CV);
-
     this.router.navigate(['/dash-cv']);
   }
 }
