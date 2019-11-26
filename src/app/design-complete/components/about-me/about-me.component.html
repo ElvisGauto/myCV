@@ -1,6 +1,15 @@
 <div class="card-body">
     <h5>About Me...</h5>
-    <p>
-        {{cv[0].aboutMe}}
-    </p>
+    <div *ngIf="!flagCvEdit">
+        <p>
+            {{cv[0].aboutMe}}
+        </p>
+    </div>
+    <div *ngIf="flagCvEdit">
+        <textarea id="aboutMeChanges">
+            {{cv[0].aboutMe}}
+        </textarea>
+    </div>
+    <button *ngIf="!flagCvEdit" (click)="edit()">Edit</button>
+    <button *ngIf="flagCvEdit" (click)="save()">Save</button>
 </div>

@@ -27,6 +27,7 @@ export class DashCvComponent implements OnInit {
   uidModify: string;
   uidName: string;
   
+  flagCvEdit: boolean = false;
   
   
 
@@ -93,8 +94,16 @@ export class DashCvComponent implements OnInit {
     this.shareCVService.shareCV(this.uidName, this.CV);
   }
 
+  editCv() {
+    this.flagCvEdit = true;
+  }
+
+  saveChanges() {
+    this.flagCvEdit = false;
+  }
+
   deleteCv() {
-    this.dataService.deleteCv('cvFinished', this.uid);
+    this.dataService.deleteCv('cv', this.uid);
     this.dataService.deleteCv('cvShare', this.uidName);
   }
 }

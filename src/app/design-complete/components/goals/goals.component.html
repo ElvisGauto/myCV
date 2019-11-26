@@ -2,11 +2,18 @@
     <h5>
         Goals
     </h5>
-    <div>
+    <div *ngIf="!flagCvEdit">
         <p>
             {{ cv[3].Goals1 }} <br>
             {{ cv[3].Goals2 }} <br>
             {{ cv[3].Goals3 }} <br>
+        </p>
+    </div>
+    <div *ngIf="flagCvEdit">
+        <p>
+            Goal 1:<input type="text" value="{{ cv[3].Goals1 }}"> <br>
+            Goal 2:<input type="text" value="{{ cv[3].Goals2 }}"> <br>
+            Goal 3:<input type="text" value="{{ cv[3].Goals3 }}"> <br>
         </p>
     </div>
 </div>

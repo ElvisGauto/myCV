@@ -1,7 +1,15 @@
 <div class="card-body col">
     <h5>You can contact me through</h5>
-    <div>Email: {{ cv[1].Email }}</div>
-    <div>Telephone 1: {{ cv[1].Telephone1 }}</div>
-    <div>Telephone 2: {{ cv[1].Telephone2 }}</div>
-    <div>Linkedin: {{ cv[1].linkedin }} </div>
+    <div *ngIf="!flagCvEdit">
+        <div>Email: {{ cv[1].Email }}</div>
+        <div>Telephone 1: {{ cv[1].Telephone1 }}</div>
+        <div>Telephone 2: {{ cv[1].Telephone2 }}</div>
+        <div>Linkedin: {{ cv[1].linkedin }} </div>
+    </div>
+    <div *ngIf="flagCvEdit">
+        <div>Email: <input type="text" value="{{ cv[1].Email }}"> </div>
+        <div>Telephone 1: <input type="text" value="{{ cv[1].Telephone1 }}"></div>
+        <div>Telephone 2: <input type="text" value="{{ cv[1].Telephone2 }}"></div>
+        <div>Linkedin: <input type="text" value="{{ cv[1].linkedin }}"></div>
+    </div>
 </div>

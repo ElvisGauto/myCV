@@ -1,10 +1,15 @@
 <div *ngIf="cv[2].workExperience == 'yes'">
     <div class="card-body">
         <h5>Work experience</h5>
-        <div>
+        <div *ngIf="!flagCvEdit">
             Company Name: {{ cv[2].companyName }} <br>
-            Responsabilities: {{ cv[2].responsibilities }} <br>
             Time Period: {{ cv[2].timePeriod }} <br>
+            Responsabilities: {{ cv[2].responsibilities }} <br>
+        </div>
+        <div *ngIf="flagCvEdit">
+            Company Name: <input  #companyName type="text" value="{{ cv[2].companyName }}"> <br>
+            Time Period: <input  #timePeriod type="text" value="{{ cv[2].timePeriod }}"> <br>
+            Responsabilities: <textarea #responsabilities>{{ cv[2].responsibilities }}</textarea> <br>
         </div>
     </div>
 </div>

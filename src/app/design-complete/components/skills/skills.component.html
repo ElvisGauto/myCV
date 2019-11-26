@@ -3,11 +3,25 @@
         Skills
     </h5>
     <nav>
-        <ul>
+        <ul *ngIf="!flagCvEdit">
             <li>{{ cv[5].skill1 }}</li>
             <li>{{ cv[5].skill2 }}</li>
             <li>{{ cv[5].skill3 }}</li>
             <li>{{ cv[5].skill4 }}</li>
+        </ul>
+        <ul *ngIf="flagCvEdit">
+            <li>
+                skill 1: <input type="text" value="{{ cv[5].skill1 }}">
+            </li>
+            <li>
+                skill 2: <input type="text" value="{{ cv[5].skill2 }}">
+            </li>
+            <li>
+                skill 3: <input type="text" value="{{ cv[5].skill3 }}">
+            </li>
+            <li>
+                skill 4: <input type="text" value="{{ cv[5].skill4 }}">
+            </li>
         </ul>
     </nav>
 </div>
