@@ -27,19 +27,35 @@
                 }
             }
         }
-        &__btnShare,
-        &__btnDelete {
-            margin: 8px 0px;
-        }
-        
+        &__buttons {
+            display: none;
+            @media(min-width: $breakpoint-tablet){
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            &__btnShare,
+            &__btnDelete {
+                margin: 8px 0px;
+            }
+        }   
     }
     &__dashCV {
         width: 100%;
         height: 79vh;
         overflow-y: scroll;
-        padding: 8px;
+        padding: 0px 8px 8px 8px;
         @media (min-width: $breakpoint-tablet) {
             padding: 23px 60px 0px 60px;
+        }
+        &__buttons {
+            background: #fff;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            @media(min-width: $breakpoint-tablet){
+                display: none;
+            }
         }
         
     }

@@ -40,7 +40,7 @@
                     <input *ngIf="!flagProgress" ngModel name="titleCollege" id="titleCollege" type="text" class="form-control" required>
 
                     <label *ngIf="flagProgress" for="studyingCollege" >What are you studying?</label>
-                    <input *ngIf="flagProgress" ngModel name="studyingCollege" id="studyingCollege" type="text" class="form-control" required>
+                    <input *ngIf="flagProgress" ngModel name="titleCollege" id="studyingCollege" type="text" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="collegeName">Establishment Name</label>
@@ -52,10 +52,10 @@
                 </div>
                 <div class="form-group">
                     <label *ngIf="!flagProgress" for="egressCollege">Year of departure</label>
-                    <input *ngIf="!flagProgress" ngModel name="egressCollege" id="egressCollege" type="text" class="form-control" required>
+                    <input *ngIf="!flagProgress" ngModel name="yearCollege" id="egressCollege" type="text" class="form-control" required>
 
                     <label *ngIf="flagProgress" for="whatYearStudy">What year are you studying</label>
-                    <input *ngIf="flagProgress" ngModel name="whatYearStudy" id="whatYearStudy" type="text" class="form-control" required>
+                    <input *ngIf="flagProgress" ngModel name="yearCollege" id="whatYearStudy" type="text" class="form-control" required>
                 </div>     
             </div>           
         </div>

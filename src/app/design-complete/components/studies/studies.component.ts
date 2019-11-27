@@ -49,7 +49,7 @@ export class StudiesComponent implements OnInit {
     let collegeName = (<HTMLInputElement>document.getElementById('collegeName'));
     let titleCollege = (<HTMLInputElement>document.getElementById('titleCollege'));
     let adressCollege = (<HTMLInputElement>document.getElementById('adressCollege'));
-    let egressCollege = (<HTMLInputElement>document.getElementById('egressCollege'));
+    let yearCollege = (<HTMLInputElement>document.getElementById('yearCollege'));
 
     this.studiesChanges.push({
       nameSchool: nameSchool.value,
@@ -60,7 +60,7 @@ export class StudiesComponent implements OnInit {
       collegeName: collegeName.value,
       titleCollege: titleCollege.value,
       adressCollege: adressCollege.value,
-      egressCollege: egressCollege.value
+      yearCollege: yearCollege.value
     })
     
     this.saveDataService.save(this.flagRouteChange,'',this.uid,'studies', this.studiesChanges[0]);

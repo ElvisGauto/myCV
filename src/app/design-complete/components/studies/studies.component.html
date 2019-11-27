@@ -26,13 +26,13 @@
                 Name: {{cv[6].collegeName}} <br>
                 Title: {{cv[6].titleCollege}} <br>
                 City College: {{ cv[6].adressCollege }} <br>
-                Egress College: {{ cv[6].egressCollege }} <br>
+                Egress College: {{ cv[6].yearCollege }} <br>
             </div>
             <div *ngIf="cv[6].optionCollege === 'inProgress'">
                 Name: {{cv[6].collegeName}} <br>
-                I Study: {{cv[6].studyingCollege}} <br>
+                I Study: {{cv[6].titleCollege}} <br>
                 City College: {{ cv[6].adressCollege }} <br>
-                Year: {{ cv[6].whatYearStudy }} <br>
+                Year: {{ cv[6].yearCollege }} <br>
             </div>
         </div>
         <div *ngIf="flagCvEdit" class="studies__changesResultDiv__content">
@@ -40,14 +40,14 @@
                 Name: <input id="collegeName" type="text" value="{{cv[6].collegeName}}"> <br>
                 Title: <input id="titleCollege" type="text" value="{{cv[6].titleCollege}}"> <br>
                 City College: <input id="adressCollege" type="text" value="{{ cv[6].adressCollege }}"> <br>
-                Egress College: <input id="egressCollege" type="text" value="{{ cv[6].egressCollege }}"> <br>
+                Egress College: <input id="yearCollege" type="text" value="{{ cv[6].egressCollege }}"> <br>
             </div>
-            <!-- <div *ngIf="cv[6].optionCollege === 'inProgress'">
-                Name: <input id="name" type="text" value="{{cv[6].collegeName}}"> <br>
-                I Study: <input id="title" type="text" value="{{cv[6].studyingCollege}}"> <br>
-                City College: <input id="cityCollege" type="text" value="{{ cv[6].adressCollege }}"> <br>
-                Year: <input id="year" type="text" value="{{ cv[6].whatYearStudy }}"> <br>
-            </div> -->
+            <div *ngIf="cv[6].optionCollege === 'inProgress'" class="studies__changesResultDiv__content__result">
+                Name: <input id="collegeName" type="text" value="{{cv[6].collegeName}}"> <br>
+                I Study: <input id="titleCollege" type="text" value="{{cv[6].titleCollege}}"> <br>
+                City College: <input id="adressCollege" type="text" value="{{ cv[6].adressCollege }}"> <br>
+                Year: <input id="yearCollege" type="text" value="{{ cv[6].yearCollege }}"> <br>
+            </div>
         </div>
         <div *ngIf="flagButtons">
             <i *ngIf="!flagCvEdit" class="fa fa-edit" (click)="edit()"></i>
