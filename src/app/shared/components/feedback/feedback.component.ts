@@ -19,7 +19,7 @@ export class FeedbackComponent {
   photoURL: string;
   uid: string;
 
-  CV = [];
+  cvList: number;
   cv$;
 
   constructor(
@@ -38,10 +38,37 @@ export class FeedbackComponent {
         this.photoURL = user.photoURL;
         this.uid = user.uid
       }
-    }); 
+
+      this.cv$ = this.dataService.showAllData('cv', this.uid);
+      this.cv$.subscribe(x => {
+        this.cvList = x.length;
+      })
+    });   
   }
 
-  redirectDashCV() {
-    this.router.navigate(['/dash-cv']);
+  redirectToPage() {
+    switch(this.cvList) {
+      case 1:
+        this.router.navigate(['/design/aboutMe']);
+        break;
+      case 2:
+        this.router.navigate(['/design/skills']);
+        break;
+      case 3:
+        this.router.navigate(['/design/studies']);
+        break;
+      case 4:
+        this.router.navigate(['/design/experience']);
+        break;
+      case 5:
+        this.router.navigate(['/design/goals']);
+        break;
+      case 6: 
+        this.router.navigate(['/design/contact']);
+        break;
+      case 7:
+        this.router.navigate(['/dash-cv']);
+        break;  
+    }
   }
 }
