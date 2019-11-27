@@ -12,8 +12,16 @@ export class ShareCVService {
     this.db.object(`/cvShare/${displayName}`).update(cvShare);
   }
 
+  updateShareCv(uidName: string, list: string, data: string) {
+    this.db.object(`/cvShare/${uidName}/${list}`).update(data)
+  }
+
   showShareCV(displayName) {
     return this.db.list(`/cvShare/${displayName}`);
+  }
+
+  listCvShare() {
+    return this.db.list(`/cvShare/`);
   }
 
   deleteShareCv(nameUid: string) {

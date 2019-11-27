@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SaveDataService } from 'src/app/shared/services/cv-data.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { ShareCVService } from 'src/app/shared/services/share-cv.service';
 
 @Component({
   selector: 'contact',
@@ -9,6 +10,8 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class ContactComponent implements OnInit {
   @Input('cv') cv;
+  @Input('uidName') uidName;
+  @Input('flagButtons') flagButtons;
 
   flagCvEdit: boolean = false;
   contactChanges = [];
@@ -18,7 +21,8 @@ export class ContactComponent implements OnInit {
 
   constructor(
     private saveDataService: SaveDataService,
-    private authService: AuthService
+    private authService: AuthService,
+    private shareCvService: ShareCVService
   ) { }
 
   ngOnInit() {
@@ -48,6 +52,7 @@ export class ContactComponent implements OnInit {
     })
     
     this.saveDataService.saveChanges(this.uid,'contact', this.contactChanges[0]) 
+    this.shareCvService.updateShareCv(this.uidName, '1', this.contactChanges[0]);
     this.contactChanges = [];
     this.flagCvEdit = false;
   }

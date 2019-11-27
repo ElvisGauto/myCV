@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SaveDataService } from 'src/app/shared/services/cv-data.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { ShareCVService } from 'src/app/shared/services/share-cv.service';
 
 @Component({
   selector: 'goals',
@@ -9,6 +10,8 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class GoalsComponent implements OnInit {
   @Input('cv') cv;
+  @Input('uidName') uidName;
+  @Input('flagButtons') flagButtons;
 
   uid: string;
   user$: any;
@@ -19,7 +22,8 @@ export class GoalsComponent implements OnInit {
 
   constructor(
     private saveDataService: SaveDataService,
-    private authService: AuthService
+    private authService: AuthService,
+    private shareCvService: ShareCVService
   ) { }
 
   ngOnInit() {
@@ -47,6 +51,7 @@ export class GoalsComponent implements OnInit {
     })
     
     this.saveDataService.saveChanges(this.uid,'goals', this.goalsChanges[0]) 
+    this.shareCvService.updateShareCv(this.uidName, '3', this.goalsChanges[0]);
     this.goalsChanges = [];
     this.flagCvEdit = false;
   }

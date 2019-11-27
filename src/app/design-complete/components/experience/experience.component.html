@@ -14,7 +14,9 @@
             <label>Responsabilities: </label> 
             <textarea id="responsabilities">{{ cv[2].responsibilities }}</textarea> 
         </div>
-        <i *ngIf="!flagCvEdit" class="fa fa-edit" (click)="edit()"></i>
-        <i *ngIf="flagCvEdit" class="fa fa-save" (click)="save()"></i>
+        <div *ngIf="flagButtons">
+            <i *ngIf="!flagCvEdit" class="fa fa-edit" (click)="edit()"></i>
+            <i *ngIf="flagCvEdit" class="fa fa-save" (click)="save()"></i>
+        </div>
     </div>
 </div>

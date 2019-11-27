@@ -3,6 +3,10 @@
 .fa {
     @include font-icon;
 }
+
+.fa-save {
+    margin-top: 15px;
+}
 .experience {
     &__editResult {
         @include flex-col;

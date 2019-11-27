@@ -9,6 +9,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ShareCVComponent implements OnInit {
   cvVisionShare$;
+  flagButtons: boolean = false; 
+
   user: { nameUser: string }
 
   constructor(

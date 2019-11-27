@@ -20,6 +20,8 @@
             <input id="skill4" type="text" value="{{ cv[5].skill4 }}">
         </div>
     </div>
-    <i *ngIf="!flagCvEdit" class="fa fa-edit" (click)="edit()"></i>
-    <i *ngIf="flagCvEdit" class="fa fa-save" (click)="save()"></i>
+    <div *ngIf="flagButtons">
+        <i *ngIf="!flagCvEdit" class="fa fa-edit" (click)="edit()"></i>
+        <i *ngIf="flagCvEdit" class="fa fa-save" (click)="save()"></i>
+    </div>
 </div>

@@ -14,6 +14,8 @@
         Goal 2:<input id="goals2" type="text" value="{{ cv[3].Goals2 }}"> <br>
         Goal 3:<input id="goals3" type="text" value="{{ cv[3].Goals3 }}"> <br>
     </div>
-    <i *ngIf="!flagCvEdit" class="fa fa-edit" (click)="edit()"></i>
-    <i *ngIf="flagCvEdit" class="fa fa-save" (click)="save()"></i>
+    <div *ngIf="flagButtons">
+        <i *ngIf="!flagCvEdit" class="fa fa-edit" (click)="edit()"></i>
+        <i *ngIf="flagCvEdit" class="fa fa-save" (click)="save()"></i>
+    </div>
 </div>

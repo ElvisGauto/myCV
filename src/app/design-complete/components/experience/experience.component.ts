@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { SaveDataService } from 'src/app/shared/services/cv-data.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { ShareCVService } from 'src/app/shared/services/share-cv.service';
 
 @Component({
   selector: 'experience',
@@ -9,6 +10,8 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class ExperienceComponent implements OnInit {
   @Input('cv') cv;
+  @Input('uidName') uidName;
+  @Input('flagButtons') flagButtons;
 
   uid: string;
   user$: any;
@@ -18,7 +21,8 @@ export class ExperienceComponent implements OnInit {
 
   constructor(
     private saveDataService: SaveDataService,
-    private authService: AuthService
+    private authService: AuthService,
+    private shareCvService: ShareCVService
   ) { }
 
   ngOnInit() {
@@ -46,6 +50,7 @@ export class ExperienceComponent implements OnInit {
     })
     
     this.saveDataService.saveChanges(this.uid,'experience', this.experienceChanges[0]) 
+    this.shareCvService.updateShareCv(this.uidName, '2', this.experienceChanges[0]);
     this.experienceChanges = [];
     this.flagCvEdit = false;
   }

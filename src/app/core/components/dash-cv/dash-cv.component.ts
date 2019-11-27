@@ -12,12 +12,13 @@ export class DashCvComponent implements OnInit {
 
   displayName;
   photoURL;
+  flagButtons: boolean = true;
 
   cvFinished$;
+  cvShare$;
 
-
+  confirmUidName = {};
   CV = [];
-  profileKey: string;
 
   ex: boolean = true;
   uid: string;
@@ -54,6 +55,11 @@ export class DashCvComponent implements OnInit {
       this.cvFinished$.subscribe(x => {
         this.CV = x;
       })
+
+      this.cvShare$ = this.shareCVService.showShareCV(this.uidName);
+      this.cvShare$.subscribe(x => {
+        this.confirmUidName = x.length;
+      });
     });   
   }
 
@@ -91,15 +97,9 @@ export class DashCvComponent implements OnInit {
     document.execCommand('copy');
     document.body.removeChild(inputShared);
 
-    this.shareCVService.shareCV(this.uidName, this.CV);
-  }
-
-  editCv() {
-    this.flagCvEdit = true;
-  }
-
-  saveChanges() {
-    this.flagCvEdit = false;
+    if(this.confirmUidName === 0) {
+      this.shareCVService.shareCV(this.uidName, this.CV); 
+    } 
   }
 
   deleteCv() {

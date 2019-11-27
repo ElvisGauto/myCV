@@ -45,7 +45,9 @@
                 Year: <input id="year" type="text" value="{{ cv[6].whatYearStudy }}"> <br>
             </div> -->
         </div>
-        <i *ngIf="!flagCvEdit" class="fa fa-edit" (click)="edit()"></i>
-        <i *ngIf="flagCvEdit" class="fa fa-save" (click)="save()"></i>
+        <div *ngIf="flagButtons">
+            <i *ngIf="!flagCvEdit" class="fa fa-edit" (click)="edit()"></i>
+            <i *ngIf="flagCvEdit" class="fa fa-save" (click)="save()"></i>
+        </div>
     </div>
 </div>
