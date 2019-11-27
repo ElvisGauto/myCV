@@ -13,7 +13,6 @@
         </nav>
         <button class="btn btn-success containerDash__categories__btnShare" (click)="shareCV()">Create Link</button>
         <button class="btn btn-danger containerDash__categories__btnDelete" (click)="deleteCv()">Delete my CV</button>
-
     </div>
     <div *ngIf="cvFinished$ | async as cv" class="containerDash__dashCV" id="dashCV">
         <div class="card" id="profile">

@@ -1,5 +1,5 @@
-<div class="card-body" class="card-body studies">
-    <div>
+<div class="studies">
+    <div class="card-body">
         <h5>High School</h5>
         <div *ngIf="!flagCvEdit">
             Name: {{cv[6].nameSchool}} <br>
@@ -13,9 +13,13 @@
             City School: <input id="citySchool" type="text" value="{{ cv[6].citySchool }}">  <br>
             Egress School: <input id="departureSchool" type="text" value="{{ cv[6].departureSchool }}"><br>
         </div>
+            
+        <div *ngIf="cv[6].optionCollege === 'no' && flagButtons">
+            <i *ngIf="!flagCvEdit" class="fa fa-edit" (click)="edit()"></i>
+            <i *ngIf="flagCvEdit" class="fa fa-save" (click)="save()"></i>
+        </div>
     </div>
-    <br>
-    <div  class="studies__changesResultDiv" *ngIf="cv[6].optionCollege === 'yes' || cv[6].optionCollege === 'inProgress'">
+    <div  class="studies__changesResultDiv card-body" *ngIf="cv[6].optionCollege === 'yes' || cv[6].optionCollege === 'inProgress'">
         <h5>College</h5>
         <div *ngIf="!flagCvEdit">
             <div *ngIf="cv[6].optionCollege === 'yes'">
