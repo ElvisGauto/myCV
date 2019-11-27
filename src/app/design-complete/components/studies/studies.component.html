@@ -1,4 +1,4 @@
-<div class="card-body">
+<div class="card-body" class="card-body studies">
     <div>
         <h5>High School</h5>
         <div *ngIf="!flagCvEdit">
@@ -7,7 +7,7 @@
             City School: {{ cv[6].citySchool }} <br>
             Egress School: {{ cv[6].departureSchool }} <br>
         </div>
-        <div *ngIf="flagCvEdit">
+        <div class="studies__changesResult" *ngIf="flagCvEdit">
             Name: <input id="nameSchool" type="text" value="{{cv[6].nameSchool}}"><br>
             Title: <input id="titleSchool" type="text" value="{{cv[6].titleSchool}}">  <br>
             City School: <input id="citySchool" type="text" value="{{ cv[6].citySchool }}">  <br>
@@ -15,9 +15,7 @@
         </div>
     </div>
     <br>
-    <div 
-    *ngIf="cv[6].optionCollege === 'yes' || 
-    cv[6].optionCollege === 'inProgress'">
+    <div  class="studies__changesResultDiv" *ngIf="cv[6].optionCollege === 'yes' || cv[6].optionCollege === 'inProgress'">
         <h5>College</h5>
         <div *ngIf="!flagCvEdit">
             <div *ngIf="cv[6].optionCollege === 'yes'">
@@ -33,8 +31,8 @@
                 Year: {{ cv[6].whatYearStudy }} <br>
             </div>
         </div>
-        <div *ngIf="flagCvEdit">
-            <div *ngIf="cv[6].optionCollege === 'yes'">
+        <div *ngIf="flagCvEdit" class="studies__changesResultDiv__content">
+            <div *ngIf="cv[6].optionCollege === 'yes'" class="studies__changesResultDiv__content__result">
                 Name: <input id="collegeName" type="text" value="{{cv[6].collegeName}}"> <br>
                 Title: <input id="titleCollege" type="text" value="{{cv[6].titleCollege}}"> <br>
                 City College: <input id="adressCollege" type="text" value="{{ cv[6].adressCollege }}"> <br>
@@ -47,7 +45,7 @@
                 Year: <input id="year" type="text" value="{{ cv[6].whatYearStudy }}"> <br>
             </div> -->
         </div>
-        <button *ngIf="!flagCvEdit" (click)="edit()">Edit</button>
-        <button *ngIf="flagCvEdit" (click)="save()">Save</button>
+        <i *ngIf="!flagCvEdit" class="fa fa-edit" (click)="edit()"></i>
+        <i *ngIf="flagCvEdit" class="fa fa-save" (click)="save()"></i>
     </div>
 </div>

@@ -1,6 +1,13 @@
-.skills {
-    &__content nav ul {
-        list-style: none;
-    }
+@import "../../../../styles/utils";
+
+.fa {
+    @include font-icon(15px);
 }
 
+.skills {
+    &__content {
+        &__result {
+            @include flex-col;
+        }
+    }
+}

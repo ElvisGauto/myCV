@@ -19,6 +19,10 @@ export class SaveDataService {
     return this.db.object(`/cv/${uid}/${list}`).update(data);
   }
 
+  saveChanges(uid:string, list:string, newData: string) {
+    this.db.object(`/cv/${uid}/${list}`).update(newData);
+  }
+
   getData() {
     return this.db.object(`/cv`);
   }

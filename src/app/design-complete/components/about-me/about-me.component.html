@@ -6,10 +6,10 @@
         </p>
     </div>
     <div *ngIf="flagCvEdit">
-        <textarea id="aboutMeChanges">
+        <textarea id="aboutMeChanges" class="form-control" rows="3">
             {{cv[0].aboutMe}}
         </textarea>
     </div>
-    <button *ngIf="!flagCvEdit" (click)="edit()">Edit</button>
-    <button *ngIf="flagCvEdit" (click)="save()">Save</button>
+    <i *ngIf="!flagCvEdit" class="fa fa-edit" (click)="edit()"></i>
+    <i *ngIf="flagCvEdit" class="fa fa-save" (click)="save()"></i>
 </div>

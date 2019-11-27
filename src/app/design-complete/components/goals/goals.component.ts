@@ -9,10 +9,13 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class GoalsComponent implements OnInit {
   @Input('cv') cv;
-  @Input('flagCvEdit') flagCvEdit;
 
   uid: string;
   user$: any;
+
+  flagCvEdit: boolean = false;
+
+  goalsChanges = [];
 
   constructor(
     private saveDataService: SaveDataService,
@@ -26,6 +29,26 @@ export class GoalsComponent implements OnInit {
         this.uid = x.uid;
       }
     });  
+  }
+
+  edit() {
+    this.flagCvEdit = true;
+  }
+
+  save() {
+    let goal1 = (<HTMLInputElement>document.getElementById('goals1'));
+    let goal2 = (<HTMLInputElement>document.getElementById('goals2'));
+    let goal3 = (<HTMLInputElement>document.getElementById('goals3'));
+
+    this.goalsChanges.push({
+      Goals1: goal1.value,
+      Goals2: goal2.value,
+      Goals3: goal3.value
+    })
+    
+    this.saveDataService.saveChanges(this.uid,'goals', this.goalsChanges[0]) 
+    this.goalsChanges = [];
+    this.flagCvEdit = false;
   }
 
 }

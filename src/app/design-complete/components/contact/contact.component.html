@@ -1,4 +1,4 @@
-<div class="card-body col">
+<div class="card-body contact">
     <h5>You can contact me through</h5>
     <div *ngIf="!flagCvEdit">
         <div>Email: {{ cv[1].Email }}</div>
@@ -6,10 +6,16 @@
         <div>Telephone 2: {{ cv[1].Telephone2 }}</div>
         <div>Linkedin: {{ cv[1].linkedin }} </div>
     </div>
-    <div *ngIf="flagCvEdit">
-        <div>Email: <input type="text" value="{{ cv[1].Email }}"> </div>
-        <div>Telephone 1: <input type="text" value="{{ cv[1].Telephone1 }}"></div>
-        <div>Telephone 2: <input type="text" value="{{ cv[1].Telephone2 }}"></div>
-        <div>Linkedin: <input type="text" value="{{ cv[1].linkedin }}"></div>
+    <div *ngIf="flagCvEdit" class="contact__result">
+        Email: 
+        <input type="text" id="email" value="{{ cv[1].Email }}"> 
+        Telephone 1: 
+        <input type="text" id="telephone1" value="{{ cv[1].Telephone1 }}">
+        Telephone 2: 
+        <input type="text" id="telephone2" value="{{ cv[1].Telephone2 }}">
+        Linkedin: 
+        <input type="text" id="linkedin" value="{{ cv[1].linkedin }}">
     </div>
+    <i *ngIf="!flagCvEdit" class="fa fa-edit" (click)="edit()"></i>
+    <i *ngIf="flagCvEdit" class="fa fa-save" (click)="save()"></i>
 </div>

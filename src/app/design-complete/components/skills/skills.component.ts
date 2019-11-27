@@ -9,10 +9,12 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class SkillsComponent implements OnInit {
   @Input('cv') cv;
-  @Input('flagCvEdit') flagCvEdit;
 
   uid: string;
   user$: any;
+
+  flagCvEdit: boolean = false;
+  skillsChange = [];
 
   constructor(
     private saveDataService: SaveDataService,
@@ -26,6 +28,28 @@ export class SkillsComponent implements OnInit {
         this.uid = x.uid;
       }
     });  
+  }
+
+  edit() {
+    this.flagCvEdit = true;
+  }
+
+  save() {
+    let skill1 = (<HTMLInputElement>document.getElementById('skill1'));
+    let skill2 = (<HTMLInputElement>document.getElementById('skill2'));
+    let skill3 = (<HTMLInputElement>document.getElementById('skill3'));
+    let skill4 = (<HTMLInputElement>document.getElementById('skill4'));
+
+    this.skillsChange.push({
+      skill1: skill1.value,
+      skill2: skill2.value,
+      skill3: skill3.value,
+      skill4: skill4.value
+    })
+    
+    this.saveDataService.saveChanges(this.uid,'skills', this.skillsChange[0]) 
+    this.skillsChange = [];
+    this.flagCvEdit = false;
   }
 
 }

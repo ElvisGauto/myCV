@@ -1,27 +1,25 @@
-<div class="card-body skills__content">
+<div class="card-body skills">
     <h5>
         Skills
     </h5>
-    <nav>
-        <ul *ngIf="!flagCvEdit">
-            <li>{{ cv[5].skill1 }}</li>
-            <li>{{ cv[5].skill2 }}</li>
-            <li>{{ cv[5].skill3 }}</li>
-            <li>{{ cv[5].skill4 }}</li>
-        </ul>
-        <ul *ngIf="flagCvEdit">
-            <li>
-                skill 1: <input type="text" value="{{ cv[5].skill1 }}">
-            </li>
-            <li>
-                skill 2: <input type="text" value="{{ cv[5].skill2 }}">
-            </li>
-            <li>
-                skill 3: <input type="text" value="{{ cv[5].skill3 }}">
-            </li>
-            <li>
-                skill 4: <input type="text" value="{{ cv[5].skill4 }}">
-            </li>
-        </ul>
-    </nav>
+    <div class="skills__content">
+        <div *ngIf="!flagCvEdit">
+            <div>{{ cv[5].skill1 }}</div>
+            <div>{{ cv[5].skill2 }}</div>
+            <div>{{ cv[5].skill3 }}</div>
+            <div>{{ cv[5].skill4 }}</div>
+        </div>
+        <div *ngIf="flagCvEdit" class="skills__content__result">
+            skill 1: 
+            <input id="skill1" type="text" value="{{ cv[5].skill1 }}">
+            skill 2: 
+            <input id="skill2" type="text" value="{{ cv[5].skill2 }}">
+            skill 3: 
+            <input id="skill3" type="text" value="{{ cv[5].skill3 }}">
+            skill 4: 
+            <input id="skill4" type="text" value="{{ cv[5].skill4 }}">
+        </div>
+    </div>
+    <i *ngIf="!flagCvEdit" class="fa fa-edit" (click)="edit()"></i>
+    <i *ngIf="flagCvEdit" class="fa fa-save" (click)="save()"></i>
 </div>

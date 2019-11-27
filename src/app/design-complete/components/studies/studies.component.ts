@@ -56,10 +56,9 @@ export class StudiesComponent implements OnInit {
       adressCollege: adressCollege.value,
       egressCollege: egressCollege.value
     })
-
-    // console.log(this.studiesChanges[0]);
-    // console.log(this.uid);
-    this.saveDataService.save(this.flagRouteChange,'',this.uid,'studies', this.studiesChanges[0]); 
+    
+    this.saveDataService.save(this.flagRouteChange,'',this.uid,'studies', this.studiesChanges[0]);
+    this.studiesChanges = []; 
     this.flagCvEdit = false;
   }
 

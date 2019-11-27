@@ -1,4 +1,4 @@
-<div class="card-body">
+<div class="card-body goals">
     <h5>
         Goals
     </h5>
@@ -9,11 +9,11 @@
             {{ cv[3].Goals3 }} <br>
         </p>
     </div>
-    <div *ngIf="flagCvEdit">
-        <p>
-            Goal 1:<input type="text" value="{{ cv[3].Goals1 }}"> <br>
-            Goal 2:<input type="text" value="{{ cv[3].Goals2 }}"> <br>
-            Goal 3:<input type="text" value="{{ cv[3].Goals3 }}"> <br>
-        </p>
+    <div *ngIf="flagCvEdit" class="goals__result">
+        Goal 1:<input id="goals1" type="text" value="{{ cv[3].Goals1 }}"> <br>
+        Goal 2:<input id="goals2" type="text" value="{{ cv[3].Goals2 }}"> <br>
+        Goal 3:<input id="goals3" type="text" value="{{ cv[3].Goals3 }}"> <br>
     </div>
+    <i *ngIf="!flagCvEdit" class="fa fa-edit" (click)="edit()"></i>
+    <i *ngIf="flagCvEdit" class="fa fa-save" (click)="save()"></i>
 </div>

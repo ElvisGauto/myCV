@@ -38,10 +38,11 @@ export class AboutMeComponent implements OnInit {
   save() {
     let pancho = (<HTMLInputElement>document.getElementById('aboutMeChanges'));
     this.aboutMeChanges.push({
-      aboutMe: pancho.value
+      aboutMe: pancho.value.trim()
     })
-    this.saveDataService.save(this.flagRouteChange,'',this.uid,'aboutMe', this.aboutMeChanges[0]); 
+    
+    this.saveDataService.saveChanges(this.uid,'aboutMe', this.aboutMeChanges[0]) 
+    this.aboutMeChanges = [];
     this.flagCvEdit = false;
   }
-
 }

@@ -26,8 +26,25 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-## This project hav Bootstrap
+## This project have Bootstrap
 
     npm i --save bootstrap
+
+## Add Icons
+
+    npm i font-awesome --save
+
+    In style global: @import "~font-awesome/css/font-awesome.css";
+
+    For use some icons, remove "s" or "r" of style class. For example
+
+    use :-
+
+    -- <i class="fa fa-hand-scissors-o" aria-hidden="true"></i>
+
+    Instead of 
+
+    -- <i class="far(fas) fa-hand-scissors"></i>
+
 
 

@@ -9,10 +9,12 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class ExperienceComponent implements OnInit {
   @Input('cv') cv;
-  @Input('flagCvEdit') flagCvEdit;
 
   uid: string;
   user$: any;
+
+  experienceChanges = [];
+  flagCvEdit: boolean = false;
 
   constructor(
     private saveDataService: SaveDataService,
@@ -26,6 +28,26 @@ export class ExperienceComponent implements OnInit {
         this.uid = x.uid;
       }
     });  
+  }
+
+  edit() {
+    this.flagCvEdit = true;
+  }
+
+  save() {
+    let companyName = (<HTMLInputElement>document.getElementById('companyName'));
+    let timePeriod = (<HTMLInputElement>document.getElementById('timePeriod'));
+    let responsibilities = (<HTMLInputElement>document.getElementById('responsabilities'));
+
+    this.experienceChanges.push({
+      companyName: companyName.value,
+      timePeriod: timePeriod.value,
+      responsibilities: responsibilities.value
+    })
+    
+    this.saveDataService.saveChanges(this.uid,'experience', this.experienceChanges[0]) 
+    this.experienceChanges = [];
+    this.flagCvEdit = false;
   }
 
 }

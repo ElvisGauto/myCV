@@ -7,3 +7,13 @@
     flex-direction: column;
     align-items: center;
 }
+
+@mixin flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin font-icon($marginTop:0px) {
+    font-size: 25px;
+    margin-top: $marginTop;
+}

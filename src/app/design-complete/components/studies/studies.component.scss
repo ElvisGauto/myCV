@@ -1,0 +1,18 @@
+@import "../../../../styles/utils";
+
+.fa {
+    @include font-icon(15px);
+}
+
+.studies {
+    &__changesResult {
+        @include flex-col;   
+    }
+    &__changesResultDiv {
+        &__content {
+            &__result {
+                @include flex-col;
+            }
+        }
+    }
+}

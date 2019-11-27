@@ -1,0 +1,11 @@
+@import "../../../../styles/utils";
+
+.fa {
+    @include font-icon(15px);
+}
+
+.contact {
+    &__result {
+        @include flex-col;
+    }
+}

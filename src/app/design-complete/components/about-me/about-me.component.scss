@@ -1,0 +1,10 @@
+@import "../../../../styles/utils";
+
+.fa {
+    @include font-icon;
+}
+.experience {
+    &__editResult {
+        @include flex-col;
+    }
+}

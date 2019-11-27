@@ -1,0 +1,10 @@
+@import "../../../../styles/utils";
+
+.fa {
+    @include font-icon;
+}
+.goals {
+    &__result {
+        @include flex-col;
+    }
+}
