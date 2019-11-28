@@ -20,7 +20,7 @@ export class DashCvComponent implements OnInit {
   confirmUidName = {};
   CV = [];
 
-  ex: boolean = true;
+  ex: boolean = false;
   uid: string;
   inputShared: string;
   urlCopied: string;
