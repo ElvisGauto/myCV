@@ -9,19 +9,32 @@
             <div>{{ cv[5].skill3 }}</div>
             <div>{{ cv[5].skill4 }}</div>
         </div>
-        <div *ngIf="flagCvEdit" class="skills__content__result">
-            skill 1: 
-            <input id="skill1" type="text" value="{{ cv[5].skill1 }}">
-            skill 2: 
-            <input id="skill2" type="text" value="{{ cv[5].skill2 }}">
-            skill 3: 
-            <input id="skill3" type="text" value="{{ cv[5].skill3 }}">
-            skill 4: 
-            <input id="skill4" type="text" value="{{ cv[5].skill4 }}">
+        <div *ngIf="flagCvEdit" class="skills__content__result" id="listSkills">
+            <div class="form-group">
+                skill 1: 
+                <input id="skill1" type="text" value="{{ cv[5].skill1 }}">
+            </div>
+            <div class="form-group">
+                skill 2: 
+                <input id="skill2" type="text" value="{{ cv[5].skill2 }}">
+            </div>
+            <div class="form-group">
+                skill 3: 
+                <input id="skill3" type="text" value="{{ cv[5].skill3 }}">
+            </div>
+            <div class="form-group">
+                skill 4: 
+                <input id="skill4" type="text" value="{{ cv[5].skill4 }}">
+            </div>
         </div>
     </div>
-    <div *ngIf="flagButtons">
-        <i *ngIf="!flagCvEdit" class="fa fa-edit" (click)="edit()"></i>
-        <i *ngIf="flagCvEdit" class="fa fa-save" (click)="save()"></i>
+    <div class="skills__divBtn" *ngIf="flagButtons">
+        <div *ngIf="flagCvEdit" class="skills__divBtn__btnPlus">
+            <i class="fa fa-plus-square" (click)="addMore()"></i>
+        </div>
+        <div class="skills__divBtn__btnChange">
+            <i *ngIf="!flagCvEdit" class="fa fa-edit" (click)="edit()"></i>
+            <i *ngIf="flagCvEdit" class="fa fa-save" (click)="save()"></i>
+        </div>
     </div>
 </div>

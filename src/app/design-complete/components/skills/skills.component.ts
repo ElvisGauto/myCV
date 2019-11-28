@@ -57,4 +57,22 @@ export class SkillsComponent implements OnInit {
     this.flagCvEdit = false;
   }
 
+  addMore() {
+    let listSkills = document.getElementById('listSkills');
+    let countChild = listSkills.childElementCount;
+    let pancho = countChild + 1;
+
+    let newDiv = document.createElement('div');
+    newDiv.setAttribute('class', 'form-group');
+    newDiv.setAttribute('id', `skill${pancho.toString()}`);
+
+    newDiv.innerHTML = 
+    `skill ${pancho}:
+      <input type="text" id="skill${pancho}" width="100">`
+
+    if(countChild <= 9) {
+      listSkills.appendChild(newDiv);
+    }
+  }
+
 }

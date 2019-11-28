@@ -10,4 +10,11 @@
             @include flex-col;
         }
     }
+    &__divBtn {
+        display: flex;
+        flex-direction: row;
+        &__btnPlus {
+            margin-right: 10px;
+        }
+    }
 }
