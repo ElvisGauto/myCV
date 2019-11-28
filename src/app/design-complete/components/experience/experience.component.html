@@ -17,7 +17,7 @@
         <div *ngIf="flagButtons">
             <div>
                 <i *ngIf="!flagCvEdit" class="fa fa-edit" (click)="edit()"></i>
-                <i *ngIf="flagCvEdit" class="fa fa-save" (click)="save()"></i>
+                <i *ngIf="flagCvEdit" class="fa fa-save" (click)="save()" (keyup.enter)="save()"></i>
             </div>
             <!-- <i class="fa fa-plus-square"></i> -->
         </div>

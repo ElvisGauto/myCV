@@ -7,6 +7,7 @@ import { GoalsComponent } from './components/goals/goals.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { StudiesComponent } from './components/studies/studies.component';
 import { ExperienceComponent } from './components/experience/experience.component';
+import { FormsModule } from '@angular/forms';
 
 let components = [
   ProfileComponent, 
@@ -23,7 +24,8 @@ let components = [
     components
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     components

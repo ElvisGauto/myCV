@@ -18,6 +18,13 @@ export class SkillsComponent implements OnInit {
 
   flagCvEdit: boolean = false;
   skillsChange = [];
+  skillArr = [];
+  listSkills$;
+  listSkills: any = [];
+
+  list = [];
+  countChild: number;
+  pancho;
 
   constructor(
     private saveDataService: SaveDataService,
@@ -31,44 +38,41 @@ export class SkillsComponent implements OnInit {
       if(x) {
         this.uid = x.uid;
       }
+
+      this.listSkills$ = this.saveDataService.showDataList('cv', this.uid, 'skills');
+      this.listSkills = document.getElementById('listSkills');
+
+      this.listSkills$.subscribe(data => {
+        this.listSkills = data;
+      });
     });  
+    
+
+
   }
 
   edit() {
     this.flagCvEdit = true;
   }
 
-  save() {
-    let skill1 = (<HTMLInputElement>document.getElementById('skill1'));
-    let skill2 = (<HTMLInputElement>document.getElementById('skill2'));
-    let skill3 = (<HTMLInputElement>document.getElementById('skill3'));
-    let skill4 = (<HTMLInputElement>document.getElementById('skill4'));
-
-    this.skillsChange.push({
-      skill1: skill1.value,
-      skill2: skill2.value,
-      skill3: skill3.value,
-      skill4: skill4.value
-    })
-    
-    this.saveDataService.saveChanges(this.uid,'skills', this.skillsChange[0]) 
-    this.shareCvService.updateShareCv(this.uidName, '5', this.skillsChange[0]);
-    this.skillsChange = [];
-    this.flagCvEdit = false;
+  save(pancho) {
+      // let jaja = document.getElementById(pancho);
+      console.log(pancho); 
   }
 
   addMore() {
     let listSkills = document.getElementById('listSkills');
     let countChild = listSkills.childElementCount;
     let pancho = countChild + 1;
+    let jajaja = `skill${pancho.toString()}`
 
     let newDiv = document.createElement('div');
     newDiv.setAttribute('class', 'form-group');
-    newDiv.setAttribute('id', `skill${pancho.toString()}`);
+    newDiv.setAttribute('id', jajaja);
 
     newDiv.innerHTML = 
     `skill ${pancho}:
-      <input type="text" id="skill${pancho}" width="100">`
+      <input type="text" ngModel name="skill${pancho}" id="skill${pancho}" width="100">`
 
     if(countChild <= 9) {
       listSkills.appendChild(newDiv);

@@ -39,6 +39,10 @@ export class SaveDataService {
     return this.db.list(`/${typeCv}/${uid}`);
   }
 
+  showDataList(typeCv: string, uid: string, typeList: string) {
+    return this.db.list(`/${typeCv}/${uid}/${typeList}`);
+  }
+
   deleteCv(typeObject: string, uid: string) {
     this.db.object(`/${typeObject}/${uid}`).remove();
 
