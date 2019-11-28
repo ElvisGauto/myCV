@@ -1,24 +1,23 @@
+@import "../../../../styles/settings.variables";
+
 .navbar {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-
+    flex-direction: column;
+    @media (min-width: $breakpoint-tablet) {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
     &__icon {
         display: flex;
         align-items: center;
     }
-
-    &__links {
-        display: flex;
-        flex-direction: row;
-        &__navLink {
-            &__ulLink {
-                display: flex;
-                flex-direction: row;
-                list-style: none;
-                li, div {
-                    padding: 10px;
-                }
+    &__containerLinks {
+        &__ulLinks {
+            display: flex;
+            flex-direction: row;
+            .li-AboutUs {
+                margin-right: 15px;
             }
         }
     }

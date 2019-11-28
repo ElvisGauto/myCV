@@ -1,19 +1,15 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light">
     <a class="navbar-brand" routerLink="/">MyCVision</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+    <div class="navbar__containerLinks">
+        <ul class="navbar-nav mr-auto navbar__containerLinks__ulLinks">
+            <li class="nav-item li-AboutUs">
                 <a class="nav-link" href="#">About Us</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Contact Us</a>
             </li>
-            <div class="btn btn-link">
-                <ng-template #anonimousUser></ng-template>
-                <span (click)="logOut()" *ngIf="user$ | async as user; else anonimousUser">Sing Out</span>
+            <div class="btn btn-link" *ngIf="user$ | async as user">
+                <span (click)="logOut()">Sing Out</span>
             </div>
         </ul>
     </div>
