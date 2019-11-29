@@ -3,7 +3,10 @@
 .fa {
     @include font-icon(15px);
 }
-
+.fa-save {
+    border: none;
+    background: #fff;
+}
 .skills {
     &__content {
         &__result {

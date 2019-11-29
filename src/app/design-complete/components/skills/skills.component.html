@@ -3,21 +3,20 @@
         Skills
     </h5>
     <div class="skills__content">
-        <div  >
-            <!-- <div *ngIf="flagCvEdit" *ngFor="let skill of listSkills; let i = index">
-                <div>
+        <div>
+            <div *ngIf="flagCvEdit">
+                <div *ngFor="let skill of listSkills; let i = index">
                     {{ skill.$value }}
                 </div>
-            </div> -->
-            <div  class="form-group" id="listSkills">
-                <form #fChange="ngForm" (ngSubmit)="save(fChange.value)">
+                <i *ngIf="flagCvEdit" class="fa fa-edit" (click)="edit()"></i>
+            </div>
+            <div *ngIf="!flagCvEdit" class="form-group" id="listSkills">
+                <form #sForm="ngForm" (ngSubmit)="save(sForm.value)">
                     <div *ngFor="let skill of listSkills; let i = index">
                         Skill{{i + 1}}: 
-                        <input  ngModel name="skill{{i + 1}}" id="skill{{ i + 1 }}" type="text" value="{{ skill.$value }}">
+                        <input ngModel name="skill{{ i + 1 }}" id="skill{{ i + 1 }}" type="text" placeholder="{{ skill.$value }}">
                     </div>
-                    
-                    <div class="skills__divBtn__btnChange">
-                        <!-- <i *ngIf="!flagCvEdit" class="fa fa-edit" (click)="edit()"></i> -->
+                    <div class="skills__divBtn__btnChange" *ngIf="flagButtons">
                         <button *ngIf="!flagCvEdit" class="fa fa-save"></button>
                     </div>
                 </form>
@@ -28,5 +27,9 @@
         <div *ngIf="flagCvEdit" class="skills__divBtn__btnPlus">
             <i class="fa fa-plus-square" (click)="addMore()"></i>
         </div>
+        <!-- <div class="skills__divBtn__btnChange" *ngIf="flagButtons">
+            <i *ngIf="!flagCvEdit" class="fa fa-edit" (click)="edit()"></i>
+            <i *ngIf="flagCvEdit" class="fa fa-save" (click)="save()"></i>
+        </div> -->
     </div>
 </div>
