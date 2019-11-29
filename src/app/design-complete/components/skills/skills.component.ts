@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { SaveDataService } from 'src/app/shared/services/cv-data.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { ShareCVService } from 'src/app/shared/services/share-cv.service';
+import { database } from 'firebase';
 
 @Component({
   selector: 'skills',
@@ -17,6 +18,7 @@ export class SkillsComponent implements OnInit {
   user$: any;
 
   flagCvEdit: boolean = false;
+  addFlag: boolean = false;
   skillsChange = [];
   skillArr = [];
   listSkills$;
@@ -55,15 +57,20 @@ export class SkillsComponent implements OnInit {
     this.flagCvEdit = true;
   }
 
-  save(pancho) {
-      // let jaja = document.getElementById(pancho);
-      console.log(pancho); 
+  save(dataChange) {
+    // this.saveDataService.saveChanges(this.uid,'skills', dataChange) 
+    // this.shareCvService.updateShareCv(this.uidName, '5', dataChange);
+    // this.flagCvEdit = false;
+    console.log(dataChange);
+    this.addFlag = false;
   }
 
   addMore() {
-    let listSkills = document.getElementById('listSkills');
-    let countChild = listSkills.childElementCount;
-    let pancho = countChild + 1;
+    this.addFlag = true;
+    let skillList = document.getElementById('skillList');
+    let countChild = skillList.childElementCount;
+
+    let pancho = countChild + 5;
     let jajaja = `skill${pancho.toString()}`
 
     let newDiv = document.createElement('div');
@@ -71,11 +78,11 @@ export class SkillsComponent implements OnInit {
     newDiv.setAttribute('id', jajaja);
 
     newDiv.innerHTML = 
-    `skill ${pancho}:
+    `Skill${pancho}:
       <input type="text" ngModel name="skill${pancho}" id="skill${pancho}" width="100">`
 
-    if(countChild <= 9) {
-      listSkills.appendChild(newDiv);
+    if(pancho <= 10) {
+      skillList.appendChild(newDiv);
     }
   }
 
