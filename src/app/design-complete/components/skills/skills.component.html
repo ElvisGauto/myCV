@@ -8,16 +8,19 @@
                 <div *ngFor="let skill of listSkills; let i = index">
                     {{ skill.$value }}
                 </div>
-                <i class="fa fa-edit" (click)="edit()"></i>
+                <i *ngIf="flagButtons" class="fa fa-edit" (click)="edit()"></i>
             </div>
             <div *ngIf="flagCvEdit" class="form-group">
                 <form #sForm="ngForm" (ngSubmit)="save(sForm.value)">
                     <div *ngFor="let skill of listSkills; let i = index" id="listSkills">
-                        <label for="skill{{ i + 1 }}">Skill{{i + 1}}: |</label>
+                        <label for="skill{{ i + 1 }}">Skill{{i + 1}}: </label>
                         <input ngModel name="skill{{ i + 1 }}" id="skill{{ i + 1 }}" type="text" [(ngModel)]="skill.$value" >
                     </div>
-                    <div id="skillList" if="addFlag">
-                        
+                    <div *ngIf="flagAddMore">
+                        <div id="skillList" *ngFor="let more of arrayMore">
+                            <label for="skill{{more}}">Skill{{more}}:</label>
+                            <input ngModel name="skill{{more}}" id="skill{{more}}" type="text">
+                        </div>
                     </div>
                     <div class="skills__divBtn__btnChange" *ngIf="flagButtons">
                         <i class="fa fa-plus-square" (click)="addMore()"></i>

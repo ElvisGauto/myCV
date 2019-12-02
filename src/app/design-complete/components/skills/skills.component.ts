@@ -16,9 +16,11 @@ export class SkillsComponent implements OnInit {
 
   uid: string;
   user$: any;
+  pancho: number;
+  arrayMore = [];
 
   flagCvEdit: boolean = false;
-  addFlag: boolean = false;
+  flagAddMore: boolean = false;
   skillsChange = [];
   skillArr = [];
   listSkills$;
@@ -26,7 +28,6 @@ export class SkillsComponent implements OnInit {
 
   list = [];
   countChild: number;
-  pancho;
 
   constructor(
     private saveDataService: SaveDataService,
@@ -46,11 +47,9 @@ export class SkillsComponent implements OnInit {
 
       this.listSkills$.subscribe(data => {
         this.listSkills = data;
+        this.pancho = this.listSkills.length;
       });
     });  
-    
-
-
   }
 
   edit() {
@@ -58,31 +57,19 @@ export class SkillsComponent implements OnInit {
   }
 
   save(dataChange) {
-    // this.saveDataService.saveChanges(this.uid,'skills', dataChange) 
-    // this.shareCvService.updateShareCv(this.uidName, '5', dataChange);
-    // this.flagCvEdit = false;
+    this.saveDataService.saveChanges(this.uid,'skills', dataChange) 
+    this.shareCvService.updateShareCv(this.uidName, '5', dataChange);
+    this.flagCvEdit = false;
     console.log(dataChange);
-    this.addFlag = false;
+    this.flagAddMore = false;
+    this.arrayMore = [];
   }
 
   addMore() {
-    this.addFlag = true;
-    let skillList = document.getElementById('skillList');
-    let countChild = skillList.childElementCount;
-
-    let pancho = countChild + 5;
-    let jajaja = `skill${pancho.toString()}`
-
-    let newDiv = document.createElement('div');
-    newDiv.setAttribute('class', 'form-group');
-    newDiv.setAttribute('id', jajaja);
-
-    newDiv.innerHTML = 
-    `Skill${pancho}:
-      <input type="text" ngModel name="skill${pancho}" id="skill${pancho}" width="100">`
-
-    if(pancho <= 10) {
-      skillList.appendChild(newDiv);
+    this.pancho = this.pancho + 1;
+    if(this.pancho < 10) {
+      this.flagAddMore = true;
+      this.arrayMore.push(this.pancho);
     }
   }
 

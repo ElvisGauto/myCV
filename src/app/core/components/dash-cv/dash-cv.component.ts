@@ -100,6 +100,8 @@ export class DashCvComponent implements OnInit {
     if(this.confirmUidName === 0) {
       this.shareCVService.shareCV(this.uidName, this.CV); 
     } 
+    
+    alert('CV link has been copied')
   }
 
   deleteCv() {
