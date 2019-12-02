@@ -60,7 +60,6 @@ export class SkillsComponent implements OnInit {
     this.saveDataService.saveChanges(this.uid,'skills', dataChange) 
     this.shareCvService.updateShareCv(this.uidName, '5', dataChange);
     this.flagCvEdit = false;
-    console.log(dataChange);
     this.flagAddMore = false;
     this.arrayMore = [];
   }

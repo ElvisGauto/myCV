@@ -1,4 +1,4 @@
-<div class="containerDash" id="main" >
+<div class="containerDash" id="main"  *ngIf="cvFinished$ | async as cv">
     <div class="containerDash__categories">
         <nav class="containerDash__categories__nav">
             <ul class="containerDash__categories__nav__ul">
@@ -6,7 +6,7 @@
                 <li (click)="element('aboutMe')" >About Me</li>
                 <li (click)="element('studies')" >Studies</li>
                 <li (click)="element('skills')" >Skills</li>
-                <li (click)="element('experience')" *ngIf="ex" >Experience</li>
+                <li (click)="element('experience')" *ngIf="cv[2].workExperience === 'yes'">Experience</li>
                 <li (click)="element('goals')" >Goals</li>
                 <li (click)="element('contact')" >Contact</li>
             </ul>
@@ -16,7 +16,7 @@
             <button class="btn btn-danger containerDash__categories__buttons__btnDelete" (click)="deleteCv()">Delete my CV</button>
         </div>
     </div>
-    <div *ngIf="cvFinished$ | async as cv" class="containerDash__dashCV" id="dashCV">
+    <div class="containerDash__dashCV" id="dashCV">
         <div class="containerDash__dashCV__buttons sticky-top">
             <button class="btn btn-success containerDash__categories__buttons__btnShare" (click)="shareCV()">Create Link</button>
             <button class="btn btn-danger containerDash__categories__buttons__btnDelete" (click)="deleteCv()">Delete my CV</button>
@@ -51,7 +51,7 @@
             ></skills>
         </div>
         <hr>
-        <div class="containerDash__dashCV__experience card" id="experience">
+        <div *ngIf="cv[2].workExperience === 'yes'" class="containerDash__dashCV__experience card" id="experience">
             <experience 
             [cv]="cv"
             [uidName]="uidName"
