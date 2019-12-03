@@ -7,4 +7,17 @@
     &__result {
         @include flex-col;
     }
+    &__divList {
+        &__navList {
+            &__ulList {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                &__list {
+                    width: 90%;
+                }
+            }
+        }
+    }
 }

@@ -1,11 +1,14 @@
 @import "../../../../styles/utils";
 
-.fa {
-    @include font-icon(15px);
-}
-
 .experience {
     &__editResult {
         @include flex-col;
     }
+}
+
+.fa {
+    @include font-icon(15px);
+}
+label {
+    font-weight: 600;
 }

@@ -1,17 +1,14 @@
 @import "../../../../styles/utils";
 
-.fa {
-    @include font-icon(15px);
-}
-.fa-save {
-    border: none;
-    background: #fff;
-    margin-left: 10px;
-}
 .skills {
     &__content {
         &__result {
             @include flex-col;
+        }  
+        &__divSkillValue {
+            &__valueSkill {
+                // font-weight: 600;
+            }
         }
     }
     &__divBtn {
@@ -21,4 +18,16 @@
             margin-right: 10px;
         }
     }
+}
+
+.fa {
+    @include font-icon(15px);
+}
+.fa-save {
+    border: none;
+    background: #fff;
+    margin-left: 10px;
+}
+label {
+    margin-right: 10px;
 }

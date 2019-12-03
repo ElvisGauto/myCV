@@ -1,19 +1,37 @@
 <div class="card-body contact">
     <h5>You can contact me through</h5>
-    <div *ngIf="!flagCvEdit">
-        <div>Email: {{ cv[1].Email }}</div>
-        <div>Telephone 1: {{ cv[1].Telephone1 }}</div>
-        <div>Telephone 2: {{ cv[1].Telephone2 }}</div>
-        <div>Linkedin: {{ cv[1].linkedin }} </div>
+    <div *ngIf="!flagCvEdit" class="contact__showContact">
+        <div>
+            <label>Email: </label>
+            {{ cv[1].Email }}
+        </div>
+
+        <div>
+            <label>Phone 1: </label>
+            {{ cv[1].Telephone1 }}
+        </div>
+
+        <div>
+            <label>Phone 2: </label>
+            {{ cv[1].Telephone2 }}
+        </div>
+
+        <div>
+            <label>Linkedin: </label>
+            <a href="{{ cv[1].linkedin }}"> ProfileLinkedin</a> 
+        </div>
     </div>
     <div *ngIf="flagCvEdit" class="contact__result">
-        Email: 
+        <label>Email: </label>
         <input type="text" id="email" value="{{ cv[1].Email }}"> 
-        Telephone 1: 
+        
+        <label>Phone 1: </label>
         <input type="text" id="telephone1" value="{{ cv[1].Telephone1 }}">
-        Telephone 2: 
+        
+        <label>Phone 2: </label>
         <input type="text" id="telephone2" value="{{ cv[1].Telephone2 }}">
-        Linkedin: 
+        
+        <label>Linkedin: </label>
         <input type="text" id="linkedin" value="{{ cv[1].linkedin }}">
     </div>
     <div *ngIf="flagButtons">

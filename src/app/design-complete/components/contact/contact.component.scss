@@ -1,11 +1,19 @@
 @import "../../../../styles/utils";
 
-.fa {
-    @include font-icon(15px);
-}
-
 .contact {
+    &__showContact {
+        display: flex;
+        flex-direction: column;
+    }
     &__result {
         @include flex-col;
     }
+}
+
+
+.fa {
+    @include font-icon(15px);
+}
+label {
+    font-weight: 600;
 }

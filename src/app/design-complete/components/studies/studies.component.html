@@ -3,16 +3,30 @@
         <div class="card-body">
             <h5>High School</h5>
             <div *ngIf="!flagCvEdit">
-                Name: {{cv[6].nameSchool}} <br>
-                Title: {{cv[6].titleSchool}} <br>
-                City School: {{ cv[6].citySchool }} <br>
-                Egress School: {{ cv[6].departureSchool }} <br>
+                <label>Name: </label>
+                 {{cv[6].nameSchool}}<br>
+
+                <label>Title: </label> 
+                {{cv[6].titleSchool}} <br>
+
+                <label>City School: </label> 
+                {{ cv[6].citySchool }} <br>
+
+                <label>Egress School: </label> 
+                {{ cv[6].departureSchool }} <br>
             </div>
             <div class="studies__changesResult" *ngIf="flagCvEdit">
-                Name: <input id="nameSchool" type="text" value="{{cv[6].nameSchool}}"><br>
-                Title: <input id="titleSchool" type="text" value="{{cv[6].titleSchool}}">  <br>
-                City School: <input id="citySchool" type="text" value="{{ cv[6].citySchool }}">  <br>
-                Egress School: <input id="departureSchool" type="text" value="{{ cv[6].departureSchool }}"><br>
+                <label>Name: </label>
+                <input id="nameSchool" type="text" value="{{cv[6].nameSchool}}"><br>
+               
+                <label>Title: </label> 
+                <input id="titleSchool" type="text" value="{{cv[6].titleSchool}}">  <br>
+                
+                <label>City School: </label>
+                <input id="citySchool" type="text" value="{{ cv[6].citySchool }}">  <br>
+                
+                <label>Egress School: </label>
+                <input id="departureSchool" type="text" value="{{ cv[6].departureSchool }}"><br>
             </div>
                 
             <div *ngIf="cv[6].optionCollege === 'no' && flagButtons">
@@ -24,30 +38,57 @@
             <h5>College</h5>
             <div *ngIf="!flagCvEdit">
                 <div *ngIf="cv[6].optionCollege === 'yes'">
-                    Name: {{cv[6].collegeName}} <br>
-                    Title: {{cv[6].titleCollege}} <br>
-                    City College: {{ cv[6].adressCollege }} <br>
-                    Egress College: {{ cv[6].yearCollege }} <br>
+                    <label>Name: </label>
+                    {{cv[6].collegeName}} <br>
+                    <label>Title: </label> 
+                    {{cv[6].titleCollege}} <br>
+                    
+                    <label>City College: </label>
+                    {{ cv[6].adressCollege }} <br>
+                    
+                    <label>Egress College: </label>
+                    {{ cv[6].yearCollege }} <br>
                 </div>
                 <div *ngIf="cv[6].optionCollege === 'inProgress'">
-                    Name: {{cv[6].collegeName}} <br>
-                    I Study: {{cv[6].titleCollege}} <br>
-                    City College: {{ cv[6].adressCollege }} <br>
-                    Year: {{ cv[6].yearCollege }} <br>
+                    <label>Name: </label>
+                    {{cv[6].collegeName}} <br>
+                    
+                    <label>I Study: </label>
+                    {{cv[6].titleCollege}} <br>
+                    
+                    <label>City College: </label>
+                    {{ cv[6].adressCollege }} <br>
+                    
+                    <label>Year: </label>
+                    {{ cv[6].yearCollege }} <br>
                 </div>
             </div>
             <div *ngIf="flagCvEdit" class="studies__changesResultDiv__content">
                 <div *ngIf="cv[6].optionCollege === 'yes'" class="studies__changesResultDiv__content__result">
-                    Name: <input id="collegeName" type="text" value="{{cv[6].collegeName}}"> <br>
-                    Title: <input id="titleCollege" type="text" value="{{cv[6].titleCollege}}"> <br>
-                    City College: <input id="adressCollege" type="text" value="{{ cv[6].adressCollege }}"> <br>
-                    Egress College: <input id="yearCollege" type="text" value="{{ cv[6].yearCollege }}"> <br>
+                    <label>Name: </label>
+                    <input id="collegeName" type="text" value="{{cv[6].collegeName}}"> <br>
+                    
+                    <label>Title: </label>
+                    <input id="titleCollege" type="text" value="{{cv[6].titleCollege}}"> <br>
+                    
+                    <label>City College: </label>
+                    <input id="adressCollege" type="text" value="{{ cv[6].adressCollege }}"> <br>
+                    
+                    <label>Egress College: </label>
+                    <input id="yearCollege" type="text" value="{{ cv[6].yearCollege }}"> <br>
                 </div>
                 <div *ngIf="cv[6].optionCollege === 'inProgress'" class="studies__changesResultDiv__content__result">
-                    Name: <input id="collegeName" type="text" value="{{cv[6].collegeName}}"> <br>
-                    I Study: <input id="titleCollege" type="text" value="{{cv[6].titleCollege}}"> <br>
-                    City College: <input id="adressCollege" type="text" value="{{ cv[6].adressCollege }}"> <br>
-                    Year: <input id="yearCollege" type="text" value="{{ cv[6].yearCollege }}"> <br>
+                    <label>Name: </label>
+                    <input id="collegeName" type="text" value="{{cv[6].collegeName}}"> <br>
+                    
+                    <label>I Study: </label> 
+                    <input id="titleCollege" type="text" value="{{cv[6].titleCollege}}"> <br>
+                    
+                    <label>City College: </label>
+                    <input id="adressCollege" type="text" value="{{ cv[6].adressCollege }}"> <br>
+
+                    <label>Year: </label>
+                    <input id="yearCollege" type="text" value="{{ cv[6].yearCollege }}"> <br>
                 </div>
             </div>
             <div *ngIf="flagButtons">
@@ -60,26 +101,47 @@
         <div class="card-body">
             <h5>High School</h5>
             <div>
-                Name: {{cv[6].nameSchool}} <br>
-                Title: {{cv[6].titleSchool}} <br>
-                City School: {{ cv[6].citySchool }} <br>
-                Egress School: {{ cv[6].departureSchool }} <br>
+                <label>Name: </label>
+                {{cv[6].nameSchool}} <br>
+                
+                <label>Title: </label>
+                {{cv[6].titleSchool}} <br>
+                
+                <label>City School: </label>
+                {{ cv[6].citySchool }} <br>
+                
+                <label>Egress School: </label>
+                {{ cv[6].departureSchool }} <br>
             </div>
         </div>
-        <div  class="studies__changesResultDiv card-body">
+        <div *ngIf="!(cv[6].optionCollege === 'no')" class="studies__changesResultDiv card-body">
             <h5>College</h5>
             <div>
                 <div *ngIf="cv[6].optionCollege === 'yes'">
-                    Name: {{cv[6].collegeName}} <br>
-                    Title: {{cv[6].titleCollege}} <br>
-                    City College: {{ cv[6].adressCollege }} <br>
-                    Egress College: {{ cv[6].yearCollege }} <br>
+                    <label>Name: </label>
+                    {{cv[6].collegeName}} <br>
+                    
+                    <label>Title: </label>
+                    {{cv[6].titleCollege}} <br>
+                    
+                    <label>City College: </label>
+                    {{ cv[6].adressCollege }} <br>
+                    
+                    <label>Egress College: </label>
+                    {{ cv[6].yearCollege }} <br>
                 </div>
                 <div *ngIf="cv[6].optionCollege === 'inProgress'">
-                    Name: {{cv[6].collegeName}} <br>
-                    I Study: {{cv[6].titleCollege}} <br>
-                    City College: {{ cv[6].adressCollege }} <br>
-                    Year: {{ cv[6].yearCollege }} <br>
+                    <label>Name: </label>
+                    {{cv[6].collegeName}} <br>
+                    
+                    <label>I Study: </label>
+                    {{cv[6].titleCollege}} <br>
+                    
+                    <label>City College: </label>
+                    {{ cv[6].adressCollege }} <br>
+                    
+                    <label>Year: </label>
+                    {{ cv[6].yearCollege }} <br>
                 </div>
             </div>
         </div>

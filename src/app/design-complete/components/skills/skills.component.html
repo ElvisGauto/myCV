@@ -3,31 +3,41 @@
         Skills
     </h5>
     <div class="skills__content">
-        <div>
-            <div *ngIf="!flagCvEdit">
-                <div *ngFor="let skill of listSkills; let i = index">
-                    {{ skill.$value }}
+        <div *ngIf="!flagCvEdit" class="skills__content__divSkillValue">
+            <div 
+            *ngFor="let skill of listSkills; let i = index"
+            class="skills__content__divSkillValue__valueSkill">
+                {{ skill.$value }}
+            </div>
+            <i *ngIf="flagButtons" class="fa fa-edit" (click)="edit()"></i>
+        </div>
+        <div *ngIf="flagCvEdit" class="form-group skills__content__divEditSkills">
+            <form #sForm="ngForm" class="skills__content__divEditSkills__form" (ngSubmit)="save(sForm.value)">
+                <!-- EDIT SKILLS -->
+                <div *ngFor="let skill of listSkills; let i = index" 
+                id="listSkills" 
+                class="skills__content__divEditSkills__form__editSkills">
+
+                    <label for="skill{{ i + 1 }}">Skill{{i + 1}}: </label>
+                    <input ngModel name="skill{{ i + 1 }}" id="skill{{ i + 1 }}" type="text" [(ngModel)]="skill.$value" >
+
                 </div>
-                <i *ngIf="flagButtons" class="fa fa-edit" (click)="edit()"></i>
-            </div>
-            <div *ngIf="flagCvEdit" class="form-group">
-                <form #sForm="ngForm" (ngSubmit)="save(sForm.value)">
-                    <div *ngFor="let skill of listSkills; let i = index" id="listSkills">
-                        <label for="skill{{ i + 1 }}">Skill{{i + 1}}: </label>
-                        <input ngModel name="skill{{ i + 1 }}" id="skill{{ i + 1 }}" type="text" [(ngModel)]="skill.$value" >
+
+                <!-- INPUTS FOR A NEW SKILLS  -->
+                <div *ngIf="flagAddMore"
+                class="skills__content__divEditSkills__form__addMoreSkills">
+                    <div id="skillList" 
+                    *ngFor="let more of arrayMore"
+                    class="skills__content__divEditSkills__form__moreSkills">
+                        <label for="skill{{more}}">Skill{{more}}:</label>
+                        <input ngModel name="skill{{more}}" id="skill{{more}}" type="text">
                     </div>
-                    <div *ngIf="flagAddMore">
-                        <div id="skillList" *ngFor="let more of arrayMore">
-                            <label for="skill{{more}}">Skill{{more}}:</label>
-                            <input ngModel name="skill{{more}}" id="skill{{more}}" type="text">
-                        </div>
-                    </div>
-                    <div class="skills__divBtn__btnChange" *ngIf="flagButtons">
-                        <i class="fa fa-plus-square" (click)="addMore()"></i>
-                        <button class="fa fa-save"></button>
-                    </div>
-                </form>
-            </div>
+                </div>
+                <div class="skills__divBtn__btnChange" *ngIf="flagButtons">
+                    <i class="fa fa-plus-square" (click)="addMore()"></i>
+                    <button class="fa fa-save"></button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

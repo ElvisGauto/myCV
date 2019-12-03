@@ -2,9 +2,14 @@
     <div class="card-body">
         <h5>Experience</h5>
         <div *ngIf="!flagCvEdit" class="experience__showResult">
-            Company Name: {{ cv[2].companyName }} <br>
-            Time Period: {{ cv[2].timePeriod }} <br>
-            Responsabilities: {{ cv[2].responsibilities }} <br>
+            <label>Company Name: </label> 
+            {{ cv[2].companyName }} <br>
+            
+            <label>Time Period: </label> 
+            {{ cv[2].timePeriod }} <br>
+            
+            <label>Responsabilities: </label> 
+            {{ cv[2].responsibilities }} <br>
         </div>
         <div *ngIf="flagCvEdit" class="experience__editResult">
             <label>Company Name:</label> 

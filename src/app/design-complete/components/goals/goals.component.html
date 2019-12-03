@@ -2,12 +2,22 @@
     <h5>
         Goals
     </h5>
-    <div *ngIf="!flagCvEdit">
-        <p>
-            {{ cv[3].Goals1 }} <br>
-            {{ cv[3].Goals2 }} <br>
-            {{ cv[3].Goals3 }} <br>
-        </p>
+    <div *ngIf="!flagCvEdit" class="goals__divList">
+        <nav class="goals__divList__navList">
+            <ul class="goals__divList__navList__ulList">
+                <li class="goals__divList__navList__ulList__list">
+                    {{ cv[3].Goals1 }}
+                </li>
+                
+                <li class="goals__divList__navList__ulList__list">
+                    {{ cv[3].Goals2 }}
+                </li>
+                
+                <li class="goals__divList__navList__ulList__list">
+                    {{ cv[3].Goals3 }}
+                </li>
+            </ul>
+        </nav>
     </div>
     <div *ngIf="flagCvEdit" class="goals__result">
         Goal 1:<input id="goals1" type="text" value="{{ cv[3].Goals1 }}"> <br>
