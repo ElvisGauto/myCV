@@ -1,149 +1,81 @@
-<div class="studies">
-    <div *ngIf="flagButtons">
-        <div class="card-body">
+<div class="studies card-body">
+    <!-- SHOW DATA  -->
+    <div *ngIf="!flagCvEdit" class="studies__showData">
+        <div class="form-group studies__showData__dataSchool">
             <h5>High School</h5>
-            <div *ngIf="!flagCvEdit">
-                <label>Name: </label>
-                 {{cv[6].nameSchool}}<br>
-
-                <label>Title: </label> 
-                {{cv[6].titleSchool}} <br>
-
-                <label>City School: </label> 
-                {{ cv[6].citySchool }} <br>
-
-                <label>Egress School: </label> 
-                {{ cv[6].departureSchool }} <br>
-            </div>
-            <div class="studies__changesResult" *ngIf="flagCvEdit">
-                <label>Name: </label>
-                <input id="nameSchool" type="text" value="{{cv[6].nameSchool}}"><br>
-               
-                <label>Title: </label> 
-                <input id="titleSchool" type="text" value="{{cv[6].titleSchool}}">  <br>
-                
-                <label>City School: </label>
-                <input id="citySchool" type="text" value="{{ cv[6].citySchool }}">  <br>
-                
-                <label>Egress School: </label>
-                <input id="departureSchool" type="text" value="{{ cv[6].departureSchool }}"><br>
-            </div>
-                
-            <div *ngIf="cv[6].optionCollege === 'no' && flagButtons">
-                <i *ngIf="!flagCvEdit" class="fa fa-edit" (click)="edit()"></i>
-                <i *ngIf="flagCvEdit" class="fa fa-save" (click)="save()"></i>
-            </div>
+            <div><label>Name: </label>{{cv[6].nameSchool}}</div>
+            <div><label>Title: </label>{{cv[6].titleSchool}}</div>
+            <div><label>City School: </label>{{ cv[6].citySchool }}</div>
+            <div><label>Egress School: </label>{{ cv[6].departureSchool }}</div>           
         </div>
-        <div  class="studies__changesResultDiv card-body" *ngIf="cv[6].optionCollege === 'yes' || cv[6].optionCollege === 'inProgress'">
+        <div *ngIf="cv[6].optionCollege === 'yes' || cv[6].optionCollege === 'inProgress'"
+        class="studies__showData__divCollege">
             <h5>College</h5>
-            <div *ngIf="!flagCvEdit">
-                <div *ngIf="cv[6].optionCollege === 'yes'">
-                    <label>Name: </label>
-                    {{cv[6].collegeName}} <br>
-                    <label>Title: </label> 
-                    {{cv[6].titleCollege}} <br>
-                    
-                    <label>City College: </label>
-                    {{ cv[6].adressCollege }} <br>
-                    
-                    <label>Egress College: </label>
-                    {{ cv[6].yearCollege }} <br>
+            <div class="studies__showData__divCollege__dataCollege">
+                <div><label>Name: </label>{{cv[6].collegeName}}</div>
+                <div>
+                    <label *ngIf="cv[6].optionCollege === 'yes'">Title: </label>
+                    <label *ngIf="cv[6].optionCollege === 'inProgress'">I Study: </label>
+                    {{cv[6].titleCollege}}
                 </div>
-                <div *ngIf="cv[6].optionCollege === 'inProgress'">
-                    <label>Name: </label>
-                    {{cv[6].collegeName}} <br>
-                    
-                    <label>I Study: </label>
-                    {{cv[6].titleCollege}} <br>
-                    
-                    <label>City College: </label>
-                    {{ cv[6].adressCollege }} <br>
-                    
-                    <label>Year: </label>
-                    {{ cv[6].yearCollege }} <br>
-                </div>
-            </div>
-            <div *ngIf="flagCvEdit" class="studies__changesResultDiv__content">
-                <div *ngIf="cv[6].optionCollege === 'yes'" class="studies__changesResultDiv__content__result">
-                    <label>Name: </label>
-                    <input id="collegeName" type="text" value="{{cv[6].collegeName}}"> <br>
-                    
-                    <label>Title: </label>
-                    <input id="titleCollege" type="text" value="{{cv[6].titleCollege}}"> <br>
-                    
-                    <label>City College: </label>
-                    <input id="adressCollege" type="text" value="{{ cv[6].adressCollege }}"> <br>
-                    
-                    <label>Egress College: </label>
-                    <input id="yearCollege" type="text" value="{{ cv[6].yearCollege }}"> <br>
-                </div>
-                <div *ngIf="cv[6].optionCollege === 'inProgress'" class="studies__changesResultDiv__content__result">
-                    <label>Name: </label>
-                    <input id="collegeName" type="text" value="{{cv[6].collegeName}}"> <br>
-                    
-                    <label>I Study: </label> 
-                    <input id="titleCollege" type="text" value="{{cv[6].titleCollege}}"> <br>
-                    
-                    <label>City College: </label>
-                    <input id="adressCollege" type="text" value="{{ cv[6].adressCollege }}"> <br>
-
-                    <label>Year: </label>
-                    <input id="yearCollege" type="text" value="{{ cv[6].yearCollege }}"> <br>
-                </div>
-            </div>
-            <div *ngIf="flagButtons">
-                <i *ngIf="!flagCvEdit" class="fa fa-edit" (click)="edit()"></i>
-                <i *ngIf="flagCvEdit" class="fa fa-save" (click)="save()"></i>
+                <div><label>City College: </label>{{ cv[6].adressCollege }}</div>
+                <div>
+                    <label *ngIf="cv[6].optionCollege === 'yes'">Egress College: </label>
+                    <label *ngIf="cv[6].optionCollege === 'inProgress'">Year: </label>
+                    {{ cv[6].yearCollege }}
+                </div>  
             </div>
         </div>
-    </div> 
-    <div *ngIf="!flagButtons">
-        <div class="card-body">
-            <h5>High School</h5>
-            <div>
-                <label>Name: </label>
-                {{cv[6].nameSchool}} <br>
-                
-                <label>Title: </label>
-                {{cv[6].titleSchool}} <br>
-                
-                <label>City School: </label>
-                {{ cv[6].citySchool }} <br>
-                
-                <label>Egress School: </label>
-                {{ cv[6].departureSchool }} <br>
-            </div>
-        </div>
-        <div *ngIf="!(cv[6].optionCollege === 'no')" class="studies__changesResultDiv card-body">
-            <h5>College</h5>
-            <div>
-                <div *ngIf="cv[6].optionCollege === 'yes'">
-                    <label>Name: </label>
-                    {{cv[6].collegeName}} <br>
-                    
-                    <label>Title: </label>
-                    {{cv[6].titleCollege}} <br>
-                    
-                    <label>City College: </label>
-                    {{ cv[6].adressCollege }} <br>
-                    
-                    <label>Egress College: </label>
-                    {{ cv[6].yearCollege }} <br>
-                </div>
-                <div *ngIf="cv[6].optionCollege === 'inProgress'">
-                    <label>Name: </label>
-                    {{cv[6].collegeName}} <br>
-                    
-                    <label>I Study: </label>
-                    {{cv[6].titleCollege}} <br>
-                    
-                    <label>City College: </label>
-                    {{ cv[6].adressCollege }} <br>
-                    
-                    <label>Year: </label>
-                    {{ cv[6].yearCollege }} <br>
-                </div>
-            </div>
+        <div *ngIf="flagButtons">
+            <button class="fa fa-edit" (click)="edit()"></button>
         </div>
     </div>
-</div>
+
+    <!-- EDIT RESULT  -->
+    <div *ngIf="flagButtons">
+        <div class="studies__changesResult" *ngIf="flagCvEdit">
+            <form #fStudies="ngForm" (ngSubmit)="save(fStudies.value)" class="studies__changesResult__formEdit">
+                <div class="studies__changesResult__formEdit__changeSchool form-group">
+                    <h5>High School</h5>
+                    <div class="form-group">
+                        <label for="nameSchool">Name: </label><input ngModel name="nameSchool" type="text" [(ngModel)]="cv[6].nameSchool">
+                    </div>
+                    <div class="form-group">
+                        <label>Title Received: </label><input ngModel name="titleSchool" type="text" [(ngModel)]="cv[6].titleSchool">  
+                    </div>
+                    <div class="form-group">
+                        <label>City School: </label><input ngModel name="citySchool" type="text" [(ngModel)]=" cv[6].citySchool">  
+                    </div>
+                    <div>
+                        <label>Egress School: </label><input ngModel name="departureSchool" type="text" [(ngModel)]="cv[6].departureSchool">
+                    </div>   
+                </div>
+                <div 
+                *ngIf="cv[6].optionCollege === 'yes' || cv[6].optionCollege === 'inProgress'" 
+                class="studies__changesResult__formEdit__changeCollege">
+                    <h5>College</h5>
+    
+                    <div class="form-group">
+                        <label>Name: </label><input ngModel name="collegeName" type="text" [(ngModel)]="cv[6].adressCollege">
+                    </div>
+                    <div class="form-group">
+                        <label *ngIf="cv[6].optionCollege === 'yes'">Title Received: </label>
+                        <label *ngIf="cv[6].optionCollege === 'inProgress'">I Study: </label>
+                        <input ngModel name="titleCollege" type="text" [(ngModel)]="cv[6].titleCollege">
+                    </div>
+                    <div class="form-group">
+                        <label>City College: </label><input ngModel name="adressCollege" type="text" [(ngModel)]="cv[6].adressCollege">
+                    </div>
+                    <div class="form-group">
+                        <label *ngIf="cv[6].optionCollege === 'yes'">Egress College: </label>
+                        <label *ngIf="cv[6].optionCollege === 'inProgress'">Year: </label>
+                        <input ngModel name="yearCollege" type="text" [(ngModel)]="cv[6].yearCollege">
+                    </div>          
+                </div>
+                <div *ngIf="flagButtons">
+                    <button class="fa fa-save"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> 

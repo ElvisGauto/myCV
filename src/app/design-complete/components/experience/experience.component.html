@@ -18,7 +18,9 @@
                 </div>
             </div>
         </div>
-        <i *ngIf="!flagCvEdit" class="fa fa-edit" (click)="edit()"></i>
+        <div *ngIf="flagButtons">
+            <button class="fa fa-edit" (click)="edit()"></button>
+        </div>
         <div *ngIf="flagCvEdit" class="experience__editResult">
             <form 
             #fExperience="ngForm" 
@@ -30,10 +32,8 @@
                 <input  ngModel name="timePeriod" type="text" [(ngModel)]="cv[2].timePeriod"> 
                 <label>Responsabilities: </label> 
                 <textarea ngModel name="responsabilities" [(ngModel)]="cv[2].responsibilities"></textarea> 
-                <div>
-                    <button class="fa fa-save"></button>
-                    <!-- <i class="fa fa-plus-square"></i> -->
-                </div>
+
+                <button *ngIf="flagButtons" class="fa fa-save"></button>
             </form>
         </div>
     </div>

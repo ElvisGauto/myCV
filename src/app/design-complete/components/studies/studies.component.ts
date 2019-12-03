@@ -40,33 +40,12 @@ export class StudiesComponent implements OnInit {
     this.flagCvEdit = true;
   }
 
-  save() {
-    let nameSchool = (<HTMLInputElement>document.getElementById('nameSchool'));
-    let titleSchool = (<HTMLInputElement>document.getElementById('titleSchool'));
-    let citySchool = (<HTMLInputElement>document.getElementById('citySchool'));
-    let departureSchool = (<HTMLInputElement>document.getElementById('departureSchool'));
-
-    let collegeName = (<HTMLInputElement>document.getElementById('collegeName'));
-    let titleCollege = (<HTMLInputElement>document.getElementById('titleCollege'));
-    let adressCollege = (<HTMLInputElement>document.getElementById('adressCollege'));
-    let yearCollege = (<HTMLInputElement>document.getElementById('yearCollege'));
-
-    this.studiesChanges.push({
-      nameSchool: nameSchool.value,
-      titleSchool: titleSchool.value,
-      citySchool: citySchool.value,
-      departureSchool: departureSchool.value,
-
-      collegeName: collegeName.value,
-      titleCollege: titleCollege.value,
-      adressCollege: adressCollege.value,
-      yearCollege: yearCollege.value
-    })
+  save(dataStudies) {
+    this.saveDataService.save(this.flagRouteChange,'',this.uid,'studies', dataStudies);
+    this.shareCvService.updateShareCv(this.uidName, '6', dataStudies);
     
-    this.saveDataService.save(this.flagRouteChange,'',this.uid,'studies', this.studiesChanges[0]);
-    this.shareCvService.updateShareCv(this.uidName, '6', this.studiesChanges[0]);
-    this.studiesChanges = []; 
     this.flagCvEdit = false;
+    console.log(dataStudies);
   }
 
 }

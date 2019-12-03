@@ -1,13 +1,31 @@
 @import "../../../../styles/utils";
 
 .studies {
-    &__changesResult {
-        @include flex-direction(column);   
-    }
-    &__changesResultDiv {
-        &__content {
-            &__result {
+    &__showData {
+        @include flex-direction(column); 
+        &__dataSchool {
+            @include flex-direction(column);
+        }
+        &__divCollege {
+            &__dataCollege {
                 @include flex-direction(column);
+            }
+        }
+    }
+    &__changesResult {
+        &__formEdit {
+            @include flex-direction(column);
+            &__changeSchool {
+                @include flex-direction(column);
+                div {
+                    @include flex-direction(column);
+                }
+            }
+            &__changeCollege {
+                @include flex-direction(column);
+                div {
+                    @include flex-direction(column);
+                }
             }
         }
     }
@@ -16,7 +34,10 @@
 
 .fa {
     @include font-icon(15px);
+    border: none;
+    background: #fff;
 }
 label {
     font-weight: 600;
+    margin-right: 5px;
 }
