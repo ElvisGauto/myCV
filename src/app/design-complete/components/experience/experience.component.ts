@@ -38,20 +38,10 @@ export class ExperienceComponent implements OnInit {
     this.flagCvEdit = true;
   }
 
-  save() {
-    let companyName = (<HTMLInputElement>document.getElementById('companyName'));
-    let timePeriod = (<HTMLInputElement>document.getElementById('timePeriod'));
-    let responsibilities = (<HTMLInputElement>document.getElementById('responsabilities'));
+  save(dataExperience) {
+    this.saveDataService.saveChanges(this.uid,'experience', dataExperience) 
+    this.shareCvService.updateShareCv(this.uidName, '2', dataExperience);
 
-    this.experienceChanges.push({
-      companyName: companyName.value,
-      timePeriod: timePeriod.value,
-      responsibilities: responsibilities.value
-    })
-    
-    this.saveDataService.saveChanges(this.uid,'experience', this.experienceChanges[0]) 
-    this.shareCvService.updateShareCv(this.uidName, '2', this.experienceChanges[0]);
-    this.experienceChanges = [];
     this.flagCvEdit = false;
   }
 

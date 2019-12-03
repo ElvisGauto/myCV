@@ -2,12 +2,12 @@
 
 .studies {
     &__changesResult {
-        @include flex-col;   
+        @include flex-direction(column);   
     }
     &__changesResultDiv {
         &__content {
             &__result {
-                @include flex-col;
+                @include flex-direction(column);
             }
         }
     }

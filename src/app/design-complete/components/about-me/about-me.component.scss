@@ -9,6 +9,6 @@
 }
 .experience {
     &__editResult {
-        @include flex-col;
+        @include flex-direction(column);
     }
 }

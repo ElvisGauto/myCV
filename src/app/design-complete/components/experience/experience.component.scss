@@ -1,14 +1,47 @@
 @import "../../../../styles/utils";
 
 .experience {
+    &__containerDiv {
+        &__showResult {
+            @include flex-direction(row);
+            justify-content: center;
+            align-items: center;
+            &__companyLogo {
+                width: 100px;
+                height: 80px;
+                border: 1px solid;
+                background: rgb(248, 210, 104);
+                @include flex-col-cen-cen;
+                justify-content: center;
+                div {
+                    margin: 0 10px;
+                    font-weight: 600;
+                }
+            }
+            &__experienceData {
+                font-size: 13px;
+                margin-left: 10px;
+                @include flex-direction(column);
+            }
+        }
+    }
     &__editResult {
-        @include flex-col;
+        &__form {
+            @include flex-direction(column);
+        }
     }
 }
 
 .fa {
     @include font-icon(15px);
+    
+}
+.fa-save {
+    border: none;
+    background: #fff;
 }
 label {
     font-weight: 600;
 }
+
+// experience____containerDiv__showResult__companyLogo

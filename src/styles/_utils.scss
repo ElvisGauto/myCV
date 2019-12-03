@@ -8,9 +8,9 @@
     align-items: center;
 }
 
-@mixin flex-col {
+@mixin flex-direction($direction) {
     display: flex;
-    flex-direction: column;
+    flex-direction: $direction;
 }
 
 @mixin font-icon($marginTop:0px) {

@@ -5,7 +5,7 @@
 }
 .goals {
     &__result {
-        @include flex-col;
+        @include flex-direction(column);
     }
     &__divList {
         &__navList {

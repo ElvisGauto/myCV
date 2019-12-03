@@ -3,13 +3,13 @@
 .skills {
     &__content {
         &__result {
-            @include flex-col;
+            @include flex-direction(column);
         }  
-        &__divSkillValue {
-            &__valueSkill {
+        // &__divSkillValue {
+            // &__valueSkill {
                 // font-weight: 600;
-            }
-        }
+            // }
+        // }
     }
     &__divBtn {
         display: flex;
