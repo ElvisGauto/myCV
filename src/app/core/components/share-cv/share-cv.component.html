@@ -1,7 +1,7 @@
-<div class="containerDash" id="main" *ngIf="cvVisionShare$ | async as cv">
-        <div class="containerDash__categories">
-            <nav class="containerDash__categories__nav">
-                <ul class="containerDash__categories__nav__ul">
+<div class="containerShare" id="main" *ngIf="cvVisionShare$ | async as cv">
+        <div class="containerShare__categories">
+            <nav class="containerShare__categories__nav">
+                <ul class="containerShare__categories__nav__ul">
                     <li (click)="element('profile')" >Profile</li>
                     <li (click)="element('aboutMe')" >About Me</li>
                     <li (click)="element('studies')" >Studies</li>
@@ -12,49 +12,49 @@
                 </ul>
             </nav>
         </div>
-        <div class="containerDash__dashCV" id="dashCV">
+        <div class="containerShare__shareCV" id="shareCV">
             <div class="card" id="profile">
                 <profile 
                 [cv] = "cv"
                 ></profile>
             </div> 
             <hr>
-            <div class="containerDash__dashCV__aboutMe card" id="aboutMe">
+            <div class="containerShare__shareCV__aboutMe card" id="aboutMe">
                <about-me 
                [cv]="cv"
                [flagButtons]="flagButtons"
                ></about-me>
             </div>
             <hr>
-            <div class="containerDash__dashCV__studies card" id="studies">
+            <div class="containerShare__shareCV__studies card" id="studies">
               <studies 
               [cv]="cv"
               [flagButtons]="flagButtons"
               ></studies>  
             </div>
             <hr>
-            <div class="containerDash__dashCV__skills card" id="skills">
+            <div class="containerShare__shareCV__skills card" id="skills">
                 <skills 
                 [cv]="cv"
                 [flagButtons]="flagButtons"
                 ></skills>
             </div>
             <hr>
-            <div class="containerDash__dashCV__experience card" id="experience">
+            <div class="containerShare__shareCV__experience card" id="experience">
                 <experience 
                 [cv]="cv"
                 [flagButtons]="flagButtons"
                 ></experience>
             </div>
             <hr>
-            <div class="containerDash__dashCV__goals card" id="goals">
+            <div class="containerShare__shareCV__goals card" id="goals">
                 <goals 
                 [cv]="cv"
                 [flagButtons]="flagButtons"
                 ></goals>
             </div>
             <hr>
-             <div class="containerDash__dashCV__contact card" id="contact">
+             <div class="containerShare__shareCV__contact card" id="contact">
                 <contact 
                 [cv]="cv"
                 [flagButtons]="flagButtons"

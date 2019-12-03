@@ -1,6 +1,6 @@
 @import "../../../../styles/settings.variables";
 
-.containerDash {
+.containerShare {
     display:flex;
     flex-direction: row;
     &__categories {
@@ -32,13 +32,13 @@
         }
         
     }
-    &__dashCV {
+    &__shareCV {
         width: 100%;
-        height: 79vh;
+        height: 90vh;
         overflow-y: scroll;
         padding: 8px;
         @media (min-width: $breakpoint-tablet) {
-            padding: 23px 60px 0px 60px;
+            padding: 23px 60px 30px 60px;
         }
         
     }
