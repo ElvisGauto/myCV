@@ -1,0 +1,19 @@
+<div class="dialog">
+    <div class="dialog__cancel">
+        <button class="fa fa-times" (click)="cancel()"></button>
+    </div>
+    <form 
+    #fExperience="ngForm"
+    class="dialog__form" 
+    (ngSubmit)="add(fExperience.value, fExperience.valid)">
+        <label>Company Name:</label> 
+        <input  ngModel name="companyName" type="text">
+        <label>Time Period:</label> 
+        <input  ngModel name="timePeriod" type="text"> 
+        <label>Responsibilities: </label> 
+        <textarea ngModel name="responsibilities"></textarea>
+        <div class="dialog__form__containerButtons">
+            <button class="fa fa-save"></button>
+        </div>  
+    </form>
+</div>

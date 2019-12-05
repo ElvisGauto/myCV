@@ -1,0 +1,34 @@
+@import "../../../../../styles/utils";
+
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.dialog {
+   background: #fff; 
+   z-index: 1000;
+   width: 500px;
+   height: 360px;
+   padding: 20px;
+   &__cancel {
+    @include flex-direction(row);   
+    justify-content: flex-end;
+   }
+   &__form {
+    @include flex-direction(column);
+    &__containerButtons {
+        &__cancel {
+            border: none;
+            background: #fff;
+            margin-right: 10px;
+        }
+    }
+  }
+} 
+
+.fa {
+    @include font-icon(15px);
+    border: none;
+    background: #fff;
+}

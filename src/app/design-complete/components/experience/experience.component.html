@@ -1,40 +1,38 @@
-<div *ngIf="cv[2].workExperience == 'yes'" class="experience">
+<div class="experience">
     <div class="card-body experience__containerDiv">
-        <h5>Experience</h5>
-        <div *ngIf="!flagCvEdit" class="experience__containerDiv__showResult">
-            <div class="experience__containerDiv__showResult__companyLogo">
-                <div>
-                    {{ cv[2].companyName }}
-                </div>
-            </div>  
-            <div class="experience__containerDiv__showResult__experienceData">
-                <div>
-                    <label>Time Period: </label> 
-                    {{ cv[2].timePeriod }}
-                </div>
-                <div>
-                    <label>Responsabilities: </label> 
-                    {{ cv[2].responsibilities }}
-                </div>
+        <div class="experience__containerDiv__title">
+            <div><h5>Experience</h5></div>
+            <div><button class="fa fa-plus" (click)="addMore()"></button></div>
+        </div>
+        <div  class="experience__containerDiv__showResult">
+            <div *ngIf="!flagCvEdit" class="experience__containerDiv__showResult__containerData">
+                <nav>
+                    <ul>
+                        <li *ngFor="let experience of experienceChanges; let i = index">
+                            <div class="experience__containerDiv__showResult__containerData__datas">
+                                <div class="experience__containerDiv__showResult__containerData__datas__companyLogo">
+                                    <div>
+                                        {{ experience.companyName }}
+                                    </div>
+                                </div>
+                                <div class="experience__containerDiv__showResult__containerData__datas__experienceData">
+                                    <div>
+                                        <label>Time Period: </label> 
+                                        {{ experience.timePeriod }}
+                                    </div>
+                                    <div>
+                                        <label>Responsibilities: </label> 
+                                        {{ experience.responsibilities }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="flagButtons" class="experience__containerDiv__showResult__containerData__buttons">
+                                <button class="fa fa-edit" (click)="edit(i)"></button>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-        </div>
-        <div *ngIf="flagButtons">
-            <button class="fa fa-edit" (click)="edit()"></button>
-        </div>
-        <div *ngIf="flagCvEdit" class="experience__editResult">
-            <form 
-            #fExperience="ngForm" 
-            (ngSubmit)="save(fExperience.value)"
-            class="experience__editResult__form">
-                <label>Company Name:</label> 
-                <input  ngModel name="companyName" type="text" [(ngModel)]="cv[2].companyName">  
-                <label>Time Period:</label> 
-                <input  ngModel name="timePeriod" type="text" [(ngModel)]="cv[2].timePeriod"> 
-                <label>Responsabilities: </label> 
-                <textarea ngModel name="responsabilities" [(ngModel)]="cv[2].responsibilities"></textarea> 
-
-                <button *ngIf="flagButtons" class="fa fa-save"></button>
-            </form>
         </div>
     </div>
 </div>

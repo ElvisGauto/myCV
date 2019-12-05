@@ -2,26 +2,52 @@
 
 .experience {
     &__containerDiv {
-        &__showResult {
+        &__title {
             @include flex-direction(row);
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        &__showResult {
             justify-content: center;
             align-items: center;
-            &__companyLogo {
-                width: 100px;
-                height: 80px;
-                border: 1px solid;
-                background: rgb(248, 210, 104);
-                @include flex-col-cen-cen;
-                justify-content: center;
-                div {
-                    margin: 0 10px;
-                    font-weight: 600;
+            &__containerData {
+                @include flex-direction(row);
+                justify-content: space-between;
+                nav {
+                    width: 100%;
+                    ul {
+                        list-style: none;
+                        li {
+                            @include flex-direction(row);
+                            justify-content: space-between;
+                            margin-bottom: 10px;
+                        }
+                    }
                 }
-            }
-            &__experienceData {
-                font-size: 13px;
-                margin-left: 10px;
-                @include flex-direction(column);
+                &__datas {
+                    @include flex-direction(row);
+                    &__companyLogo {
+                        width: 100px;
+                        height: 80px;
+                        border: 1px solid;
+                        background: rgb(248, 210, 104);
+                        @include flex-col-cen-cen;
+                        justify-content: center;
+                        div {
+                            margin: 0 10px;
+                            font-weight: 600;
+                        }
+                    }
+                    &__experienceData {
+                        font-size: 13px;
+                        margin-left: 10px;
+                        @include flex-direction(column);
+                    }
+                }
+                &__buttons {
+                    @include flex-direction(column);
+                }
             }
         }
     }
@@ -36,6 +62,9 @@
     @include font-icon(15px);
     border: none;
     background: #fff;
+}
+.fa-plus {
+    margin-right: 10px;
 }
 label {
     font-weight: 600;

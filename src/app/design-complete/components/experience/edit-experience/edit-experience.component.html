@@ -1,0 +1,26 @@
+<div class="dialog">
+    <div class="dialog__cancel">
+        <button class="fa fa-times" (click)="cancel()"></button>
+    </div>
+    <form 
+    #fExperience="ngForm"
+    class="dialog__form" 
+    *ngIf="experience$ | async as experience"
+    (ngSubmit)="saveEdit(fExperience.value, experience)">
+        <label>Company Name:</label> 
+        <input  ngModel name="companyName" type="text" [(ngModel)]="experience[0].$value">
+        <label>Time Period:</label> 
+        <input  ngModel name="timePeriod" type="text" [(ngModel)]="experience[2].$value"> 
+        <label>Responsibilities: </label> 
+        <textarea ngModel name="responsibilities" [(ngModel)]="experience[1].$value"></textarea>
+        <div class="dialog__form__containerButtons">
+            <button class="fa fa-save"></button>
+        </div>  
+    </form>
+</div>
+
+<!-- >
+
+></textarea -->
+<!-- 
+*ngFor="let experience of experienceChanges; let i = index" -->
