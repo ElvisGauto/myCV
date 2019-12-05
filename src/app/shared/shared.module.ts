@@ -6,6 +6,7 @@ import { CountriesService } from './services/countries.service';
 import { FeedbackService } from './services/feedback.service';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { CvDashboardComponent } from './components/cv-dashboard/cv-dashboard.component';
+import { MaterialModule } from './components/material/material.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { CvDashboardComponent } from './components/cv-dashboard/cv-dashboard.com
   
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule
   ],
   exports: [
     FeedbackComponent

@@ -45,7 +45,6 @@ export class StudiesComponent implements OnInit {
     this.shareCvService.updateShareCv(this.uidName, '6', dataStudies);
     
     this.flagCvEdit = false;
-    console.log(dataStudies);
   }
 
 }

@@ -23,9 +23,6 @@ export class ShareCVComponent implements OnInit {
       nameUser: this.activatedRoute.snapshot.params.nameUser
     }
     this.cvVisionShare$ = this.shareCvService.showShareCV(this.user.nameUser);
-    this.cvVisionShare$.subscribe(x => {
-      console.log(x);
-    })
   }
 
   element(i) {
@@ -33,7 +30,7 @@ export class ShareCVComponent implements OnInit {
     let topPos = contact.offsetTop - 75;
 
     contact.style.border = '1px solid rgb(24, 223, 17)';
-    let dashCV = document.getElementById('dashCV');
+    let dashCV = document.getElementById('shareCV');
 
     setTimeout(function(){ 
       contact.style.border = '1px solid rgba(0, 0, 0, 0.125)';

@@ -45,7 +45,6 @@ export class AddMoreExperienceComponent implements OnInit {
       this.serviceExperience.addMore(this.uid,'experience',this.data.cantExperience.toString(),experience); 
       this.dialogRef.close();
     } 
-    // console.log(this.addExperiences);
   }
 
 }

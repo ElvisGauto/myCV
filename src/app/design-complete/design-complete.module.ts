@@ -8,27 +8,39 @@ import { SkillsComponent } from './components/skills/skills.component';
 import { StudiesComponent } from './components/studies/studies.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { FormsModule } from '@angular/forms';
+import { AddMoreExperienceComponent } from './components/experience/add-more-experience/add-more-experience.component';
+import { SharedModule } from '../shared/shared.module';
+import { MaterialModule } from '../shared/components/material/material.module';
+import { EditExperienceComponent } from './components/experience/edit-experience/edit-experience.component';
 
-let components = [
+const COMPONENTS = [
   ProfileComponent, 
   AboutMeComponent, 
   ContactComponent, 
   GoalsComponent, 
   SkillsComponent, 
   StudiesComponent,
-  ExperienceComponent
+  ExperienceComponent,
+  AddMoreExperienceComponent
 ]
 
 @NgModule({
   declarations: [
-    components
+    COMPONENTS,
+    EditExperienceComponent,
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    SharedModule,
+    MaterialModule
   ],
   exports: [
-    components
+    COMPONENTS
+  ],
+  entryComponents: [
+    AddMoreExperienceComponent,
+    EditExperienceComponent
   ]
 })
 export class DesignCompleteModule { }

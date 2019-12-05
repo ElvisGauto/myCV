@@ -12,9 +12,11 @@ export class ExperienceComponent implements OnInit {
 
   uid: string;
 
-  flagRoute = true;
+  flagRoute = false;
   flagButton: boolean = false;
   flagInput: boolean = false;
+
+  arrayExperiences = [];
 
   constructor(
     private saveDataService: SaveDataService,
@@ -32,8 +34,9 @@ export class ExperienceComponent implements OnInit {
   }
 
   save(experience, valid) {
+    this.arrayExperiences.push(experience);
     if(valid) {
-      this.saveDataService.save(this.flagRoute, 'design/goals',this.uid,'experience', experience); 
+      this.saveDataService.save(this.flagRoute, '',this.uid,'experience', this.arrayExperiences); 
     } 
   }
 

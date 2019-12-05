@@ -2,7 +2,7 @@
     <div class="card-body experience__containerDiv">
         <div class="experience__containerDiv__title">
             <div><h5>Experience</h5></div>
-            <div><button class="fa fa-plus" (click)="addMore()"></button></div>
+            <div *ngIf="flagButtons"><button class="fa fa-plus" (click)="addMore()"></button></div>
         </div>
         <div  class="experience__containerDiv__showResult">
             <div *ngIf="!flagCvEdit" class="experience__containerDiv__showResult__containerData">
