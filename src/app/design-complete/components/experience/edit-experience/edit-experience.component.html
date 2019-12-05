@@ -6,7 +6,7 @@
     #fExperience="ngForm"
     class="dialog__form" 
     *ngIf="experience$ | async as experience"
-    (ngSubmit)="saveEdit(fExperience.value, experience)">
+    (ngSubmit)="saveEdit(fExperience.value)">
         <label>Company Name:</label> 
         <input  ngModel name="companyName" type="text" [(ngModel)]="experience[0].$value">
         <label>Time Period:</label> 

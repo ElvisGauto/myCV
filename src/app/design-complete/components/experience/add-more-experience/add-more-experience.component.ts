@@ -42,7 +42,8 @@ export class AddMoreExperienceComponent implements OnInit {
 
   add(experience, valid) {
     if(valid) {
-      this.serviceExperience.addMore(this.uid,'experience',this.data.cantExperience.toString(),experience); 
+      this.serviceExperience.addMore('cv' ,this.uid,'experience',this.data.cantExperience.toString(),experience); 
+      this.serviceExperience.addMore('cvShare' ,this.data.uidNameEx,'2',this.data.cantExperience.toString(),experience); 
       this.dialogRef.close();
     } 
   }

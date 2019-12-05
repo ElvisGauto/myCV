@@ -16,6 +16,7 @@ export class DashCvComponent implements OnInit {
 
   cvFinished$;
   cvShare$;
+  listSkills$;
 
   confirmUidName = {};
   CV = [];
@@ -27,7 +28,9 @@ export class DashCvComponent implements OnInit {
   name: any;
   uidModify: string;
   uidName: string;
-  
+
+  arrExperience = [];
+  arrSkills = [];
   flagCvEdit: boolean = false;
   
   
@@ -54,7 +57,13 @@ export class DashCvComponent implements OnInit {
       this.cvFinished$ = this.dataService.showAllData('cv' ,this.uid);
       this.cvFinished$.subscribe(x => {
         this.CV = x;
+        this.arrExperience = this.CV[2];
       })
+
+      this.listSkills$ = this.dataService.showDataList('cv', this.uid, 'skills');
+      this.listSkills$.subscribe(data => {
+        this.arrSkills = data;
+      });
 
       this.cvShare$ = this.shareCVService.showShareCV(this.uidName);
       this.cvShare$.subscribe(x => {
@@ -100,6 +109,8 @@ export class DashCvComponent implements OnInit {
     if(this.confirmUidName === 0) {
       this.shareCVService.shareCV(this.uidName, this.CV); 
     } 
+    
+    console.log(this.CV);
     
     alert('CV link has been copied')
   }

@@ -47,7 +47,8 @@ export class EditExperienceComponent implements OnInit {
   }
 
   saveEdit(dataExperience) {
-    this.saveExperience.saveChanges(this.uid,'experience', this.data.index, dataExperience);
+    this.saveExperience.saveChanges('cv', this.uid,'experience', this.data.index, dataExperience);
+    this.saveExperience.saveChanges('cvShare', this.data.uidNameEx, '2', this.data.index, dataExperience);
     if(Object.values(dataExperience).length === 3) {
       this.dialogRef.close();
     }

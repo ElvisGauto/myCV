@@ -13,6 +13,7 @@ export class SkillsComponent implements OnInit {
   @Input('cv') cv;
   @Input('uidName') uidName;
   @Input('flagButtons') flagButtons;
+  @Input('arrSkills') arrSkills;
 
   uid: string;
   user$: any;
@@ -22,7 +23,7 @@ export class SkillsComponent implements OnInit {
   flagCvEdit: boolean = false;
   flagAddMore: boolean = false;
   skillsChange = [];
-  skillArr = [];
+  skillArr: any = [];
   listSkills$;
   listSkills: any = [];
 

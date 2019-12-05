@@ -5,7 +5,7 @@
     <div class="skills__content">
         <div *ngIf="!flagCvEdit" class="skills__content__divSkillValue">
             <div 
-            *ngFor="let skill of listSkills; let i = index"
+            *ngFor="let skill of arrSkills; let i = index"
             class="skills__content__divSkillValue__valueSkill">
                 {{ skill.$value }}
             </div>

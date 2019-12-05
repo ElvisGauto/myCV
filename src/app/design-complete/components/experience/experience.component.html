@@ -8,7 +8,7 @@
             <div *ngIf="!flagCvEdit" class="experience__containerDiv__showResult__containerData">
                 <nav>
                     <ul>
-                        <li *ngFor="let experience of experienceChanges; let i = index">
+                        <li *ngFor="let experience of arrExperience; let i = index">
                             <div class="experience__containerDiv__showResult__containerData__datas">
                                 <div class="experience__containerDiv__showResult__containerData__datas__companyLogo">
                                     <div>
@@ -27,6 +27,7 @@
                                 </div>
                             </div>
                             <div *ngIf="flagButtons" class="experience__containerDiv__showResult__containerData__buttons">
+                                <button class="fa fa-trash" (click)="delete(i, experience)"></button>
                                 <button class="fa fa-edit" (click)="edit(i)"></button>
                             </div>
                         </li>

@@ -11,6 +11,7 @@ import { EditExperienceComponent } from './edit-experience/edit-experience.compo
 export interface DialogData {
   index: string;
   cantExperience: number;
+  uidNameEx: string;
 }
 
 @Component({
@@ -20,17 +21,20 @@ export interface DialogData {
 })
 export class ExperienceComponent implements OnInit {
   @Input('cv') cv;
-  @Input('uidName') uidName;
+  @Input('arrExperience') arrExperience;
   @Input('flagButtons') flagButtons;
+  @Input('uidName') uidName;
 
   uid: string;
   user$: any;
   experience$;
-  index: string;
   experienceChanges = [];
   flagCvEdit: boolean = false;
-
+  
+  index: string;
+  uidNameEx: string;
   cantExperience: number;
+
 
   constructor(
     private saveDataService: SaveDataService,
@@ -47,13 +51,9 @@ export class ExperienceComponent implements OnInit {
         this.uid = x.uid;
       }
 
-      this.experience$ = this.saveDataService.showDataList('cv',this.uid, 'experience');
-      this.experience$.subscribe(x => {
-        this.experienceChanges = x;
-        this.cantExperience = this.experienceChanges.length;
-      })
+      this.cantExperience = this.arrExperience.length;
       
-    });  
+    }); 
   }
 
   edit(i) {
@@ -61,7 +61,7 @@ export class ExperienceComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.panelClass = 'experience-modal';
     this.dialog.open(EditExperienceComponent, {
-      data: { index: this.index }
+      data: { index: this.index, uidNameEx: this.uidName}
     });
   }
 
@@ -69,8 +69,13 @@ export class ExperienceComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.panelClass = 'experience-modal';
     this.dialog.open(AddMoreExperienceComponent, {
-      data: { cantExperience: this.cantExperience }
+      data: { cantExperience: this.cantExperience, uidNameEx: this.uidName  }
     });
+  }
+
+  delete(i) {
+    this.saveExperience.delete('cv', this.uid, 'experience', i);
+    this.saveExperience.delete('cvShare', this.uidName, '2', i);
   }
 
 }
