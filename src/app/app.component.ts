@@ -10,7 +10,10 @@ import { UserService } from './shared/services/user.service';
 })
 export class AppComponent implements OnInit {
   
-  constructor(private auth: AuthService, private router: Router, private userService: UserService) {
+  constructor(
+    private auth: AuthService, 
+    private router: Router, 
+    private userService: UserService) {
   }
 
   ngOnInit() {
