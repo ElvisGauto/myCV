@@ -1,12 +1,12 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { SaveDataService } from 'src/app/shared/services/cv-data.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { SaveDataService } from 'src/app/shared/services/cv-data.service';
 import { ShareCVService } from 'src/app/shared/services/share-cv.service';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material/dialog';
 
-import { AddMoreExperienceComponent } from './add-more-experience/add-more-experience.component'
-import { ExperienceService } from './experience.service';
+import { AddMoreExperienceComponent } from './add-more-experience/add-more-experience.component';
 import { EditExperienceComponent } from './edit-experience/edit-experience.component';
+import { ExperienceService } from './experience.service';
 
 export interface DialogData {
   index: string;
