@@ -14,6 +14,7 @@ import { ExperienceService } from '../experience.service';
 })
 export class AddMoreExperienceComponent implements OnInit {
   flagRoute: boolean = false;
+  numberRandom: number;
 
   addExperiences = [];
   user$;
@@ -34,6 +35,7 @@ export class AddMoreExperienceComponent implements OnInit {
         this.uid = x.uid;
       }  
     });
+    this.numberRandom = Math.floor(Math.random()*9000000 + 100) + 1000000;
   }  
 
   cancel(): void {
@@ -42,8 +44,8 @@ export class AddMoreExperienceComponent implements OnInit {
 
   add(experience, valid) {
     if(valid) {
-      this.serviceExperience.addMore('cv' ,this.uid,'experience',this.data.cantExperience.toString(),experience); 
-      this.serviceExperience.addMore('cvShare' ,this.data.uidNameEx,'2',this.data.cantExperience.toString(),experience); 
+      this.serviceExperience.addMore('cv' ,this.uid,'experience',`experience${this.numberRandom}`,experience); 
+      this.serviceExperience.addMore('cvShare' ,this.data.uidNameEx,'2',`experience${this.numberRandom}`,experience); 
       this.dialogRef.close();
     } 
   }

@@ -12,7 +12,7 @@ export class ExperienceComponent implements OnInit {
 
   uid: string;
 
-  flagRoute = false;
+  flagRoute = true;
   flagButton: boolean = false;
   flagInput: boolean = false;
 
@@ -36,7 +36,7 @@ export class ExperienceComponent implements OnInit {
   save(experience, valid) {
     this.arrayExperiences.push(experience);
     if(valid) {
-      this.saveDataService.save(this.flagRoute, '',this.uid,'experience', this.arrayExperiences); 
+      this.saveDataService.save(this.flagRoute,'design/goals',this.uid,'experience', this.arrayExperiences); 
     } 
   }
 

@@ -110,8 +110,6 @@ export class DashCvComponent implements OnInit {
       this.shareCVService.shareCV(this.uidName, this.CV); 
     } 
     
-    console.log(this.CV);
-    
     alert('CV link has been copied')
   }
 

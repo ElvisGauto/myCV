@@ -12,10 +12,12 @@ import { CoreModule } from './core/core.module';
 import { DesignModule } from './design/design.module';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DashPollComponent } from './admin/dash-poll/dash-poll.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DashPollComponent
   ],
   imports: [
     BrowserModule,
