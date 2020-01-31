@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit {
 
   feedbackError$;
   cv$: any;
-  cvIncomplete: boolean = false;
+  cvIncomplete = false;
 
   constructor(
     private auth: AuthService,
@@ -35,24 +35,21 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.user$ = this.auth.user$;
     this.feedbackError$ = this.feedbackService.messageError();
- 
+
     this.user$.subscribe(user => {
-      if(user) {
-        this.uid = user.uid
+      if (user) {
+        this.uid = user.uid;
       }
 
       this.cv$ = this.saveData.showAllData('cv', this.uid);
       this.cv$.subscribe(x => {
-        if(x.length >= 1 && x.length <= 6) {
+        if (x.length >= 1 && x.length <= 6) {
           this.cvIncomplete = true;
         } else if (x.length === 7 || x.length === 0) {
           this.cvIncomplete = false;
         }
-      })
+      });
     });
-  }
-
-  ngOnDestroy() {
   }
 
 }

@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'feedback', component: FeedbackComponent },
   { path: 'dash-cv', component: DashCvComponent },
   { path: '**', redirectTo: 'login', pathMatch: 'full' }
-]; 
+];
 
 @NgModule({
   imports: [

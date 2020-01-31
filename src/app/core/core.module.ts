@@ -11,13 +11,13 @@ import { DashCvComponent } from './components/dash-cv/dash-cv.component';
 import { DesignCompleteModule } from '../design-complete/design-complete.module';
 import { ShareCVComponent } from './components/share-cv/share-cv.component';
 
-let components = [
+const components = [
   LoginComponent,
   NavBarComponent,
   HomeComponent,
   DashboardComponent,
   DashCvComponent
-]
+];
 
 @NgModule({
   declarations: [

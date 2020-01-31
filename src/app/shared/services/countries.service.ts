@@ -15,6 +15,6 @@ export class CountriesService {
       query: {
         orderByChild: 'name'
       }
-    })
+    });
   }
 }

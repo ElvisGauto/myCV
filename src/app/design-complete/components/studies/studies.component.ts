@@ -4,20 +4,20 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 import { ShareCVService } from 'src/app/shared/services/share-cv.service';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'studies',
   templateUrl: './studies.component.html',
   styleUrls: ['./studies.component.scss']
 })
 export class StudiesComponent implements OnInit {
-  @Input('cv') cv;
-  @Input('uidName') uidName;
-  @Input('flagButtons') flagButtons;
+  @Input() cv;
+  @Input() uidName;
+  @Input() flagButtons;
 
-  flagCvEdit: boolean = false;
-  
-  
+  flagCvEdit = false;
+
   studiesChanges = [];
-  flagRouteChange: boolean = false;
+  flagRouteChange = false;
   uid: any;
   user$: any;
 
@@ -30,10 +30,10 @@ export class StudiesComponent implements OnInit {
   ngOnInit() {
     this.user$ = this.authService.user$;
     this.user$.subscribe(x => {
-      if(x) {
+      if (x) {
         this.uid = x.uid;
       }
-    });  
+    });
   }
 
   edit() {
@@ -41,9 +41,9 @@ export class StudiesComponent implements OnInit {
   }
 
   save(dataStudies) {
-    this.saveDataService.save(this.flagRouteChange,'',this.uid,'studies', dataStudies);
+    this.saveDataService.save(this.flagRouteChange, '', this.uid, 'studies', dataStudies);
     this.shareCvService.updateShareCv(this.uidName, '6', dataStudies);
-    
+
     this.flagCvEdit = false;
   }
 

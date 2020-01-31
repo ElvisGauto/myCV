@@ -15,22 +15,23 @@ export interface DialogData {
 }
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'experience',
   templateUrl: './experience.component.html',
   styleUrls: ['./experience.component.scss']
 })
 export class ExperienceComponent implements OnInit {
-  @Input('cv') cv;
-  @Input('arrExperience') arrExperience;
-  @Input('flagButtons') flagButtons;
-  @Input('uidName') uidName;
+  @Input() cv;
+  @Input() arrExperience;
+  @Input() flagButtons;
+  @Input() uidName;
 
   uid: string;
   user$: any;
   experience$;
   experienceChanges = [];
-  flagCvEdit: boolean = false;
-  
+  flagCvEdit = false;
+
   index: string;
   uidNameEx: string;
   cantExperience: number;
@@ -47,13 +48,13 @@ export class ExperienceComponent implements OnInit {
   ngOnInit() {
     this.user$ = this.authService.user$;
     this.user$.subscribe(x => {
-      if(x) {
+      if (x) {
         this.uid = x.uid;
       }
 
       this.cantExperience = this.arrExperience.length;
-      
-    }); 
+
+    });
   }
 
   edit(i) {

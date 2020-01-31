@@ -12,7 +12,6 @@ import { MaterialModule } from './components/material/material.module';
   declarations: [
     FeedbackComponent,
     CvDashboardComponent,
-  
   ],
   imports: [
     CommonModule,

@@ -13,31 +13,31 @@ export class ExperienceComponent implements OnInit {
   uid: string;
 
   flagRoute = true;
-  flagButton: boolean = false;
-  flagInput: boolean = false;
+  flagButton = false;
+  flagInput = false;
 
   arrayExperiences = [];
 
   constructor(
     private saveDataService: SaveDataService,
     private authService: AuthService
-  ) { 
+  ) {
     this.user$ = this.authService.user$;
   }
 
   ngOnInit() {
     this.user$.subscribe(x => {
-      if(x) {
+      if (x) {
         this.uid = x.uid;
-      }  
+      }
     });
   }
 
   save(experience, valid) {
     this.arrayExperiences.push(experience);
-    if(valid) {
-      this.saveDataService.save(this.flagRoute,'design/goals',this.uid,'experience', this.arrayExperiences); 
-    } 
+    if (valid) {
+      this.saveDataService.save(this.flagRoute, 'design/goals', this.uid, 'experience', this.arrayExperiences);
+    }
   }
 
   enableButton() {

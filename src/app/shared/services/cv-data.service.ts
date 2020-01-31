@@ -12,14 +12,14 @@ export class SaveDataService {
     private router: Router
   ) { }
 
-  save(flagRoute: boolean , next: string,uid: string ,list: string, data: any) {
-    if(flagRoute) {
-      this.router.navigate([`/${next}`])
+  save(flagRoute: boolean , next: string, uid: string , list: string, data: any) {
+    if (flagRoute) {
+      this.router.navigate([`/${next}`]);
     }
     return this.db.object(`/cv/${uid}/${list}`).update(data);
   }
 
-  saveChanges(uid:string, list:string, newData: string) {
+  saveChanges(uid: string, list: string, newData: string) {
     this.db.object(`/cv/${uid}/${list}`).update(newData);
   }
 
@@ -28,7 +28,7 @@ export class SaveDataService {
   }
 
   getDataByCategory(uid: string, category: string) {
-    return this.db.list(`/cv/${uid}/${category}`)
+    return this.db.list(`/cv/${uid}/${category}`);
   }
 
   saveAllData(uid: string, allData: any) {
@@ -54,6 +54,6 @@ export class SaveDataService {
   }
 
   updateData(uid: string, typeList: string, newData: string) {
-    return this.db.object(`/cv/${typeList}/${uid}/`).update(newData)
+    return this.db.object(`/cv/${typeList}/${uid}/`).update(newData);
   }
 }

@@ -14,15 +14,15 @@ import { MaterialModule } from '../shared/components/material/material.module';
 import { EditExperienceComponent } from './components/experience/edit-experience/edit-experience.component';
 
 const COMPONENTS = [
-  ProfileComponent, 
-  AboutMeComponent, 
-  ContactComponent, 
-  GoalsComponent, 
-  SkillsComponent, 
+  ProfileComponent,
+  AboutMeComponent,
+  ContactComponent,
+  GoalsComponent,
+  SkillsComponent,
   StudiesComponent,
   ExperienceComponent,
   AddMoreExperienceComponent
-]
+];
 
 @NgModule({
   declarations: [

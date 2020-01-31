@@ -13,12 +13,12 @@ export class AuthService {
   constructor(
     private afAuth: AngularFireAuth,
     private route: ActivatedRoute
-  ) { 
+  ) {
     this.user$ = this.afAuth.authState;
   }
 
   login() {
-    let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/home';
+    const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/home';
     localStorage.setItem('returnUrl', returnUrl);
 
     this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());

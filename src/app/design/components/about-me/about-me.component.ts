@@ -20,21 +20,21 @@ export class AboutMeComponent implements OnInit {
   constructor(
     private saveDataService: SaveDataService,
     private authService: AuthService
-  ) { 
+  ) {
     this.user$ = this.authService.user$;
   }
 
   ngOnInit() {
     this.user$.subscribe(x => {
-      if(x) {
+      if (x) {
         this.uid = x.uid;
       }
-      
+
       this.aboutMe$ = this.saveDataService.showAllData('cvFinished', this.uid);
     });
   }
 
   save(aboutMe) {
-    this.saveDataService.save(this.flagRoute,'design/skills',this.uid,'aboutMe', aboutMe);
+    this.saveDataService.save(this.flagRoute, 'design/skills', this.uid, 'aboutMe', aboutMe);
   }
 }

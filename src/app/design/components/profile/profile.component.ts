@@ -42,7 +42,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.user$.subscribe(x => {
-      if(x) {
+      if (x) {
         this.displayName = x.displayName;
         this.photoURL = x.photoURL;
         this.uid = x.uid;
@@ -56,10 +56,10 @@ export class ProfileComponent implements OnInit {
       displayName: this.displayName,
       imageProfile: this.photoURL,
       country: profile.country
-    })
+    });
 
     this.saveDataService
-      .save(this.flagRoute, 'design/aboutMe',this.uid,'profile', this.dataFilter[0]);
+      .save(this.flagRoute, 'design/aboutMe', this.uid, 'profile', this.dataFilter[0]);
   }
 
 }

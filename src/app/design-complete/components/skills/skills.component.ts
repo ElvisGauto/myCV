@@ -5,23 +5,24 @@ import { ShareCVService } from 'src/app/shared/services/share-cv.service';
 import { database } from 'firebase';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'skills',
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.scss']
 })
 export class SkillsComponent implements OnInit {
-  @Input('cv') cv;
-  @Input('uidName') uidName;
-  @Input('flagButtons') flagButtons;
-  @Input('arrSkills') arrSkills;
+  @Input() cv;
+  @Input() uidName;
+  @Input() flagButtons;
+  @Input() arrSkills;
 
   uid: string;
   user$: any;
   pancho: number;
   arrayMore = [];
 
-  flagCvEdit: boolean = false;
-  flagAddMore: boolean = false;
+  flagCvEdit = false;
+  flagAddMore = false;
   skillsChange = [];
   skillArr: any = [];
   listSkills$;
@@ -39,7 +40,7 @@ export class SkillsComponent implements OnInit {
   ngOnInit() {
     this.user$ = this.authService.user$;
     this.user$.subscribe(x => {
-      if(x) {
+      if (x) {
         this.uid = x.uid;
       }
 
@@ -50,7 +51,7 @@ export class SkillsComponent implements OnInit {
         this.listSkills = data;
         this.pancho = this.listSkills.length;
       });
-    });  
+    });
   }
 
   edit() {
@@ -58,7 +59,7 @@ export class SkillsComponent implements OnInit {
   }
 
   save(dataChange) {
-    this.saveDataService.saveChanges(this.uid,'skills', dataChange) 
+    this.saveDataService.saveChanges(this.uid, 'skills', dataChange);
     this.shareCvService.updateShareCv(this.uidName, '5', dataChange);
     this.flagCvEdit = false;
     this.flagAddMore = false;
@@ -67,7 +68,7 @@ export class SkillsComponent implements OnInit {
 
   addMore() {
     this.pancho = this.pancho + 1;
-    if(this.pancho < 10) {
+    if (this.pancho < 10) {
       this.flagAddMore = true;
       this.arrayMore.push(this.pancho);
     }

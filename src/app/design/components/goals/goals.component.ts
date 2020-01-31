@@ -17,19 +17,19 @@ export class GoalsComponent implements OnInit {
   constructor(
     private saveDataService: SaveDataService,
     private authService: AuthService
-  ) { 
+  ) {
     this.user$ = this.authService.user$;
   }
 
   ngOnInit() {
     this.user$.subscribe(x => {
-      if(x) {
+      if (x) {
         this.uid = x.uid;
-      } 
+      }
     });
   }
 
   save(goals) {
-    this.saveDataService.save(this.flagRoute,'design/contact',this.uid ,'goals', goals);
+    this.saveDataService.save(this.flagRoute, 'design/contact', this.uid , 'goals', goals);
   }
 }

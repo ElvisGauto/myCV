@@ -5,21 +5,21 @@ import { SaveDataService } from 'src/app/shared/services/cv-data.service';
 import { Subscription } from 'rxjs';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, OnDestroy{
+export class HomeComponent implements OnInit, OnDestroy {
 
-  @Input('user') user;
+  @Input() user;
 
 
   constructor(
-  ) { 
+  ) {
   }
 
   ngOnInit() {
-    
   }
 
   ngOnDestroy() {

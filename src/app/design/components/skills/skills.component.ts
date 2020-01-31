@@ -17,20 +17,20 @@ export class SkillsComponent implements OnInit {
   constructor(
     private saveDataService: SaveDataService,
     private authService: AuthService
-  ) { 
+  ) {
     this.user$ = this.authService.user$;
   }
 
   ngOnInit() {
     this.user$.subscribe(x => {
-      if(x) {
+      if (x) {
       this.uid = x.uid;
       }
     });
   }
 
   save(skills) {
-    this.saveDataService.save(this.flagRoute, 'design/studies',this.uid,'skills', skills);
+    this.saveDataService.save(this.flagRoute, 'design/studies', this.uid, 'skills', skills);
   }
 
 }

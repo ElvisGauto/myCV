@@ -15,7 +15,7 @@ export class ContactComponent implements OnInit {
   dashCV: true;
 
   flagRoute: boolean;
-  flagFeedback: boolean = false;
+  flagFeedback = false;
   cvObject = {};
   cvArray = {};
 
@@ -26,7 +26,7 @@ export class ContactComponent implements OnInit {
     private authService: AuthService,
     private feedbackService: FeedbackService,
     private saveData: SaveDataService
-  ) { 
+  ) {
     this.user$ = this.authService.user$;
   }
 
@@ -34,9 +34,9 @@ export class ContactComponent implements OnInit {
     this.feedbackSuccess$ = this.feedbackService.messageSuccessful();
 
     this.user$.subscribe(x => {
-      if(x) {
+      if (x) {
         this.uid = x.uid;
-      }  
+      }
     });
 
     this.saveData.getData().subscribe(data => {
@@ -46,7 +46,7 @@ export class ContactComponent implements OnInit {
         this.flagFeedback = false;
       } else {
         this.cvArray = Object.keys(this.cvObject).length;
-        if(this.cvArray >= 7 ) {
+        if (this.cvArray >= 7 ) {
           this.flagFeedback = true;
         } else {
         }
@@ -56,7 +56,7 @@ export class ContactComponent implements OnInit {
 
   save(contact) {
     this.flagFeedback = true;
-    this.saveDataService.save(this.flagRoute,'',this.uid,'contact', contact);
+    this.saveDataService.save(this.flagRoute, '', this.uid, 'contact', contact);
   }
 
 }

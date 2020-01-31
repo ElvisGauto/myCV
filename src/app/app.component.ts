@@ -9,10 +9,10 @@ import { UserService } from './shared/services/user.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  
+
   constructor(
-    private auth: AuthService, 
-    private router: Router, 
+    private auth: AuthService,
+    private router: Router,
     private userService: UserService) {
   }
 
@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
       if (user) {
         this.userService.saveUser(user);
 
-        let returnUrl = localStorage.getItem('returnUrl');
+        const returnUrl = localStorage.getItem('returnUrl');
         localStorage.removeItem('returnUrl');
         if (returnUrl) {
           this.router.navigateByUrl(returnUrl);

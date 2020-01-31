@@ -31,15 +31,16 @@ export class EditExperienceComponent implements OnInit {
   ngOnInit() {
     this.user$ = this.authService.user$;
     this.user$.subscribe(x => {
-      if(x) {
+      if (x) {
         this.uid = x.uid;
       }
 
-      this.experience$ = this.saveDataService.showDataListByItem('cv',this.uid, 'experience', this.data.index);
+      this.experience$ = this.saveDataService.showDataListByItem('cv', this.uid, 'experience', this.data.index);
+      // tslint:disable-next-line:no-shadowed-variable
       this.experience$.subscribe(x => {
         this.experienceChanges = x;
-      })
-    }); 
+      });
+    });
   }
 
   cancel(): void {
@@ -47,9 +48,9 @@ export class EditExperienceComponent implements OnInit {
   }
 
   saveEdit(dataExperience) {
-    this.saveExperience.saveChanges('cv', this.uid,'experience', this.data.index, dataExperience);
+    this.saveExperience.saveChanges('cv', this.uid, 'experience', this.data.index, dataExperience);
     this.saveExperience.saveChanges('cvShare', this.data.uidNameEx, '2', this.data.index, dataExperience);
-    if(Object.values(dataExperience).length === 3) {
+    if (Object.values(dataExperience).length === 3) {
       this.dialogRef.close();
     }
   }

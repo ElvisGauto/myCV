@@ -13,27 +13,27 @@ export class StudiesComponent implements OnInit {
   uid: string;
 
   flagRoute = true;
-  flagButton: boolean = false;
-  flagInput: boolean = false;
-  flagProgress: boolean = false;
+  flagButton = false;
+  flagInput = false;
+  flagProgress = false;
 
   constructor(
     private saveDataService: SaveDataService,
     private authService: AuthService
-  ) { 
+  ) {
     this.user$ = this.authService.user$;
   }
 
   ngOnInit() {
     this.user$.subscribe(x => {
-      if(x) {
+      if (x) {
         this.uid = x.uid;
-      } 
+      }
     });
   }
 
   save(studies) {
-    this.saveDataService.save(this.flagRoute,'design/experience',this.uid, 'studies', studies);
+    this.saveDataService.save(this.flagRoute, 'design/experience', this.uid, 'studies', studies);
   }
 
   enableButton() {
@@ -45,7 +45,7 @@ export class StudiesComponent implements OnInit {
   disabledButtons() {
     this.flagButton = true;
     this.flagInput = false;
-  }  
+  }
 
   inProgress() {
     this.flagButton = true;

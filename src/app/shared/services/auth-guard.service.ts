@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { CanActivate, RouterStateSnapshot, Router } from '@angular/router';
 import { AuthService } from './auth.service';
 
-import "rxjs/add/operator/map";
+import 'rxjs/add/operator/map';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuardService implements CanActivate{
+export class AuthGuardService implements CanActivate {
 
   constructor(
     private auth: AuthService,
@@ -16,10 +16,11 @@ export class AuthGuardService implements CanActivate{
 
   canActivate(route, state: RouterStateSnapshot) {
     return this.auth.user$.map(user => {
-      if(user) return true;
+      // tslint:disable-next-line:curly
+      if (user) return true;
 
       this.router.navigate(['/'], { queryParams: { returnUrl: state.url } });
-      return false
+      return false;
     });
   }
 }

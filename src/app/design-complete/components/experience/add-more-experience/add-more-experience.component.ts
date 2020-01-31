@@ -13,7 +13,7 @@ import { ExperienceService } from '../experience.service';
   styleUrls: ['./add-more-experience.component.scss']
 })
 export class AddMoreExperienceComponent implements OnInit {
-  flagRoute: boolean = false;
+  flagRoute = false;
   numberRandom: number;
 
   addExperiences = [];
@@ -31,23 +31,23 @@ export class AddMoreExperienceComponent implements OnInit {
   ngOnInit() {
     this.user$ = this.authService.user$;
     this.user$.subscribe(x => {
-      if(x) {
+      if (x) {
         this.uid = x.uid;
-      }  
+      }
     });
-    this.numberRandom = Math.floor(Math.random()*9000000 + 100) + 1000000;
-  }  
+    this.numberRandom = Math.floor(Math.random() * 9000000 + 100) + 1000000;
+  }
 
   cancel(): void {
     this.dialogRef.close();
   }
 
   add(experience, valid) {
-    if(valid) {
-      this.serviceExperience.addMore('cv' ,this.uid,'experience',`experience${this.numberRandom}`,experience); 
-      this.serviceExperience.addMore('cvShare' ,this.data.uidNameEx,'2',`experience${this.numberRandom}`,experience); 
+    if (valid) {
+      this.serviceExperience.addMore('cv' , this.uid, 'experience', `experience${this.numberRandom}`, experience);
+      this.serviceExperience.addMore('cvShare' , this.data.uidNameEx, '2', `experience${this.numberRandom}`, experience);
       this.dialogRef.close();
-    } 
+    }
   }
 
 }
